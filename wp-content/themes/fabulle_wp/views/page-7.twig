@@ -1,0 +1,253 @@
+{% extends 'base.twig' %}
+
+{% block tmp_slide %}
+
+<!-- SLIDER -->
+
+    {# Si Slider existe#}
+    {% if post.get_field('field_5cb8ecc79f5cc') == true %}
+        <!-- IMAGES 1265 X 550 -->
+        <div id="carouselExampleIndicators" class="carousel slide d-none d-sm-block" data-ride="carousel">
+            <div class="carousel-caption d-none d-md-block caption caption2">
+                {{ post.get_field('field_5cb8c1272895d') }}
+                <!-- BOUTONS SCROLL-->
+                <a href="#article-anch" class="anch">
+                    <div class="button button-h">
+                        <p>
+                            <i class="fas fa-chevron-down"></i>
+                        </p>
+                    </div>
+                </a>
+            </div>
+
+            <div class="carousel-inner">
+                {# img 1#}
+                <div class="carousel-item active">
+                    <img class="d-block w-100" src="{{ post.get_field('field_5cb8bfb17ce20') }}" alt="First slide">
+                </div>
+                {# img 2#}
+                <div class="carousel-item">
+                    <img class="d-block w-100" src="{{ post.get_field('field_5cb8c028c1240') }}" alt="Second slide">
+                </div>
+                {# img 3#}
+                <div class="carousel-item">
+                    <img class="d-block w-100" src="{{ post.get_field('field_5cb8c0507b0c6') }}" alt="Third slide">
+                </div>
+                {# img 1#}
+                <div class="carousel-item">
+                    <img class="d-block w-100" src="{{ post.get_field('field_5cb8c0607b0c7') }}" alt="Fourth slide">
+                </div>
+                {# Si img4 existe #}
+                {% if post.get_field('field_5cb8c0607b0c7') %}
+                    {# img 5#}
+                    <div class="carousel-item">
+                        <img class="d-block w-100" src="{{ post.get_field('field_5cb8c0867b0c8') }}" alt="Fifth slide">
+                    </div>
+                {% endif %}
+                {# Si img5 existe #}
+                {% if post.get_field('field_5cb8c0867b0c8') %}
+                    {# img 6#}
+                    <div class="carousel-item">
+                        <img class="d-block w-100" src="{{ post.get_field('field_5cb8c0ac7b0c9') }}" alt="sixth slide">
+                    </div>
+                {% endif %}
+                {# Si img6 existe #}
+                {% if post.get_field('field_5cb8c0ac7b0c9') %}
+                    {# img 7#}
+                    <div class="carousel-item">
+                        <img class="d-block w-100" src="{{ post.get_field('field_5cb8c0c47b0ca') }}" alt="seventh slide">
+                    </div>
+                {% endif %}
+                {# Si img7 existe #}
+                {% if post.get_field('field_5cb8c0c47b0ca') %}
+                    {# img 8#}
+                    <div class="carousel-item">
+                        <img class="d-block w-100" src="{{ post.get_field('field_5cb8c0e07b0cb') }}" alt="eighth slide">
+                    </div>
+                {% endif %}
+                {# Si img8 existe #}
+                {% if post.get_field('field_5cb8c0e07b0cb') %}
+                    {# img 9#}
+                    <div class="carousel-item">
+                        <img class="d-block w-100" src="{{ post.get_field('field_5cb8c0f47b0cc') }}" alt="ninth slide">
+                    </div>
+                {% endif %}
+                {# Si img9 existe #}
+                {% if post.get_field('field_5cb8c0f47b0cc') %}
+                    {# img 10#}
+                    <div class="carousel-item">
+                        <img class="d-block w-100" src="{{ post.get_field('field_5cb8c10a7b0cd') }}" alt="tenth slide">
+                    </div>
+                {% endif %}
+
+            </div>
+
+            <!-- BOUTONS -->
+            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+
+        </div>
+        <div class="img-alt-home d-block d-md-none">
+            <img src="{{ post.thumbnail.src }}" alt=" " id="mati-bras" class="thumb-medal flex-thumb thumb-medal2">
+            <div class="d-block d-md-none caption caption2">
+                {{ post.get_field('field_5cb8c1272895d') }}
+                <!-- BOUTONS SCROLL-->
+                <a href="#article-anch" class="anch">
+                    <div class="button button-h">
+                        <p>
+                            <i class="fas fa-chevron-down"></i>
+                        </p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+<!-- CORPS DE LA PAGE -->
+    <a id="article-anch" class="anch d-none d-md-block"></a>
+<div class="article-loop article-loop2" id="article-loop">
+
+    <article class="post-type-{{post.post_type}} row" id="post-{{post.ID}}">
+
+        <section class="article-content home row">
+
+            <div class="col-md-7 col-12" id="home-img">
+                <h2 class="article-h1 flex-h1 h1-event-list" >
+                    <i class="fal fa-home-lg"> </i> {{post.get_field('field_5cb8c3fb40b3a')}}
+                </h2>
+                <div class="img-alt-home d-md-block d-none">
+
+                    <div class="d-block d-md-none caption caption2">
+                        {{ post.get_field('field_5cb8c1272895d') }}
+                    </div>
+                </div>
+
+                {#<img src="{{ theme.link }}/assets/img/mati-bras.jpg" alt="mati-bras" id="mati-bras" class="d-none thumb-medal flex-thumb thumb-medal2">#}
+                <p class="text-content">
+                    <img src="{{ theme.link }}/assets/img/mati-bras.jpg" alt="mati-bras" id="mati-bras" class="thumb-medal float-thumb flex-thumb thumb-medal2">
+                    {{post.content}}
+                </p>
+                <a href="#article-anch2" class="flex-btn">
+                    <div class="button button2 button3">
+                        <p><i class="fas fa-chevron-down"></i></p>
+                    </div>
+                </a>
+            </div>
+            <div class="offset-md-1 d-none d-md-block"></div>
+            {% for oneevent in oneevents %}
+                <div id="title-bloc" class="title-bloc flex-title-bloc col-12 col-md-4">
+
+                    {% if oneevent.get_field('field_5d51a189a0424') == true %}
+                        <h2 class="article-h4 h1-event-list  col-12">
+                            <i class="fal fa-calendar"></i>
+                            prochaine représentation
+                        </h2>
+                        <div class="article-loop row container-fluid event-list">
+                            <section class="event2 container-fluid">
+                                {% for show in shows %}
+                                    {% if show.get_field('field_5cb43efb5b195') == true %}
+                                        {#{% if oneevent.first %}#}
+
+                                            {% if show.get_field('field_5cbc31c7f2c13') == oneevent.get_field('field_5cbc31c7f2c13') %}
+                                                {% if "now"|date < oneevent.get_field('field_5cb4d81344d45')  %}
+
+
+                                                    <a class="row event-home-bloc" href="{{ oneevent.link }}">
+                                                        <div class="offset-md-2 d-none d-md-block"></div>
+                                                        <div class="thumb3 col-12 col-md-8 d-none d-md-block">
+                                                            <img src="{{ show.thumbnail.src }}" alt="thumb">
+                                                        </div>
+                                                        <div class="offset-md-2 d-none d-md-block"></div>
+
+
+                                                        <p class="date-list col-12">{{ oneevent.get_field('field_5cb4d81344d45') }}</p>
+
+                                                        {#<p class="salle col-12">{{ oneevent.get_field('field_5cb4e5ba17780') }}</p>#}
+                                                        <p class="col-12">{{ oneevent.get_field('field_5cb4e62317783') }} {{ oneevent.get_field('field_5cb4e63d17784') }}</p>
+                                                    </a>
+
+                                                {% endif %}
+                                            {% endif %}
+                                        {#{% endif %}#}
+                                    {% endif %}
+                                {% endfor %}
+                            </section>
+                        </div>
+                    {% else %}
+                    {% endif %}
+                </div>
+           {% endfor %}
+
+
+        </section>
+    </article>
+</div>
+
+<a class="col-12 d-none d-md-block" id="article-anch2"></a>
+<div class="article-loop article-loop2 video-bloc container-fluid">
+    {% if post.get_field('field_5cb8c5272e364') %}
+        <section class="article-content row">
+            <div class="offset-md-1 d-none d-md-block"></div>
+            <div class="article-loop video-content col-6 col-md-5" id="video">
+                {{ post.get_field('field_5cb8c5092e363') }}
+            </div>
+            <div class="offset-md-1 d-none d-md-block"></div>
+            <div class="title-bloc video-title-bloc col-md-5">
+                <h2 class="article-h1 h1-event-list" id="video-title">
+                    <i class="fal fa-video"></i> Videos
+                </h2>
+                <a href="#article-anch3" class="col-md-12 d-none d-md-block">
+                    <div class="button button2 button3">
+                        <p><i class="fas fa-chevron-down"></i></p>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+    {% else %}
+
+    <div class="col-md-4">
+        {{ post.get_field('field_5cb8c6aff774f') }}
+    </div>
+    <div class="offset-md-2"></div>
+    <div class="col-md-4">
+        <img class="img" src="{{ post.get_field('field_5cb8f31ae5c37') }}" alt="alt_img">
+    </div>
+    <div class="offset-md-1"></div>
+    {% endif %}
+</div>
+<a class="col-md-12 d-lg-block d-none" id="article-anch3"></a>
+<div class="article-loop article-loop2">
+    <div class="title-bloc">
+        <h2 class="article-h1 h1-event-list a-l-affiche">
+            <i class="far fa-theater-masks"></i> A L'AFFICHE
+        </h2>
+        <a href="#article-anch4" class="d-none d-md-block">
+            <div class="button button2 button3">
+                <p><i class="fas fa-chevron-down"></i></p>
+            </div>
+        </a>
+    </div>
+    {% include '/views/partials/loops/show-loop.twig' %}
+
+
+</div>
+
+<a id="article-anch4" class="d-none d-md-block"></a>
+
+
+    {% include '/views/partials/loops/event-loop.twig' %}
+
+
+{% endblock %}
+
+
+

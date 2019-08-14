@@ -1,0 +1,152 @@
+{% extends 'base.twig' %}
+
+{% block content %}
+    <section class="content-wrapper article_content" xmlns="http://www.w3.org/1999/html">
+        <article class="post-type-{{post.post_type}}" id="post-{{post.ID}} container-fluid">
+
+            <div class="bloc-title row ">
+                <a id="article-anch" class="anch col-12"></a>
+
+                <div class="offset-md-1 d-none d-lg-block"></div>
+                <div class="thumb col-12 col-lg-4">
+                    <img src="{{ post.thumbnail.src }}" alt="img">
+                </div>
+                <div class="title-bloc col-12 col-lg-6">
+                    <h1 class="article-h1 loop-title loop-title2">{{ post.title }}</h1>
+                    <p>{{ post.content }}</p>
+                    <a href="#article-anch2" class="flex-btn">
+                        <div class="button button2 button3">
+                            <p><i class="fas fa-chevron-down"></i></p>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+            <a id="article-anch2" class="anch"></a>
+            <section class="history container-fluid">
+
+
+                <div class="article-loop cie-line row">
+
+                    <div class="offset-lg-1 d-none d-lg-block"></div>
+                    <div class="thumb col-12 col-lg-5">
+                        <img class="cie-thumb" src="{{ post.get_field('field_5cbf2cb8a2ed2') }}" alt="img">
+                        <a href="#article-anch3" class="flex-btn">
+                            <div class="button button2 button3">
+                                <p><i class="fas fa-chevron-down"></i></p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="offset-lg-1 d-none d-md-block"></div>
+                    <div class="text col-12 col-lg-5">
+                        <h2 class="article-h1">{{ post.get_field('field_5cbf21bbb5e9f') }}</h2>
+                        <p class="article-h1 loop-title loop-title2">{{ post.get_field('field_5cbf21d4b5ea0') }}</p>
+                    </div>
+                </div>
+                {# Mati #}
+                <a id="article-anch3" class="anch"></a>
+                <h1>Matilda</h1>
+                <div class="article-loop cie-line row">
+                    <div class="offset-md-1 d-none d-md-block"></div>
+                    <div class="text col-12 col-md-5">
+                        <h2 class="article-h1">{{ post.get_field('field_5cbf21eab5ea1') }}</h2>
+                        <p class="article-h1 loop-title loop-title2">{{ post.get_field('field_5cbf221eb5ea2') }}</p>
+                        <p class="article-h1 loop-title loop-title2">{{ post.get_field('field_5cbf227eb5ea4') }}</p>
+                    </div>
+                    <div class="offset-md-3 d-none d-md-block"></div>
+                    <div class="thumb col-12 col-md-3">
+                        <img src="{{ post.get_field('field_5cbf2cd2a2ed3') }}" alt="img">
+                        <a href="#article-anch4" class="flex-btn">
+                            <div class="button button2 button3">
+                                <p><i class="fas fa-chevron-down"></i></p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                {# Jérôme #}
+                <a id="article-anch4" class="anch"></a>
+                <h1>Jérôme</h1>
+                <div class="article-loop cie-line row">
+                    <div class="thumb col-12 col-md-3">
+                        <img src="{{ post.get_field('field_5cbf2cdea2ed4') }}" alt="img">
+                        <a href="#article-anch5" class="flex-btn">
+                            <div class="button button2 button3">
+                                <p><i class="fas fa-chevron-down"></i></p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="offset-md-3 d-none d-md-block"></div>
+                    <div class="text col-12 col-md-5">
+                        <h2 class="article-h1">{{ post.get_field('field_5cbf21eab5ea1') }}</h2>
+                        <p class="article-h1 loop-title loop-title2">{{ post.get_field('field_5cbf227eb5ea4') }}</p>
+                    </div>
+                </div>
+                {# Manue #}
+                <a id="article-anch5" class="anch"></a>
+                <h1>Manue</h1>
+                <div class="article-loop cie-line row">
+                    <div class="offset-md-1 d-none d-md-block"></div>
+                    <div class="text col-12 col-md-5">
+                        <h2 class="article-h1">{{ post.get_field('field_5cbf229db5ea5') }}</h2>
+                        <p class="article-h1 loop-title loop-title2">{{ post.get_field('field_5cbf22bab5ea6') }}</p>
+                    </div>
+                    <div class="offset-md-3 d-none d-md-block"></div>
+                    <div class="thumb col-12 col-md-3">
+                        <img src="{{ post.get_field('field_5cbf30580a090') }}" alt="img">
+                        <a href="#article-anch6" class="flex-btn">
+                            <div class="button button2 button3">
+                                <p><i class="fas fa-chevron-down"></i></p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                {# Olive #}
+                <a id="article-anch6" class="anch"></a>
+                <h1>Olive</h1>
+                <div class="article-loop cie-line row">
+                    <div class="thumb col-12 col-md-3">
+                        <img src="{{ post.get_field('field_5cbf49f10b26b') }}" alt="img">
+                        <a href="#article-anch7" class="flex-btn">
+                            <div class="button button2 button3">
+                                <p><i class="fas fa-chevron-down"></i></p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="offset-md-3 d-none d-md-block"></div>
+                    <div class="text col-12 col-md-5">
+                        <h2 class="article-h1">{{ post.get_field('field_5cbf467a1ef9b') }}</h2>
+                        <p class="article-h1 loop-title loop-title2">{{ post.get_field('field_5cbf46971ef9c') }}</p>
+                    </div>
+                </div>
+            </section>
+            {# Boucle spectacles#}
+            <a id="article-anch7"></a>
+            <a class="col-md-12 d-lg-block d-none" id="article-anch3"></a>
+            <div class="article-loop article-loop2">
+                <div class="title-bloc">
+                    <h2 class="article-h1 h1-event-list a-l-affiche">
+                        <i class="far fa-theater-masks"></i> A L'AFFICHE
+                    </h2>
+                    <a href="#article-anch4" class="d-none d-md-block">
+                        <div class="button button2 button3">
+                            <p><i class="fas fa-chevron-down"></i></p>
+                        </div>
+                    </a>
+                </div>
+                {% include '/views/partials/loops/show-loop.twig' %}
+
+
+            </div>
+
+            <a id="article-anch4" class="d-none d-md-block"></a>
+
+
+            {% include '/views/partials/loops/event-loop.twig' %}
+
+
+
+
+
+        </article>
+    </section>
+{% endblock %}

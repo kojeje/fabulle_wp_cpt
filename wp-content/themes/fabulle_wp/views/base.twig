@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="fr">
+<head>
+   {% include "head.twig" %}
+</head>
+<body>
+
+    {% block tmp_slide %}{% endblock %}
+    {% include "header.twig" %}
+    {% block content %}{% endblock %}
+    {% include "footer.twig" %}
+    {% include "script.twig" %}
+
+</body>
+
+</html>

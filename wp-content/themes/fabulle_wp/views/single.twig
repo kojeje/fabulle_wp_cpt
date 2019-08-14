@@ -1,0 +1,34 @@
+{% extends "base.twig" %}
+
+{% block content %}
+    <div class="content-wrapper">
+        <article class="row post-type-{{post.post_type}} show_teaser" id="post-{{post.ID}}">
+
+            <div class="col-6 col-md-3 article-content">
+                <div class="affiche">
+                    <img src="{{post.thumbnail.src}}" alt="affiche" class="affiche">
+                </div>
+            </div>
+            <div class="offset-md-1"></div>
+            <div class="col-md-8 article-content">
+                <h1 class="article-h1 show-h1">{{ post.title }}</h1>
+                <h2 class="article-text article-sub-h2">
+                    {{ post.get_field('field_5cb19302c9a7d') }}
+                </h2>
+                <p class="article-text create_date">
+                    création: {{ post.get_field('field_5cb497265c4df') }}
+                </p>
+                <p class="article-text article-sub-h2">
+                    {{ post.content }}
+                </p>
+                <a href="#article-anch2">
+                    <div class="button button2">
+                        <p>
+                            <i class="fas fa-chevron-down"></i>
+                        </p>
+                    </div>
+                </a>
+            </div>
+        </article>
+    </div><!-- /content-wrapper -->
+{% endblock %}

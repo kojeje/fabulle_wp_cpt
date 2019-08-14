@@ -1,0 +1,64 @@
+a:hover
+{
+  color: $link !important;
+  text-decoration: none;
+}
+
+.button:hover,
+.totop:hover,
+.carousel-control-prev-icon:hover,
+.carousel-control-next-icon:hover
+{
+  opacity: 1;
+  color: $aqua !important;
+}
+.totop:hover
+{
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid $white;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  border-radius: 20px;
+  opacity:1;
+ }
+.totop i:hover
+{
+  color: $link;
+}
+.old-show:hover
+{
+  opacity:1;
+}
+.event-home-bloc:hover
+{
+  background: $aqua;
+  color: #000000 !important;
+  font-size: 16px;
+  font-weight: 900;
+  border: 3px solid $white;
+}
+.event-home-bloc:hover .salle
+{
+  color: #000000 !important;
+}
+.event-home-bloc-medal:hover
+{
+  font-size: 12px;
+  font-weight: 900;
+}
+.url:hover a
+{
+  color: $black !important;
+}
+.dropdown-item:hover
+{
+  border-bottom: 15px solid $white;
+  color: $white !important;
+  background: transparent !important;
+
+}
+.carousel-control-prev:hover,
+.carousel-control-next:hover{
+  color: $aqua !important;
+}
+

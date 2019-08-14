@@ -1,0 +1,35 @@
+<div class="article-loop row container-fluid event-list">
+    <h2 class="article-h1 h1-event-list col-md-5 col-12"><i class="fal fa-calendar"></i> Nous voir</h2>
+    <div class="offset-md-7"></div>
+    <section class="event container-fluid">
+        {% for event in events %}
+
+            {% for show in shows %}
+                {% if show.get_field('dispo') %}
+
+
+                    {% if show.get_field('field_5cbc31c7f2c13') == event.get_field('field_5cbc31c7f2c13') %}
+                        {% if "now"|date < event.get_field('field_5cb4d81344d45')  %}
+
+
+                                <a class="row event-home-bloc" href="{{ event.link }}">
+                                    <div class="thumb thumb2 col-md-1 d-none d-md-block">
+                                        <img src="{{ show.thumbnail.src }}" alt="thumb">
+                                    </div>
+                                    <h2 class="article-h4 col-12 col-md-4">{{ show.title }}</h2>
+
+                                    <p class="date-list col-md-2 col-8">{{ event.get_field('field_5cb4d81344d45') }}</p>
+
+                                    <p class="salle col-md-2 col-12">{{ event.get_field('field_5cb4e5ba17780') }}</p>
+                                    <p class="col-md-3 col-12">{{ event.get_field('field_5cb4e62317783') }} {{ event.get_field('field_5cb4e63d17784') }}</p>
+                                </a>
+
+                        {% endif %}
+                    {% endif %}
+
+                {% endif %}
+            {% endfor %}
+        {% endfor %}
+    </section>
+
+</div>
