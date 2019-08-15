@@ -40,6 +40,6 @@
   
 
 
-// appelle la vue twig "template-event.twig" située dans le dossier views
+// appelle la vue twig "template-dates.twig" située dans le dossier views
 // en lui passant la variable $context qui contient notamment ici les articles
   Timber::render('page-39.twig', $context);

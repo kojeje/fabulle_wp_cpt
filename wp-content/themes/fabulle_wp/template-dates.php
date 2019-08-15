@@ -19,7 +19,7 @@
 // tableau d'arguments pour modifier la requête en base
 // de données, et venir récupérer uniquement les trois
 // derniers articles
-  $args_event =[
+  $args_events =[
     'post_type' => 'dates',
   ];
   $args_articles = [
@@ -30,9 +30,9 @@
 // en utilisant la méthode de Timber get_posts
 // puis on les enregistre dans l'array $context sous la clé "posts"
   $context['shows'] = Timber::get_posts($args_articles);
-  $context['events'] = Timber::get_posts($args_event);
+  $context['events'] = Timber::get_posts($args_events);
 
 
-// appelle la vue twig "template-event.twig" située dans le dossier views
+// appelle la vue twig "template-dates.twig" située dans le dossier views
 // en lui passant la variable $context qui contient notamment ici les articles
-  Timber::render('template-event.twig', $context);
+  Timber::render('template-dates.twig', $context);

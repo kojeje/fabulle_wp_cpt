@@ -15,15 +15,16 @@
 // de données, et venir récupérer uniquement les trois
 // derniers articles
   $args_articles = [
-    'post_type' => 'post',
+    'post_type' => 'show',
 
   ];
+
 
 // récupère les articles en fonction du tableau d'argument $args_posts
 // en utilisant la méthode de Timber get_posts
 // puis on les enregistre dans l'array $context sous la clé "posts"
-  $context['articles'] = Timber::get_posts($args_articles);
+  $context['shows'] = Timber::get_posts($args_articles);
 
 // appelle la vue twig "index.twig" située dans le dossier views
 // en lui passant la variable $context qui contient notamment ici les articles
-  Timber::render('page.twig', $context);
+  Timber::render('template-dates.twig', $context);

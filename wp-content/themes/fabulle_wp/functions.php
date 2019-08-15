@@ -112,5 +112,4 @@ add_theme_support( 'post-thumbnails' );
     register_post_type( 'projets', $args );
 
   }
-  add_action( 'init', 'fabulle_register_post_types', 'js_adding_styles' ); // Le hook init lance la fonction
-
+  add_action( 'init', 'fabulle_register_post_types'); // Le hook init lance la fonction
