@@ -5,7 +5,7 @@
         {% for event in events %}
 
             {% for show in shows %}
-                {% if show.get_field('dispo') %}
+                {% if show.get_field('dispo') == 'Spectacle disponible' %}
 
 
                     {% if show.get_field('field_5cbc31c7f2c13') == event.get_field('field_5cbc31c7f2c13') %}

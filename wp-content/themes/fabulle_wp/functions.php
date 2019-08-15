@@ -89,7 +89,27 @@ add_theme_support( 'post-thumbnails' );
       'menu-icon' => 'dashicons-admin-post'
     );
     register_post_type( 'dates', $args );
-
+// CPT actu
+    $labels = array(
+      'name' => 'Spectacles',
+      'all_items' => 'Tous les spectacles',  // affiché dans le sous menu
+      'singular_name' => 'Spectacles',
+      'add_new_item' => 'Nouveau',
+      'edit_item' => 'Modifier le projet',
+      'menu_name' => 'Spectacles'
+    );
+    $args = array(
+      'labels' => $labels,
+      'public' => true,
+      'show_in_rest' => true,
+      'has_archive' => true,
+      'rewrite'	 => array( 'slug' => 'spectacles'),
+      'supports' => array( 'title', 'editor','excerpt','author', 'thumbnail'),
+      'taxonomies' => array('category'),
+      'menu_position' => 2,
+      'menu_icon' => 'dashicons-edit',
+    );
+    register_post_type( 'spectacles', $args );
     // CPT Projets
     $labels = array(
       'name' => 'Projet',
@@ -113,3 +133,4 @@ add_theme_support( 'post-thumbnails' );
 
   }
   add_action( 'init', 'fabulle_register_post_types'); // Le hook init lance la fonction
+

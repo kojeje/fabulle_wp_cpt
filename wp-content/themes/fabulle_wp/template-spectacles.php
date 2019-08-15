@@ -25,8 +25,11 @@
     'post_type' => 'spectacles',
   ];
   $args_articles2 = [
-    'post_type' => 'post',
-    'cat' => 'event'
+    'post_type' => 'dates',
+    'order'=>'DESC',
+    'meta_key' => 'date_show',
+    'order_by' => 'date_show',
+
   ];
 
 // récupère les articles en fonction du tableau d'argument $args_posts

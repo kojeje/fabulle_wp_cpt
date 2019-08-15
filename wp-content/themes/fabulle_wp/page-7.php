@@ -16,24 +16,23 @@
 //// derniers articles
 //
   $args_articles2 =[
-    'post_type' => 'post',
-    'category_name' => 'show',
+    'post_type' => 'spectacles',
+
 
 
   ];
 
   $args_articles3 = [
-    'post_type' => 'post',
-    'category_name' => 'event',
+    'post_type' => 'dates',
     'order'=>'DESC',
+    'meta_key' => 'date_show',
     'order_by' => 'date_show',
 
 
   ];
   $args_articles4 = [
-    'post_type' => 'post',
+    'post_type' => 'dates',
     'posts_per_page' => 1,
-    'category_name' => 'event',
     'order'=>'ASC',
     'meta_key' => 'date_show',
     'orderby' => 'date_show',
@@ -51,7 +50,7 @@
   $context['shows'] = Timber::get_posts($args_articles2);
   $context['events'] = Timber::get_posts($args_articles3);
   $context['oneevents'] = Timber::get_posts($args_articles4);
-//  var_dump($context['oneevents']);die;
+//  var_dump($context['shows']);die;
 
 
 
