@@ -1,7 +1,7 @@
 <?php
   /**
-   * template name: projet
-   * Template Post Type: projets
+   * template name: place
+   * Template Post Type:  places
    */
 
 
@@ -31,11 +31,11 @@
     'order_by' => 'date_show',
 
   ];
+  $args_projets = [
+    'post_type' => 'projets',
+  ];
   $args_actus = [
     'post_type' => 'actus',
-  ];
-  $args_places = [
-    'post_type' => 'places',
     'order' => 'DESC',
     'meta_key' => 'cp',
     'order_by' => 'cp',
@@ -47,9 +47,9 @@
 //  $context['articles'] = Timber::get_posts($args_articles);
   $context['shows'] = Timber::get_posts($args_shows);
   $context['events'] = Timber::get_posts($args_events);
-  $context['actus'] = Timber::get_posts($args_actus);
-  $context['places'] = Timber::get_posts($args_places);
+  $context['projets'] = Timber::get_posts($args_projets);
+  $context['places'] = Timber::get_posts($args_actus);
 
 // appelle la vue twig "template-spectacles.twig" située dans le dossier views
 // en lui passant la variable $context qui contient notamment ici les articles
-  Timber::render('template-projet.twig', $context);
+  Timber::render('template-places.twig', $context);

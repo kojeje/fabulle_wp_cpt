@@ -91,25 +91,25 @@ add_theme_support( 'post-thumbnails' );
     register_post_type( 'dates', $args );
 // CPT actu
     $labels = array(
-      'name' => 'Spectacles',
-      'all_items' => 'Tous les spectacles',  // affiché dans le sous menu
-      'singular_name' => 'Spectacles',
+      'name' => 'Actus',
+      'all_items' => 'Toutes les actus',  // affiché dans le sous menu
+      'singular_name' => 'Actus',
       'add_new_item' => 'Nouveau',
-      'edit_item' => 'Modifier le projet',
-      'menu_name' => 'Spectacles'
+      'edit_item' => 'Modifier l\'actu',
+      'menu_name' => 'Actus'
     );
     $args = array(
       'labels' => $labels,
       'public' => true,
       'show_in_rest' => true,
       'has_archive' => true,
-      'rewrite'	 => array( 'slug' => 'spectacles'),
+      'rewrite'	 => array( 'slug' => 'actus'),
       'supports' => array( 'title', 'editor','excerpt','author', 'thumbnail'),
       'taxonomies' => array('category'),
-      'menu_position' => 2,
-      'menu_icon' => 'dashicons-edit',
+      'menu_position' => 4,
+      'menu_icon' => 'dashicons-code-standards',
     );
-    register_post_type( 'spectacles', $args );
+    register_post_type( 'actus', $args );
     // CPT Projets
     $labels = array(
       'name' => 'Projet',

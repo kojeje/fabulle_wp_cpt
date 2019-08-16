@@ -58,16 +58,18 @@
     <div class="container-fluid content-wrapper article_content show-content">
 
         <article class="row post-type-{{post.post_type}} show_teaser" id="post-{{post.ID}}">
-
+            <h1 class="article-h1 show-h1">{{ post.title }}</h1>
+            <div class="offset-md-2"></div>
             <div class="col-6 col-md-3 article-content">
                 <div class="affiche">
                     <img src="{{post.thumbnail.src}}" alt="affiche" class="affiche">
                 </div>
             </div>
             <div class="offset-md-1"></div>
-            <div class="col-md-8 article-content">
-                <h1 class="article-h1 show-h1">{{ post.title }}</h1>
-                <h2 class="article-text article-sub-h2">
+
+            <div class="col-md-4 article-content">
+
+                <h2 class="article-text ">
                     {{ post.get_field('field_5cb19302c9a7d') }}
                 </h2>
                     <p class="article-text create_date">
@@ -112,8 +114,8 @@
             {% else %}
 
                 <div class="row article-content">
-
-                    <div class="col-md-6 ">
+                    <div class="offset-md-1"></div>
+                    <div class="col-md-5 ">
                         <h2 class="article-h1" id="imagine">
                             {{ post.get_field('field_5cb1941775e1b') }}
                         </h2>
@@ -127,9 +129,10 @@
                                 </div>
                             </a>
                     </div>
-                    <div class="col-md-6 img_alt">
+                    <div class="col-md-5 img_alt">
                         <img src="{{ post.get_field('field_5cb488e6b0a43') }}" alt="img">
                     </div>
+                    <div class="offset-md-1"></div>
                 </div>
 
             {% endif %}

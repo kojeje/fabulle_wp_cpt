@@ -1,0 +1,88 @@
+{% extends "base.twig" %}
+
+{% block content %}
+
+    <a id="article-anch" class="anch"></a>
+    <div class="content-wrapper">
+        <article class="post-type-{{post.post_type}}" id="post-{{post.ID}}">
+            <section class="article-content row">
+                {% for show in shows %}
+                    {% if show.get_field('field_5cbc31c7f2c13') == post.get_field('field_5cbc31c7f2c13') %}
+
+                        <div class="show3 show2 article-loop show">
+                            <a class="row" href="{{ show.link }}">
+
+                                <h1 class="article-h1 col-12">
+                                    {{ show.title }}
+                                </h1>
+                                <div class="offset-md-4"></div>
+                                <div class="offset-3 d-block d-md-none"></div>
+                                <div class="thumb-medal col-6 col-md-4">
+                                    <img src="{{show.thumbnail.src}}" alt="affiche" class="affiche">
+                                </div>
+                                <div class="offset-3 d-block d-md-none"></div>
+                                <div class="offset-md-4"></div>
+
+                                <div class="offset-6 "></div>
+                                <p class="col-6 col-md-4">
+
+                                </p>
+                                <p class="col-6 col-md-4">
+                                    {{ show.get_field('field_5cb19e8a1f92d') }}
+                                </p>
+
+                                <p class="col-6 col-md-4">
+                                    A partir de: {{ show.get_field('field_5cb19f4acd2c1') }} ans
+                                </p>
+                                <p class="col-6 col-md-4">
+                                    durée: {{ show.get_field('field_5cb19fe0cd2c3') }} mn environ.
+                                </p>
+                                <div class="offset-md-3"></div>
+                            </a>
+                        </div>
+                        <div class="event">
+                            <h1 class="date">Le {{ post.get_field('field_5cb4d81344d45') }}</h1>
+                            <div class="place container">
+
+                                <div class="endroit row">
+
+                                    <div class="adress col-md-5">
+                                        <h1 class="h1-medal hall">
+                                            {{ post.get_field('field_5cb4e5ba17780') }}
+                                        </h1>
+                                        <p class="ad">
+                                            {{ post.get_field('field_5cb4e5e417781') }}
+                                        </p>
+
+                                        <p class="ad">
+                                            {{ post.get_field('field_5cb4e62317783') }}
+                                            <strong>
+                                                {{ post.get_field('field_5cb4e63d17784') }}
+                                            </strong>
+                                        </p>
+                                        <p class="ad tel">
+                                            {{ post.get_field('field_5cb72154c6b26') }}
+                                        </p>
+                                        <p class="ad url">
+                                            <a href="{{ post.get_field('field_5cb7241778245') }}" target="_blank">site web</a>
+                                        </p>
+                                    </div>
+                                    <div class="offset-md-1"></div>
+                                    <div class="map col-md-6">
+                                        {{ post.get_field('field_5cb4e67517785') }}
+                                    </div>
+                                </div>
+                                <a href="{{ site.url }}/lactu/#article-anch">
+                                    <p class="back-link nest-date next-date-3">
+                                        <i class="fal fa-arrow-circle-left"></i> retour dates
+                                    </p>
+                                </a>
+                            </div>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </section>
+        </article>
+    </div>
+{% endblock %}
+

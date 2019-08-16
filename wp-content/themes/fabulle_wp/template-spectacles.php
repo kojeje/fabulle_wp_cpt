@@ -1,7 +1,7 @@
 <?php
   /**
    * template name: show
-   * Template Post Type:  spectacles
+   * Template Post Type:  spectacles, post
    */
 
 
