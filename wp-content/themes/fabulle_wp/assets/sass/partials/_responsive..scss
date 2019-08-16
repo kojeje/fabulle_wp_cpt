@@ -17,7 +17,6 @@
 
   .article-h3{
     padding-top: 30px;
-    font-size: 165%;
   }
   .mailpoet_paragraph{
     font-size: 16px;
@@ -33,11 +32,46 @@
     font-size: 12px !important;
     text-align: left !important;
   }
-  .article-h4{
-    font-size: 20px;
+  .red-title{
+    color: white;
+    width: 50%;
+    margin: auto;
+    background: red !important;
+    border: 3px solid white;
+    -webkit-border-radius: 50px;
+    -moz-border-radius: 50px;
+    border-radius: 50px;
+    padding: 10px;
+    font-size: 16px;
+    text-align: center;
+
+  }
+  .ad-private{
+    width: 50%;
+    margin: auto;
+    padding: 10px;
     text-align: center;
   }
+  .back-link{
+    width: 30%;
+    margin-left: 50%;
+  }
+  .hall{
+    margin-top: 0;
+  }
+  .table{
+    margin: auto;
+    margin-top: 50px;
+    font-size: 14px;
+    max-width: 50%!important;
 
+
+  }
+  .th{
+    color: $link;
+    font-weight: bold;
+    max-width: 30%;
+  }
 }
 
 @media screen and (min-width:992px)
@@ -80,8 +114,8 @@
     margin: auto;
   }
   .link:hover{
-    border-top: 4px solid $aqua;
-    color: $aqua;
+    border-top: 4px solid $link;
+    color: $link;
   }
 
 
@@ -134,13 +168,11 @@
     margin: auto;
 
   }
-
   .link
   {
    text-decoration: none;
    color: $white;
    padding: 10px;
-   transition: 0.3s;
   }
   .boucle
   {
@@ -253,11 +285,6 @@
     width: 70% !important;
     margin: auto;
   }
-  .thumb3 img{
-    width: 70% !important;
-    height: auto !important;
-    padding: 10px;
-  }
   .bloc-title
   {
     margin-top: 30vh;
@@ -300,10 +327,10 @@
   {
     font-size: 6em;
   }
-  //.flex-title-bloc
-  //{
-  //  margin-top: 15vh;
-  //}
+  .flex-title-bloc
+  {
+    margin-top: 15vh;
+  }
 
   .carousel-control-prev-icon,
   .carousel-control-next-icon
@@ -317,13 +344,12 @@
   }
   .article-h1
   {
-    //margin: auto;
+    margin: auto;
     font-size: 40px;
     color: $link;
     background: none;
     display: block;
     padding: 30px;
-    padding-top: 0;
     text-align: center;
 
 
@@ -629,12 +655,11 @@
   .event
   {
 
-    padding-top: 10vh;
+    padding-top: 3vh;
     padding-left: 20px;
+    min-width: 50%;
   }
-  .event2{
-    padding-top: 2vh;
-  }
+
   .ad
   {
     font-size: 12px;
@@ -646,7 +671,7 @@
   }
   .adress
   {
-    padding-top: 30px;
+
     padding-left: 30px;
   }
   .map{
@@ -710,9 +735,11 @@
     color: $link;
     width: 90%;
     margin: auto;
-    margin-bottom: 70px;
     text-align: center;
-
+  }
+  .date,
+  .hour{
+    margin-bottom: 30px;
   }
 
   .slide,
@@ -793,7 +820,11 @@
     text-align: left;
     color: $link;
   }
-  
+  .strong{
+    font-size: 20px;
+    padding: 30px;
+    padding: 30px;
+  }
 }
 @media screen and (min-width:1500px)
 {

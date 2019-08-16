@@ -28,9 +28,7 @@
   ];
   $args_places = [
     'post_type' => 'places',
-    'order' => 'DESC',
-    'meta_key' => 'cp',
-    'order_by' => 'cp',
+
   ];
 
 // récupère les articles en fonction du tableau d'argument $args_posts

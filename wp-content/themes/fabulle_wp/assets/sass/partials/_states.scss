@@ -48,7 +48,7 @@ a:hover
 }
 .url:hover a
 {
-  color: $black !important;
+  color: $aqua !important;
 }
 .dropdown-item:hover
 {
@@ -60,5 +60,12 @@ a:hover
 .carousel-control-prev:hover,
 .carousel-control-next:hover{
   color: $aqua !important;
+}
+.bk-black:hover{
+  opacity: 1;
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius:50px;
+  padding: 20px;
+  font-size: 12px;
 }
 

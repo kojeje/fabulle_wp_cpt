@@ -112,7 +112,7 @@ add_theme_support( 'post-thumbnails' );
     register_post_type( 'actus', $args );
     // CPT Projets
     $labels = array(
-      'name' => 'Projet',
+      'name' => 'Projets',
       'all_items' => 'Tous les projets',  // affiché dans le sous menu
       'singular_name' => 'Projet',
       'add_new_item' => 'Nouveau',
@@ -130,6 +130,27 @@ add_theme_support( 'post-thumbnails' );
       'menu_icon' => 'dashicons-hammer',
     );
     register_post_type( 'projets', $args );
+
+    // CPT Places
+    $labels = array(
+      'name' => 'Places',
+      'all_items' => 'Tous les lieux',  // affiché dans le sous menu
+      'singular_name' => 'Lieu',
+      'add_new_item' => 'Nouveau',
+      'edit_item' => 'Modifier le lieu',
+      'menu_name' => 'Lieux'
+    );
+    $args = array(
+      'labels' => $labels,
+      'public' => true,
+      'show_in_rest' => true,
+      'has_archive' => true,
+      'supports' => array( 'title', 'author'),
+      'taxonomies' => array('category'),
+      'menu_position' => 5,
+      'menu_icon' => 'dashicons-hammer',
+    );
+    register_post_type( 'places', $args );
 
   }
   add_action( 'init', 'fabulle_register_post_types'); // Le hook init lance la fonction

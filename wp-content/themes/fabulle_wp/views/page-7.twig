@@ -154,8 +154,6 @@
                             <section class="event2 container-fluid">
                                 {% for show in shows %}
                                     {% if show.get_field('field_5cb43efb5b195') == 'Spectacle disponible' %}
-                                        {#{% if oneevent.first %}#}
-
                                             {% if show.get_field('field_5cbc31c7f2c13') == oneevent.get_field('field_5cbc31c7f2c13') %}
                                                 {% if "now"|date < oneevent.get_field('field_5cb4d81344d45')  %}
 

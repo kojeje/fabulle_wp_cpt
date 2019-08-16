@@ -116,7 +116,7 @@ a
 }
 .url a
 {
-  color:aquamarine !important;
+  color: $link !important;
 }
 .btn
 {
@@ -235,6 +235,7 @@ iframe
 .back-link
 {
   color: $link;
+
 }
 .show-medal
 {
@@ -278,8 +279,14 @@ iframe
 
 }
 .date
+ {
+   font-size: 24px;
+ }
+.hour
 {
-    font-size: 24px;
+  font-size: 18px;
+  text-align: center !important;
+  
 }
 .hall
 {
@@ -367,5 +374,30 @@ iframe
 }
 .ref-h3{
   font-size: 12px;
+}
+.country{
+  color: red;
+  font-size: 16px;
+  padding: 10px;
+}
+.bk-black{
+  opacity: 0.3;
+  margin: auto;
+  margin-top: 40px !important;
+  margin-bottom: 40px !important;
+  transition: 0.5s;
+  cursor: zoom-in;
+}
+.t-a-center{
+  text-align: center;
+}
+.table{
+  margin: auto;
+  margin-top: 20px;
+  font-size: 12px;
+  border: none;
+  color: white;
+  text-align: center;
+
 }
 @import "partials/responsive.";
