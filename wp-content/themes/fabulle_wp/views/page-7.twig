@@ -124,7 +124,7 @@
             <div class="offset-md-6"></div>
            {% for actu in actus %}
 
-                {% if actu and now|date('m') != actu.date|date('m') %}
+                {% if actu and now|date('m') == actu.date|date('m') %}
 
                     <div class="offset-md-1 d-none d-md-block"></div>
                     <div class="col-12 col-md-5 flex-title-bloc">
@@ -189,10 +189,7 @@
                                         <div class="offset-md-2 d-none d-md-block"></div>
                                         <p class="date-list col-12">{{ oneevent.get_field('date_show') }}</p>
                                         {% for place in places if place.get_field('salle') == oneevent.get_field('salle')%}
-
                                                 <p class="col-12">{{ place.get_field('cp') }} {{ place.get_field('commune') }}</p>
-
-
                                         {% endfor %}
                                     </a>
                                 </section>

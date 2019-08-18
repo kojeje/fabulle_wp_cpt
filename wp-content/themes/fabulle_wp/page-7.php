@@ -46,9 +46,7 @@
 ];
   $args_articles6 = [
     'post_type' => 'places',
-    'order'=>'ASC',
-    'orderby' => 'date',
-    'posts_per_page' => 1,
+
   ];
 
 
