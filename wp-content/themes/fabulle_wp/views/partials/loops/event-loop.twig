@@ -3,32 +3,27 @@
     <div class="offset-md-7"></div>
     <section class="event container-fluid">
         {% for event in events %}
-
-            {% for show in shows %}
-                {% if show.get_field('dispo') == 'Spectacle disponible' %}
-
-
-                    {% if show.get_field('field_5cbc31c7f2c13') == event.get_field('field_5cbc31c7f2c13') %}
-                        {% if "now"|date < event.get_field('field_5cb4d81344d45')  %}
-
-
-                                <a class="row event-home-bloc" href="{{ event.link }}">
-                                    <div class="thumb thumb2 col-md-1 d-none d-md-block">
-                                        <img src="{{ show.thumbnail.src }}" alt="thumb">
-                                    </div>
-                                    <h2 class="article-h4 col-12 col-md-4">{{ show.title }}</h2>
-
-                                    <p class="date-list col-md-2 col-8">{{ event.get_field('field_5cb4d81344d45') }}</p>
-
-                                    <p class="salle col-md-2 col-12">{{ event.get_field('field_5cb4e5ba17780') }}</p>
-                                    <p class="col-md-3 col-12">{{ event.get_field('field_5cb4e62317783') }} {{ event.get_field('field_5cb4e63d17784') }}</p>
-                                </a>
-
-                        {% endif %}
+            <div id="title-bloc" class="title-bloc2 col-12 ">
+                {% for show in shows
+                    if show.get_field('id_show') == event.get_field('id_show')%}
+                    {% if event.get_field('public') == true
+                        and show.get_field('dispo') == 1
+                        and "now"|date < event.get_field('date_show')
+                    %}
+                        <a class="row event-home-bloc" href="{{ event.link }}">
+                            <div class="thumb thumb2 col-md-1 d-none d-md-block">
+                                <img src="{{ show.thumbnail.src }}" alt="thumb">
+                            </div>
+                            <h2 class="article-h4 col-12 col-md-4">{{ show.title }}</h2>
+                            <p class="date-list col-md-2 col-8">{{ event.get_field('field_5cb4d81344d45') }}</p>
+                            <p class="salle col-md-2 col-12">{{ event.get_field('field_5cb4e5ba17780') }}</p>
+                            {% for place in places if place.get_field('salle') == event.get_field('salle')%}
+                                <p class="col-md-3 col-12">{{ place.get_field('cp') }} {{ place.get_field('commune') }}</p>
+                            {% endfor %}
+                        </a>
                     {% endif %}
-
-                {% endif %}
-            {% endfor %}
+                {% endfor %}
+            </div>
         {% endfor %}
     </section>
 

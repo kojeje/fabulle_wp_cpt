@@ -17,7 +17,7 @@
 //
   $args_articles =[
     'post_type' => 'spectacles',
-//    'posts_per_page' => 1,
+
 
   ];
   $args_articles2 =[
@@ -25,9 +25,8 @@
   ];
   $args_articles3 = [
     'post_type' => 'dates',
-    'order'=>'DESC',
-    'meta_key' => 'public',
-    'meta_value' => 'true',
+    'order'=>'ASC',
+    'meta_key' => 'date_show',
     'order_by' => 'date_show',
   ];
   $args_articles4 = [

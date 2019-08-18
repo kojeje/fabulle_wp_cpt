@@ -1,0 +1,44 @@
+{% for actu in actus %}
+
+    {% if actu and now|date('m') == actu.date|date('m') %}
+
+        <div class="offset-md-1 d-none d-md-block"></div>
+        <div class="col-12 col-md-5 flex-title-bloc">
+            <a href="{{ actu.link }}">
+                <h2 class=" article-h4 flex-h1 h1-event-list">
+                    le petit mot ... <span class="word-date">{{ actu.date|date('F Y') }}</span>
+                </h2>
+
+                <div class="word-content">
+                    <img src="{{ actu.thumbnail.src }}" class="affiche oneevent-img"  alt="affiche2">
+                    {{ actu.content|truncate(160) }}
+                </div>
+            </a>
+        </div>
+
+    {% else %}
+
+        <div class="offset-md-1 d-none d-md-block"></div>
+        <div class="col-12 col-md-5 flex-title-bloc">
+            <h2 class="article-h1 flex-h1 h1-event-list" >
+                <i class="fal fa-home-lg"> </i> {{post.get_field('field_5cb8c3fb40b3a')}}
+            </h2>
+            <div class="img-alt-home d-md-block d-none">
+
+                <div class="d-block d-md-none caption caption2">
+                    {{ post.get_field('field_5cb8c1272895d') }}
+                </div>
+            </div>
+
+            <p>
+                <img src="{{ theme.link }}/assets/img/mati-bras.jpg" alt="mati-bras" id="mati-bras" class="thumb-medal float-thumb flex-thumb thumb-medal2">
+                {{post.content}}
+            </p>
+            <a href="#article-anch2" class="flex-btn">
+                <div class="button button2 button3">
+                    <p><i class="fas fa-chevron-down"></i></p>
+                </div>
+            </a>
+        </div>
+    {% endif %}
+{% endfor %}

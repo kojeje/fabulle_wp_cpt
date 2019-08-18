@@ -1,37 +1,56 @@
-<div class="article-loop row container-fluid event-list">
-    <h2 class="article-h1 h1-event-list col-md-5 col-12"><i class="fal fa-calendar"></i> Nous voir</h2>
-    <div class="offset-md-7"></div>
-    <section class="event container-fluid">
-        {% for oneevent in oneevents %}
+<div class="offset-md-1 d-none d-md-block"></div>
+{% for oneevent in oneevents %}
+    <div id="title-bloc" class="title-bloc2 flex-title-bloc col-12 col-md-4">
+        {% for oneshow in oneshows
+            if oneshow.get_field('id_show') == oneevent.get_field('id_show')%}
+            {% if oneevent.get_field('public') == true
+                and oneshow.get_field('dispo') == 1
+                and "now"|date < oneevent.get_field('date_show')
+            %}
+                <h2 class="article-h4 h1-event-list col-12">
+                    <i class="fal fa-calendar"></i>
+                    prochaine représentation
+                </h2>
+                <div class="article-loop row container-fluid event-list">
+                    <section class="event2 container-fluid">
+                        <a class="row event-home-bloc" href="{{ oneevent.link }}">
+                            <div class="offset-md-2 d-none d-md-block"></div>
+                            <div class="thumb3 col-12 col-md-8 d-none d-md-block">
+                                <img src="{{ oneshow.thumbnail.src }}" alt="thumb">
+                            </div>
+                            <div class="offset-md-2 d-none d-md-block"></div>
+                            <p class="date-list col-12">{{ oneevent.get_field('date_show') }}</p>
+                            {% for place in places if place.get_field('salle') == oneevent.get_field('salle')%}
+                                <p class="col-12">{{ place.get_field('cp') }} {{ place.get_field('commune') }}</p>
+                                {% if place.get_field('pays') != 'France' %}
+                                    <p class="col-12 red">{{ place.get_field('pays') }}</p>
+                                {% endif %}
+                            {% endfor %}
 
-            {% for show in shows %}
-                {% if show.get_field('dispo') == 'Spectacle disponible' %}
+                        </a>
+                    </section>
+                </div>
+            {% elseif post.get_field('video-booleen') == true %}
+                <h2 class="article-h1 h1-event-list" id="video-title">
+                    <i class="fal fa-video"></i> Videos
+                </h2>
+                <section class="article-content row">
+                    <div class="offset-md-1 d-none d-md-block"></div>
+                    <div class="article-loop video-content col-12 col-md-12" id="video">
+                        {{ post.get_field('field_5cb8c5092e363') }}
+                    </div>
+                    <div class="offset-md-1 d-none d-md-block"></div>
+                    <div class="title-bloc video-title-bloc col-12">
 
+                        <a href="#article-anch3" class="col-md-12 d-none d-md-block">
+                            <div class="button button2 button3">
+                                <p><i class="fas fa-chevron-down"></i></p>
+                            </div>
+                        </a>
+                    </div>
+                </section>
 
-                    {% if show.get_field('field_5cbc31c7f2c13') == oneevent.get_field('field_5cbc31c7f2c13') %}
-                        {% if "now"|date < oneevent.get_field('field_5cb4d81344d45')  %}
-
-
-                                <a class="row event-home-bloc" href="{{ oneevent.link }}">
-                                    <div class="offset-md-3 d-none d-md-block"></div>
-                                    <div class="thumb thumb2 col-12 col-md-6 d-none d-md-block">
-                                        <img src="{{ show.thumbnail.src }}" alt="thumb">
-                                    </div>
-                                    <div class="offset-md-3 d-none d-md-block"></div>
-                                    <h2 class="article-h3 col-12 ">{{ show.title }}</h2>
-
-                                    <p class="date-list col-12">{{ oneevent.get_field('field_5cb4d81344d45') }}</p>
-
-                                    <p class="salle col-12">{{ oneevent.get_field('field_5cb4e5ba17780') }}</p>
-                                    <p class="col-12">{{ oneevent.get_field('field_5cb4e62317783') }} {{ oneevent.get_field('field_5cb4e63d17784') }}</p>
-                                </a>
-
-                        {% endif %}
-                    {% endif %}
-
-                {% endif %}
-            {% endfor %}
+            {% endif %}
         {% endfor %}
-    </section>
-
-</div>
+    </div>
+{% endfor %}
