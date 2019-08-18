@@ -29,6 +29,8 @@ html { scroll-behavior: smooth; }
 
 body { background: #000F28 !important; color: #ffffff !important; }
 
+.flex-title-bloc a { cursor: pointer; }
+
 h1 { text-align: center; margin-bottom: 50px; }
 
 .header { position: sticky; top: 0; z-index: 1000; background-image: linear-gradient(to bottom, #000000, #0d0108, #120314, #10081e, #000f28); }
@@ -143,6 +145,20 @@ iframe { display: block; width: 100%; height: auto; margin: auto; }
 
 .table { margin: auto; margin-top: 20px; font-size: 12px; border: none; color: white; text-align: center; }
 
+.float { float: left; }
+
+.w-20 { width: 20%; }
+
+.mr40 { margin-right: 40px; }
+
+.mb40 { margin-bottom: 40px; }
+
+.word-date { color: rgba(255, 255, 255, 0.5); width: 30%; padding: 20px; font-size: 18px; }
+
+.link-h1 { color: #ffce30; }
+
+#oneevent-img { width: auto !important; height: 200px !important; margin-bottom: 20px; }
+
 @media screen and (min-width: 768px) { .dropdown-item { font-size: 20px; width: 40%; margin: auto; }
   .thumb { margin-bottom: 30px; }
   .event { margin-bottom: 50px; }
@@ -156,10 +172,12 @@ iframe { display: block; width: 100%; height: auto; margin: auto; }
   .back-link { width: 30%; margin-left: 50%; }
   .hall { margin-top: 0; }
   .table { margin: auto; margin-top: 50px; font-size: 14px; max-width: 50% !important; }
-  .th { color: #ffce30; font-weight: bold; max-width: 30%; } }
+  .th { color: #ffce30; font-weight: bold; max-width: 30%; }
+  #img-alt { margin-top: 15vh; }
+  .m-t-b { margin-top: 20vh; margin-bottom: 10vh; } }
 @media screen and (min-width: 992px) { .wp-block-table { font-size: 22px !important; }
   .header { height: 17vh; }
-  h1 { font-size: 40px; }
+  h1 { font-size: 60px; margin-bottom: 100px; }
   iframe { width: 100%; height: 300px; }
   .nav { padding-top: 50px; }
   .logo { margin-bottom: 20px; }
@@ -182,6 +200,8 @@ iframe { display: block; width: 100%; height: auto; margin: auto; }
   .banner img { width: 50%; }
   .titre { text-align: center; }
   .article-content { margin: 0; width: 100%; }
+  .article-content2 { padding: 30px; width: 70%; margin: auto; }
+  .article-content3 { padding: 30px; width: 50%; margin: auto; }
   .loop-title { width: 50%; margin-left: 50px; font-size: 100px; color: #ffce30; }
   .loop-title2 { width: 100%; margin: auto; margin-top: 20px; }
   .article-loop { display: flex; justify-content: space-around; flex-wrap: wrap; margin: auto; }
@@ -199,11 +219,12 @@ iframe { display: block; width: 100%; height: auto; margin: auto; }
   .flex-title-bloc { margin-top: 15vh; }
   .carousel-control-prev-icon, .carousel-control-next-icon { width: 100px; height: 100px; font-size: 100px; opacity: 0.2; transition: 0.5s; }
   .article-h1 { margin: auto; font-size: 40px; color: #ffce30; background: none; display: block; padding: 30px; text-align: center; }
+  .m-t-b { margin-top: 10vh; margin-bottom: 5vh; }
   .article-h1 i { color: #ffffff; font-size: 25px; }
   .a-l-affiche { width: 80%; }
   .affiche-medal { max-height: 200px; }
   .affiche-medal img { height: 100%; width: auto; }
-  .create_date { color: rgba(255, 255, 255, 0.6); text-align: right; font-size: 12px !important; }
+  .create_date { color: rgba(255, 255, 255, 0.6); text-align: right; font-size: 14px !important; }
   .dates { text-align: center; }
   .next-date { margin: auto; margin-top: 40px; margin-bottom: 20px; background: #ffb630; padding: 20px; width: 42%; border: 1px solid #ffffff; -webkit-border-radius: 10px; -moz-border-radius: 10px; border-radius: 10px; font-size: 20px; color: #000000; padding-top: 40px; }
   .next-date2 { width: 100%; }
@@ -254,6 +275,7 @@ iframe { display: block; width: 100%; height: auto; margin: auto; }
   .totop { opacity: 0.5; position: sticky; bottom: 10vh; margin-left: 93%; cursor: pointer; padding: 30px; font-size: 8px; display: block; transition: 0.6s; z-index: 1; background: black; }
   .totop div, .totop p { text-align: center; }
   .img_alt img { display: block; width: 50%; margin: auto; }
+  .affiche2 { width: 100% !important; }
   .medal-text { font-size: 16px; color: #ffce30; padding: 30px; }
   .date { font-size: 30px; color: #ffce30; width: 90%; margin: auto; text-align: center; }
   .date, .hour { margin-bottom: 30px; }
@@ -271,7 +293,8 @@ iframe { display: block; width: 100%; height: auto; margin: auto; }
   .mailpoet_paragraph { font-size: 25px; line-height: 30px !important; }
   .mailpoet_text_label, .mailpoet_checkbox_label, .mailpoet_radio_label { font-size: 16px; line-height: 20px; color: #ffffff; }
   label, .mailpoet_radio_label:nth-child(1) { font-size: 22px; text-align: left; color: #ffce30; }
-  .strong { font-size: 20px; padding: 30px; padding: 30px; } }
+  .strong { font-size: 20px; padding: 30px; padding: 30px; }
+  .oneevent-img { width: auto !important; height: 300px !important; margin: 30px !important; display: block !important; float: left !important; } }
 @media screen and (min-width: 1500px) { .text-content { font-size: 25px !important; } }
 
 /*# sourceMappingURL=style.css.map */

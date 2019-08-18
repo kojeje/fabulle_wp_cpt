@@ -84,7 +84,7 @@ add_theme_support( 'post-thumbnails' );
       'has_archive' => true,
       'rewrite'	 => array( 'slug' => 'dates'),
       'supports' => array( 'title','author'),
-      'taxonomies' => array('category'),
+      'taxonomies' => array(' '),
       'menu_position' => 3,
       'menu-icon' => 'dashicons-admin-post'
     );
@@ -104,7 +104,7 @@ add_theme_support( 'post-thumbnails' );
       'show_in_rest' => true,
       'has_archive' => true,
       'rewrite'	 => array( 'slug' => 'actus'),
-      'supports' => array( 'title', 'editor','excerpt','author', 'thumbnail'),
+      'supports' => array( 'title','editor','excerpt','author', 'thumbnail'),
       'taxonomies' => array('category'),
       'menu_position' => 4,
       'menu_icon' => 'dashicons-code-standards',
@@ -148,7 +148,7 @@ add_theme_support( 'post-thumbnails' );
       'supports' => array( 'title', 'author'),
       'taxonomies' => array('category'),
       'menu_position' => 5,
-      'menu_icon' => 'dashicons-hammer',
+      'menu_icon' => 'dashicons-admin-site-alt',
     );
     register_post_type( 'places', $args );
 

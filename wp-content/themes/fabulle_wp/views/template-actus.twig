@@ -1,95 +1,55 @@
 {% extends "base.twig" %}
-{% block tmp_slide %}
-    {% if  post.get_field('field_5d529929a5272') == true %}
-        <div id="carouselExampleIndicators" class="carousel slide d-none d-sm-block" data-ride="carousel">
-            <div class="carousel-inner">
-                {# img 1#}
-                <div class="carousel-item active">
-                    <img class="d-block w-100" src="{{ post.get_field('field_5cb0656577ff6') }}" alt="First slide">
-                    <h1 class="carousel-caption d-none d-md-block caption caption2">
-                        {{ post.get_field('field_5cb06683a9ebb') }}
 
-                    </h1>
-                </div>
-                {# img 2#}
-                <div class="carousel-item">
-                    <img class="d-block w-100" src="{{ post.get_field('field_5cb06644e1d8b') }}" alt="Second slide">
-                    <h1 class="carousel-caption d-none d-md-block caption caption2">
-                        {{ post.get_field('field_5cb0672123300') }}
-                    </h1>
-                </div>
-                {# img 3#}
-                <div class="carousel-item">
-                    <img class="d-block w-100" src="{{ post.get_field('field_5cb06654e1d8c') }}" alt="Third slide">
-                    <h1 class="carousel-caption d-none d-md-block caption caption2">
-                        {{ post.get_field('field_5cb0676246ed9') }}
-                    </h1>
-                </div>
-                {# img 4#}
-                <div class="carousel-item">
-                    <img class="d-block w-100" src="{{ post.get_field('field_5cb0666ec680f') }}" alt="Fourth slide">
-                    <h1 class="carousel-caption d-none d-md-block caption caption2">
-                        {{ post.get_field('field_5cb0678573fc4') }}
-                    </h1>
-                </div>
-            </div>
-            {#Boutons previous et next#}
-            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-            </a>
-            {# Vers ancre suivante #}
-            <a href="#article-anch" class="anch">
-                <div class="button button-h">
-                    <p><i class="fas fa-chevron-down"></i></p>
-                </div>
-            </a>
-        </div>
-    {% endif %}
-{% endblock %}
+
 {% block content %}
     <a id="article-anch" class="anch"></a>
     <div class="container-fluid content-wrapper article_content show-content">
 
         <article class="row post-type-{{post.post_type}} show_teaser" id="post-{{post.ID}}">
+            <h1 class=" link-h1 col-12">Le petit mot de fabulle</h1>
 
-            <div class="col-6 col-md-3 article-content">
-                <div class="affiche">
-                    <img src="{{post.thumbnail.src}}" alt="affiche" class="affiche">
+
+
+            <div class="offset-md-2 d-none d-md-block"></div>
+            <div class="col-md-2 col-12 img_alt">
+
+                <img src="{{post.thumbnail.src}}" alt="affiche" class="affiche2 ">
+            </div>
+            <div class="offset-md-1 d-none d-md-block"></div>
+            <div class=" article-content col-md-5">
+                <div class="word-date">
+                    {{ post.date|date('F Y') }}
                 </div>
-            </div>
-            <div class="offset-md-1"></div>
-            <div class="col-md-8 article-content">
-                <h1 class="article-h1 show-h1">{{ post.title }}</h1>
+                {{ post.content }}
 
-                    <p class="article-text create_date">
-                        création: {{ post.get_field('field_5cb497265c4df') }}
-                    </p>
-                    <p class="article-text article-sub-h2">
-                        {{ post.content }}
-                    </p>
-                    <a href="#article-anch2">
-                        <div class="button button2">
-                            <p>
-                                <i class="fas fa-chevron-down"></i>
-                            </p>
-                        </div>
-                    </a>
+                <a href="#article-anch2" class="col-12">
+                    <div class="button button2">
+                        <p>
+                            <i class="fas fa-chevron-down"></i>
+                        </p>
+                    </div>
+                </a>
             </div>
-            <div class="v-bloc col-md-12"></div>
+
+
+
+
+
+            <div class="v-bloc row"></div>
             <a id="article-anch2" class="show-content2"></a>
             {% if post.get_field('video-booleen') %}
-                <div class="col-md-6 article-content">
-                    <h2 class="article-h1 show-h1" id="imagine">
-                        {{ post.get_field('field_5cb1941775e1b') }}
-                    </h2>
-                    <p class="article-text">
-                        {{ post.get_field('field_5cb1939eb9083')  }}
-                    </p>
+                <div class="offset-md-1 d-none d-md-block"></div>
+                <div class="col-md-6 col-12">
+                    <h1>
+                        {{ post.get_field('field_5d55f554f07a2') }}
+                    </h1>
+                    {{ post.get_field('field_5d55f554f07b3')  }}
+
+                </div>
+                <div class="col-md-4 video">
+                    <div class="video-content">
+                        {{ post.get_field('field_5cb1e69bc71a5') }}
+                    </div>
                     <a href="#article-anch3">
                         <div class="button button2">
 
@@ -97,37 +57,138 @@
                         </div>
                     </a>
                 </div>
-                <div class="col-md-6 video">
-                    <div class="video-content">
-                        {{ post.get_field('field_5cb1e69bc71a5') }}
-                    </div>
-                </div>
+                <div class="offset-md-2 d-none d-md-block"></div>
 
 
 
             {% else %}
 
-                <div class="row article-content">
-
-                    <div class="col-md-6 ">
-                        <h2 class="article-h1" id="imagine">
-                            {{ post.get_field('field_5cb1941775e1b') }}
+                <div class="row">
+                    <div class="offset-md-1 d-none d-md-block"></div>
+                    <div class="col-md-5 col-12">
+                        <h2 class="article-h1">
+                            {{ post.get_field('field_5d55f554f07a2') }}
                         </h2>
-                            <p class="article-text">
-                                {{ post.get_field('field_5cb1939eb9083')  }}
-                            </p>
-                            <a href="#article-anch3">
-                                <div class="button button2">
 
-                                    <p><i class="fas fa-chevron-down"></i></p>
-                                </div>
-                            </a>
+
+                            {{ post.get_field('field_5d55f554f07b3')  }}
                     </div>
-                    <div class="col-md-6 img_alt">
-                        <img src="{{ post.get_field('field_5cb488e6b0a43') }}" alt="img">
+                    <div class="offset-md-1 d-none d-md-block"></div>
+                    <div class="col-md-4 col-12 img_alt" id="img-alt">
+                        <img src="{{ post.get_field('field_5d55f554f0949') }}" class=" affiche2 " alt="img">
+                        <a href="#article-anch3">
+                            <div class="button button2">
+
+                                <p><i class="fas fa-chevron-down"></i></p>
+                            </div>
+                        </a>
                     </div>
+                    <div class="offset-md-2 d-none d-md-block"></div>
                 </div>
 
+            {% endif %}
+            {% if post.get_field('field_5cb8ecc79f5cc') == true %}
+                <div class="col-12">
+                    <h2 class="article-h1 m-t-b">
+                        Galerie
+                    </h2>
+                </div>
+                <div class="offset-2"></div>
+                <div class="col-md-2">
+                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                </div>
+                <!-- IMAGES 400X300 -->
+                <div id="carouselExampleIndicators" class="carousel  d-none d-sm-block col-md-4" data-ride="carousel">
+                    <div class="carousel-inner">
+                        {# img 1#}
+                        <div class="carousel-item active">
+                            <img class="affiche d-block w-100" src="{{ post.get_field('field_5d55f554f0714') }}" alt="First slide">
+                        </div>
+                        {# img 2#}
+                        <div class="carousel-item">
+                            <img class="affiche d-block w-100" src="{{ post.get_field('field_5d57e3ef7f6ed') }}" alt="Second slide">
+                        </div>
+                        {# img 3#}
+                        <div class="carousel-item">
+                            <img class=" affiche d-block w-100" src="{{ post.get_field('field_5d57e3f67f6ef') }}" alt="Third slide">
+                        </div>
+                        {# img 4#}
+                        <div class="carousel-item">
+                            <img class="affiche d-block w-100" src="{{ post.get_field('field_5d57e4067f6f0') }}" alt="Fourth slide">
+                        </div>
+                        {# Si img5 existe #}
+                        {% if post.get_field('field_5d57e40a7f6f1') %}
+                            {# img 5#}
+                            <div class="carousel-item">
+                                <img class="affiche d-block w-100" src="{{ post.get_field('field_5d57e40a7f6f1') }}" alt="Fifth slide">
+                            </div>
+                        {% endif %}
+                        {# Si img6 existe #}
+                        {% if post.get_field('field_5d57e4107f6f3') %}
+                            {# img 6#}
+                            <div class="carousel-item">
+                                <img class="affiche d-block w-100" src="{{ post.get_field('field_5d57e4107f6f3') }}" alt="sixth slide">
+                            </div>
+                        {% endif %}
+                        {# Si img6 existe #}
+                        {% if post.get_field('field_5d57e4137f6f4') %}
+                            {# img 7#}
+                            <div class="carousel-item">
+                                <img class="affiche d-block w-100" src="{{ post.get_field('field_5d57e4137f6f4') }}" alt="seventh slide">
+                            </div>
+                        {% endif %}
+                        {# Si img7 existe #}
+                        {% if post.get_field('field_5d57e4157f6f5') %}
+                            {# img 8#}
+                            <div class="carousel-item">
+                                <img class="affiche d-block w-100" src="{{ post.get_field('field_5d57e4157f6f5') }}" alt="eighth slide">
+                            </div>
+                        {% endif %}
+                        {# Si img8 existe #}
+                        {% if post.get_field('field_5d57e4187f6f6') %}
+                            {# img 9#}
+                            <div class="carousel-item">
+                                <img class="affiche d-block w-100" src="{{ post.get_field('field_5d57e4187f6f6') }}" alt="ninth slide">
+                            </div>
+                        {% endif %}
+                        {# Si img9 existe #}
+                        {% if post.get_field('field_5d57e41a7f6f7') %}
+                            {# img 10#}
+                            <div class="carousel-item">
+                                <img class="affiche d-block w-100" src="{{ post.get_field('field_5d57e41a7f6f7') }}" alt="tenth slide">
+                            </div>
+                        {% endif %}
+
+                    </div>
+
+                </div>
+                <!-- BOUTONS -->
+                <div class="col-md-2">
+                    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+
+                </div>
+                <div class="offset-2"></div>
+
+                <div class="img-alt-home d-block d-md-none">
+                    <img src="{{ post.thumbnail.src }}" alt=" " id="mati-bras" class="thumb-medal flex-thumb thumb-medal2">
+                    <div class="d-block d-md-none caption caption2">
+                        {{ post.get_field('field_5cb8c1272895d') }}
+                        <!-- BOUTONS SCROLL-->
+                        <a href="#article-anch" class="anch">
+                            <div class="button button-h">
+                                <p>
+                                    <i class="fas fa-chevron-down"></i>
+                                </p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
             {% endif %}
             <div class="offset-1"></div>
             {% if post.get_field('dispo') %}
@@ -237,9 +298,10 @@
 
             <div class="offset-1"></div>
 
-
         </article>
     </div>
 
+
 {% endblock %}
+
 

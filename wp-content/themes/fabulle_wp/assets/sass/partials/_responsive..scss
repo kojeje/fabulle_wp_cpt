@@ -72,6 +72,16 @@
     font-weight: bold;
     max-width: 30%;
   }
+ #img-alt {
+   margin-top: 15vh;
+ }
+ .m-t-b{
+   margin-top: 20vh;
+   margin-bottom: 10vh;
+ }
+
+
+
 }
 
 @media screen and (min-width:992px)
@@ -84,7 +94,10 @@
     height: 17vh;
   }
   h1
-  {font-size: 40px;}
+  {
+    font-size: 60px;
+    margin-bottom: 100px;
+  }
 
   iframe
   {
@@ -232,6 +245,19 @@
     width: 100%;
   }
 
+  .article-content2
+  {
+    padding: 30px;
+    width: 70%;
+    margin: auto;
+  }
+  .article-content3
+  {
+    padding: 30px;
+    width: 50%;
+    margin: auto;
+  }
+
 
   .loop-title
   {
@@ -332,6 +358,7 @@
     margin-top: 15vh;
   }
 
+
   .carousel-control-prev-icon,
   .carousel-control-next-icon
   {
@@ -353,6 +380,10 @@
     text-align: center;
 
 
+  }
+  .m-t-b{
+    margin-top: 10vh;
+    margin-bottom: 5vh;
   }
   .article-h1 i
   {
@@ -384,7 +415,7 @@
   {
     color: rgba(255, 255, 255, 0.6);
     text-align: right;
-    font-size: 12px !important;
+    font-size: 14px !important;
   }
   .dates
   {
@@ -720,6 +751,9 @@
     width: 50%;
     margin: auto;
   }
+  .affiche2{
+    width: 100% !important;
+  }
   .medal-text
   {
     font-size: 16px;
@@ -824,6 +858,13 @@
     font-size: 20px;
     padding: 30px;
     padding: 30px;
+  }
+  .oneevent-img{
+    width: auto !important;
+    height: 300px !important;
+    margin: 30px !important;
+    display: block !important;
+    float: left !important;
   }
 }
 @media screen and (min-width:1500px)

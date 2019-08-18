@@ -15,42 +15,53 @@
 //// de données, et venir récupérer uniquement les trois
 //// derniers articles
 //
-  $args_articles2 =[
+  $args_articles =[
     'post_type' => 'spectacles',
-
-
+//    'posts_per_page' => 1,
 
   ];
-
+  $args_articles2 =[
+    'post_type' => 'spectacles',
+  ];
   $args_articles3 = [
     'post_type' => 'dates',
     'order'=>'DESC',
-    'meta_key' => 'date_show',
+    'meta_key' => 'public',
+    'meta_value' => 'true',
     'order_by' => 'date_show',
-
-
   ];
   $args_articles4 = [
     'post_type' => 'dates',
-    'posts_per_page' => 1,
     'order'=>'ASC',
-    'meta_key' => 'date_show',
-    'orderby' => 'date_show',
-
-
-
-
+//    'meta_key' => 'public',
+//    'meta_value' => 'true',
+    'order_by' => 'date_show',
+    'posts_per_page' => 1,
+  ];
+  $args_articles5 = [
+  'post_type' => 'actus',
+  'order'=>'ASC',
+  'orderby' => 'date',
+  'posts_per_page' => 1,
+];
+  $args_articles6 = [
+    'post_type' => 'places',
+    'order'=>'ASC',
+    'orderby' => 'date',
+    'posts_per_page' => 1,
   ];
 
 
 // récupère les articles en fonction du tableau d'argument $args_posts
 // en utilisant la méthode de Timber get_posts
 // puis on les enregistre dans l'array $context sous la clé "posts"
-
+  $context['oneshows'] = Timber::get_posts($args_articles);
   $context['shows'] = Timber::get_posts($args_articles2);
   $context['events'] = Timber::get_posts($args_articles3);
   $context['oneevents'] = Timber::get_posts($args_articles4);
-//  var_dump($context['shows']);die;
+  $context['actus'] = Timber::get_posts($args_articles5);
+  $context['places'] = Timber::get_posts($args_articles6);
+//  var_dump($context['oneevents']);die;
 
 
 
