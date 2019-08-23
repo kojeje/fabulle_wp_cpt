@@ -12,9 +12,11 @@ body
   background: $dark-blue !important;
   color: $white !important;
 }
+a,
 .flex-title-bloc a{
   cursor: pointer;
 }
+
 h1
 {
   text-align: center;
@@ -170,9 +172,7 @@ a
 {
   order:1;
 }
-#video {
-  order: 2;
-}
+
 #video iframe{
   min-height: 50vh !important;
 
@@ -192,6 +192,9 @@ iframe
   margin-bottom: 70px;
   padding: 10px;
 
+}
+.carousel-item{
+  transition: 0.3s;
 }
 
 
@@ -229,6 +232,7 @@ iframe
   border-radius: 10px;
   border: 1px solid $link;
   padding-top: 20px;
+  cursor:pointer;
   transition: 0.5s;
 }
 .event-home-bloc-medal
@@ -257,7 +261,8 @@ iframe
   margin-bottom: 20px;
 }
 
-.article-sub-h2
+.article-sub-h2,
+.article-sub-h1
 {
   font-size: 0.5rem;
   color: $link;
@@ -374,6 +379,14 @@ iframe
   //min-width: 25% !important;
   height: auto;
   padding: 30px;
+  float: left;
+}
+.float-thumb2{
+  //max-width: 50% !important;
+  //min-width: 25% !important;
+  height: auto;
+  padding: 30px;
+  float: right;
 }
 .ref-h3{
   font-size: 12px;
@@ -382,6 +395,7 @@ iframe
   color: red;
   font-size: 16px;
   padding: 10px;
+  opacity: 0.5;
 }
 .bk-black{
   opacity: 0.3;
@@ -425,10 +439,27 @@ iframe
 .link-h1{
   color: $link;
 }
+
 #oneevent-img{
   width: auto !important;
   height: 200px !important;
   margin-bottom: 20px;
 }
+.read-more span{
+  color: $link;
+}
+.member-show{
+  clear: both;
+}
+.w-full{
+  width: 100%;
+}
+.btn-middle{
+  position: absolute;
+  top: 50%;
+  width: 50%;
+  display: block;
+  margin: auto;
 
+}
 @import "partials/responsive.";

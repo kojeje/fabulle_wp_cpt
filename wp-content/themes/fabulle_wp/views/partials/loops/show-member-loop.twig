@@ -1,0 +1,22 @@
+<div class="article-loop">
+        {% for show in shows %}
+            {% if show.get_field('dispo') == 1
+            and show.get_field('id_show') in post.get_field('spectacle') %}
+                {#<div class="offset-md-1 d-none d-md-block"></div>#}
+                <a href="{{ show.link }}" class="row logo_fabulle">
+                    <div class="row">
+                        <h2 class="h1-medal h1-medal2 col-12">
+                            {{ show.title }}
+                        </h2>
+                        <div class="thumb-medal thumb-medal2 col-md-12">
+                            <img src="{{show.thumbnail.src}}" alt="affiche" class="affiche oneevent-img oneevent-img2">
+                            {{ show.preview.length(20).read_more("<span>lire la suite</span>")
+                            }}
+                        </div>
+                        <div class="member-show"></div>
+                    </div>
+                </a>
+
+        {% endif %}
+    {% endfor %}
+</div>

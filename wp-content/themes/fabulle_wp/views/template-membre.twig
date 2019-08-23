@@ -1,0 +1,133 @@
+{% extends "base.twig" %}
+
+
+{% block content %}
+    <a id="article-anch" class="anch"></a>
+    <div class="container-fluid content-wrapper article_content show-content">
+
+        <article class="row post-type-{{post.post_type}}" id="post-{{post.ID}}">
+            <h1 class=" col-12">Membre
+            </h1>
+
+
+
+
+
+            <div class="container article-content ">
+
+                <h2 class="article-h1">{{ post.get_field('prenom') }} {{ post.get_field('nom') }}</h2>
+                <p class="t-a-center article-sub-h2 ">{{ post.get_field('nom_de_scene') }}</p>
+                {% if 'musicien(ne)/chanteur- chanteuse' in post.get_field('metiers')%}
+                    <p>instrument: {{ post.get_field('instrument') }}</p>
+                {% endif %}
+                <h3>Ceci explique cela...</h3>
+                {#<div class="word-date">#}
+                    {#{{ post.date|date('F Y') }}#}
+                {#</div>#}
+                <div class="col-md-12 col-12 ">
+                    <img src="{{post.thumbnail.src}}" alt="affiche" class="affiche2 float-thumb">
+                    {{ post.get_field('bio') }}
+                    <div class="member-show"></div>
+                </div>
+
+                <div class="row">
+                    {% for show in shows %}
+                        {#{{ dump(show.id) }}#}
+                        {#{{ dump(show.get_field('id_show')) }}#}
+                        {% if show.get_field('id_show') in post.get_field('spectacle') %}
+                            {% if show.get_field('dispo') == 1 %}
+                                {% if post.get_field('genre') == 'homme' %}
+                                    <h2 class="article-h1-left col-md-12 col-md-6">Il joue dans:</h2>
+                                    <a href="{{ show.link }}" class="row col-md-6 col-12 show_2">
+                                        <div class="row">
+                                            <h2 class="h1-medal h1-medal2 col-12">
+                                                {{ show.title }}
+                                            </h2>
+                                            <div class="thumb-medal thumb-medal2 col-md-12">
+                                                <img src="{{show.thumbnail.src}}" alt="affiche" class="affiche float-thumb oneevent-img oneevent-img2">
+                                                {{ show.content }}
+                                            </div>
+                                            <div class="member-show"></div>
+                                        </div>
+                                    </a>
+                                {% else %}
+                                    <h2 class="article-h1-left col-6">Elle joue dans:</h2>
+                                    <a href="{{ show.link }}" class="row col-md-6 col-12 show_2">
+                                        <div class="row">
+                                            <h2 class="h1-medal h1-medal2 col-12">
+                                                {{ show.title }}
+                                            </h2>
+                                            <div class="thumb-medal thumb-medal2 col-md-12">
+                                                <img src="{{show.thumbnail.src}}" alt="affiche" class="affiche float-thumb oneevent-img ">
+                                                {{ show.content }}
+                                            </div>
+                                            <div class="member-show"></div>
+                                        </div>
+                                    </a>
+                                {% endif %}
+                            {% elseif show.get_field('dispo') == 2 %}
+
+                            {% if post.get_field('genre') == 'homme' %}
+
+                                <h2 class="article-h1-left col-12 col-md-6">Il jouait dans:</h2>
+                                <a href="{{ show.link }}" class="row col-md-6 col-12 show_2">
+                                    <div class="col-12 col-md-6 row">
+                                        <h2 class="h1-medal h1-medal2 col-12">
+                                            {{ show.title }}
+                                        </h2>
+                                        <div class="thumb-medal thumb-medal2 col-12 col-md-6">
+                                            <img src="{{show.thumbnail.src}}" alt="affiche" class="affiche float-thumb oneevent-img">
+                                            {{ show.content }}
+                                        </div>
+                                        <div class="member-show"></div>
+                                    </div>
+                                </a>
+                            {% else %}
+                                <h2 class="article-h1-left col-md-6 col-12">Elle jouait dans:</h2>
+                                <a href="{{ show.link }}" class="row col-md-6 col-12 show_2">
+                                    <div class="row">
+                                        <h2 class="h1-medal h1-medal2 col-12">
+                                            {{ show.title }}
+                                        </h2>
+                                        <div class="thumb-medal thumb-medal2 col-md-12">
+                                            <img src="{{show.thumbnail.src}}" alt="affiche" class="affiche float-thumboneevent-img ">
+                                            {{ show.content }}
+                                        </div>
+                                        <div class="member-show"></div>
+                                    </div>
+                                </a>
+
+                            {% endif %}
+                            {% elseif show.get_field('dispo') == 3 %}
+                                <h2 class="article-h1-left col-md-6 col-12">Prochains projets (en création)</h2>
+                                <a href="{{ show.link }}" class="row col-md-6 col-12 show_2">
+                                    <div class="row">
+                                        <h2 class="h1-medal h1-medal2 col-12">
+                                            {{ show.title }}
+                                        </h2>
+                                        <div class="thumb-medal thumb-medal2 col-md-12">
+                                            <img src="{{show.thumbnail.src}}" alt="affiche" class="affiche float-thumb oneevent-img ">
+                                            {{ show.content }}
+                                        </div>
+
+                                        <div class="member-show"></div>
+                                    </div>
+                                </a>
+                            {% endif %}
+
+                        {% endif %}
+
+                    {% endfor %}
+                </div>
+
+
+            </div>
+
+
+        </article>
+    </div>
+
+
+{% endblock %}
+
+

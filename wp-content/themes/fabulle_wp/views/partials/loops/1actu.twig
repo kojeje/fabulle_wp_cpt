@@ -2,7 +2,7 @@
 
     {% if actu and now|date('m') == actu.date|date('m') %}
 
-        <div class="offset-md-1 d-none d-md-block"></div>
+        {#<div class="offset-md-1 d-none d-md-block"></div>#}
         <div class="col-12 col-md-5 flex-title-bloc">
             <a href="{{ actu.link }}">
                 <h2 class=" article-h4 flex-h1 h1-event-list">
@@ -11,7 +11,7 @@
 
                 <div class="word-content">
                     <img src="{{ actu.thumbnail.src }}" class="affiche oneevent-img"  alt="affiche2">
-                    {{ actu.content|truncate(160) }}
+                    {{ actu.preview.length(100).read_more('<span><br>...lire la suite...</span>')  }}
                 </div>
             </a>
         </div>
@@ -19,7 +19,7 @@
     {% else %}
 
         <div class="offset-md-1 d-none d-md-block"></div>
-        <div class="col-12 col-md-5 flex-title-bloc">
+        <div class="col-12 col-md-6 flex-title-bloc">
             <h2 class="article-h1 flex-h1 h1-event-list" >
                 <i class="fal fa-home-lg"> </i> {{post.get_field('field_5cb8c3fb40b3a')}}
             </h2>

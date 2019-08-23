@@ -31,12 +31,16 @@ a:hover
 }
 .event-home-bloc:hover
 {
-  background: $aqua;
+  background: $link;
   color: #000000 !important;
   font-size: 16px;
   font-weight: 900;
   border: 3px solid $white;
 }
+.event-home-bloc:hover  .country{
+  opacity: 1;
+}
+
 .event-home-bloc:hover .salle
 {
   color: #000000 !important;
@@ -68,4 +72,9 @@ a:hover
   padding: 20px;
   font-size: 12px;
 }
+.read-more span:hover{
+  color: $white;
+}
+
+
 

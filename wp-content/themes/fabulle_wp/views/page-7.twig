@@ -112,21 +112,34 @@
 
 {% block content %}
 <!-- CORPS DE LA PAGE -->
-    <a id="article-anch" class="anch d-none d-md-block"></a>
+<a id="article-anch" class="anch d-none d-md-block"></a>
 <div class="article-loop article-loop2" id="article-loop">
 
-    <article class="post-type-{{post.post_type}} row" id="post-{{post.ID}}">
+    <article class="container-fluid post-type-{{post.post_type}} row" id="post-{{post.ID}}">
 
         <section class="article-content home row">
-            <h2 class="col-12 col-md-6 article-h1 flex-h1 h1-event-list" >
-                <i class="fal fa-home-lg"> </i> Accueil
-            </h2>
-            <div class="offset-md-6"></div>
-            {% include '/views/partials/loops/1actu.twig' %}
+
+
+
+            <div class="col-12 col-md-6">
+                <h2 class="col-12 col-md-6 article-h1 flex-h1 h1-event-list" >
+                    <i class="fal fa-home-lg"> </i> Accueil
+                </h2>
+                <h4 class="col-md-12 article-sub-h2">{{ post.get_field('sub1') }}</h4>
+
+                <img src="{{ post.thumbnail.src }}" class="float-thumb" alt="">
+                {{ post.content }}
+                <a href="#article-anch2" class="col-md-12 d-none d-md-block">
+                    <div class="button button2 button3">
+                        <p><i class="fas fa-chevron-down"></i></p>
+                    </div>
+                </a>
+            </div>
             {% include '/views/partials/loops/one-event-loop.twig' %}
 
 
         </section>
+
 
     </article>
 </div>
@@ -134,35 +147,37 @@
 <a class="col-12 d-none d-md-block" id="article-anch2"></a>
 <div class="article-loop article-loop2 video-bloc container-fluid">
     {% if post.get_field('field_5cb8c5272e364') %}
-        <section class="article-content row">
+        <section class="row">
             <div class="offset-md-1 d-none d-md-block"></div>
-            <div class="article-loop video-content col-6 col-md-5" id="video">
-                {{ post.get_field('field_5cb8c5092e363') }}
-            </div>
-            <div class="offset-md-1 d-none d-md-block"></div>
-            <div class="title-bloc video-title-bloc col-md-5">
+            <div class="article-loop video-content col-12 col-md-4" id="video">
                 <h2 class="article-h1 h1-event-list" id="video-title">
                     <i class="fal fa-video"></i> Videos
                 </h2>
-                <a href="#article-anch3" class="col-md-12 d-none d-md-block">
-                    <div class="button button2 button3">
-                        <p><i class="fas fa-chevron-down"></i></p>
-                    </div>
-                </a>
+
+                {{ post.get_field('field_5cb8c5092e363') }}
+
             </div>
+            {% include '/views/partials/loops/1actu.twig' %}
         </section>
+
+        <a href="#article-anch3" class="col-md-12 d-none d-md-block">
+            <div class="button button2 button3">
+                <p><i class="fas fa-chevron-down"></i></p>
+            </div>
+        </a>
 
     {% else %}
 
-    <div class="col-md-4">
-        {{ post.get_field('field_5cb8c6aff774f') }}
-    </div>
-    <div class="offset-md-2"></div>
-    <div class="col-md-4">
-        <img class="img" src="{{ post.get_field('field_5cb8f31ae5c37') }}" alt="alt_img">
-    </div>
-    <div class="offset-md-1"></div>
+        <div class="col-md-4">
+            {{ post.get_field('field_5cb8c6aff774f') }}
+        </div>
+        <div class="offset-md-1"></div>
+        <div class="col-md-4">
+            <img class="img" src="{{ post.get_field('field_5cb8f31ae5c37') }}" alt="alt_img">
+        </div>
+        <div class="offset-md-1"></div>
     {% endif %}
+
 </div>
 <a class="col-md-12 d-lg-block d-none" id="article-anch3"></a>
 <div class="article-loop article-loop2">
@@ -170,23 +185,61 @@
         <h2 class="article-h1 h1-event-list a-l-affiche">
             <i class="far fa-theater-masks"></i> A L'AFFICHE
         </h2>
-        <a href="#article-anch4" class="d-none d-md-block">
+        <a href="#article-anch5" class="d-none d-md-block">
             <div class="button button2 button3">
                 <p><i class="fas fa-chevron-down"></i></p>
             </div>
         </a>
+
     </div>
     {% include '/views/partials/loops/show-loop.twig' %}
+    <a class="col-md-12 d-lg-block d-none" id="article-anch4"></a>
 
 
 </div>
 
-<a id="article-anch4" class="d-none d-md-block"></a>
+<a id="article-anch5" class="d-none d-md-block"></a>
 
 
     {% include '/views/partials/loops/event-loop.twig' %}
 
 
+
+<a class="col-md-12 d-lg-block d-none" id="article-anch6"></a>
+<div class="">
+    <div class="title-bloc">
+        <h2 class="article-h1 h1-event-list a-l-affiche">
+            <i class="far fa-theater-masks"></i> AUPARAVANT
+        </h2>
+
+
+    </div>
+    {% include '/views/partials/loops/old-show-loop.twig' %}
+    <a href="#article-anch7" class="d-none d-md-block">
+        <div class="button button2 button3">
+            <p><i class="fas fa-chevron-down"></i></p>
+        </div>
+    </a>
+
+</div>
+
+<a class="col-md-12 d-lg-block d-none" id="article-anch7"></a>
+<div class="">
+    <div class="title-bloc">
+        <h2 class="article-h1 h1-event-list a-l-affiche">
+            <i class="far fa-theater-masks"></i> Prochainement
+        </h2>
+
+
+    </div>
+    {% include '/views/partials/loops/soon-show-loop.twig' %}
+    {#<a href="#article-anch6" class="d-none d-md-block">#}
+        {#<div class="button button2 button3">#}
+            {#<p><i class="fas fa-chevron-down"></i></p>#}
+        {#</div>#}
+    {#</a>#}
+
+</div>
 {% endblock %}
 
 

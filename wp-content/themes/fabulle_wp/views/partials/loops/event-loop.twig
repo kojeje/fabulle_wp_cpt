@@ -1,13 +1,17 @@
 <div class="article-loop row container-fluid event-list">
     <h2 class="article-h1 h1-event-list col-md-5 col-12"><i class="fal fa-calendar"></i> Nous voir</h2>
-    <div class="offset-md-7"></div>
+    <a href="#article-anch6" class="col-md-2 d-none d-md-block">
+        <div class="button button2 button3">
+            <p><i class="fas fa-chevron-down"></i></p>
+        </div>
+    </a>
+    <div class="offset-md-5"></div>
     <section class="event container-fluid">
         {% for event in events %}
             <div id="title-bloc" class="title-bloc2 col-12 ">
                 {% for show in shows
                     if show.get_field('id_show') == event.get_field('id_show')%}
-                    {% if event.get_field('public') == true
-                        and show.get_field('dispo') == 1
+                    {% if show.get_field('dispo') == 1
                         and "now"|date < event.get_field('date_show')
                     %}
                         <a class="row event-home-bloc" href="{{ event.link }}">
@@ -16,15 +20,27 @@
                             </div>
                             <h2 class="article-h4 col-12 col-md-4">{{ show.title }}</h2>
                             <p class="date-list col-md-2 col-8">{{ event.get_field('field_5cb4d81344d45') }}</p>
-                            <p class="salle col-md-2 col-12">{{ event.get_field('field_5cb4e5ba17780') }}</p>
-                            {% for place in places if place.get_field('salle') == event.get_field('salle')%}
-                                <p class="col-md-3 col-12">{{ place.get_field('cp') }} {{ place.get_field('commune') }}</p>
-                            {% endfor %}
+                            {% if event.get_field('public') == true %}
+                                <p class="salle col-md-2 col-12">{{ event.get_field('field_5cb4e5ba17780') }}</p>
+                            {% else %}
+                                <p class="salle col-md-2 col-12 red">Privé</p>
+
+                            {% endif %}
+                                {% for place in places if place.get_field('salle') == event.get_field('salle')%}
+                                    <p class="col-md-3 col-12">{{ place.get_field('cp') }} {{ place.get_field('commune') }}
+                                    {% if place.get_field('pays') != 'France' %}
+                                        <br>
+                                    <span class="country">{{ place.get_field('pays') }}</span>
+                                    {% endif %}
+                                    </p>
+
+                                {% endfor %}
                         </a>
                     {% endif %}
                 {% endfor %}
             </div>
         {% endfor %}
+
     </section>
 
 </div>

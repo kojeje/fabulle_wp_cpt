@@ -10,17 +10,17 @@
 
 
 
-            <div class="offset-md-2 d-none d-md-block"></div>
-            <div class="col-md-2 col-12 img_alt">
 
-                <img src="{{post.thumbnail.src}}" alt="affiche" class="affiche2 ">
-            </div>
-            <div class="offset-md-1 d-none d-md-block"></div>
-            <div class=" article-content col-md-5">
+            <div class="container article-content ">
                 <div class="word-date">
                     {{ post.date|date('F Y') }}
                 </div>
-                {{ post.content }}
+                <div class="col-md-12 col-12 ">
+
+                    <img src="{{post.thumbnail.src}}" alt="affiche" class="affiche2 float-thumb">
+                    {{ post.content }}
+                </div>
+
 
                 <a href="#article-anch2" class="col-12">
                     <div class="button button2">
@@ -64,25 +64,23 @@
             {% else %}
 
                 <div class="row">
+
+
                     <div class="offset-md-1 d-none d-md-block"></div>
-                    <div class="col-md-5 col-12">
+                    <div class="col-md-10 col-12 img_alt" id="img-alt">
                         <h2 class="article-h1">
                             {{ post.get_field('field_5d55f554f07a2') }}
                         </h2>
-
-
-                            {{ post.get_field('field_5d55f554f07b3')  }}
+                        <img src="{{ post.get_field('field_5d55f554f0949') }}" class=" float-thumb2 " alt="img">
+                        {{ post.get_field('field_5d55f554f07b3')  }}
                     </div>
                     <div class="offset-md-1 d-none d-md-block"></div>
-                    <div class="col-md-4 col-12 img_alt" id="img-alt">
-                        <img src="{{ post.get_field('field_5d55f554f0949') }}" class=" affiche2 " alt="img">
-                        <a href="#article-anch3">
-                            <div class="button button2">
+                    <a href=" #article-anch3" class="d-block t-a-center container-fluid">
+                        <div class="button button2">
 
-                                <p><i class="fas fa-chevron-down"></i></p>
-                            </div>
-                        </a>
-                    </div>
+                            <p><i class="fas fa-chevron-down"></i></p>
+                        </div>
+                    </a>
                     <div class="offset-md-2 d-none d-md-block"></div>
                 </div>
 
@@ -93,15 +91,15 @@
                         Galerie
                     </h2>
                 </div>
-                <div class="offset-2"></div>
-                <div class="col-md-2">
-                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                <!-- BOUTON -->
+                <div class="col-md-3">
+                    <a class="btn-middle carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                         <span class="sr-only">Previous</span>
                     </a>
                 </div>
                 <!-- IMAGES 400X300 -->
-                <div id="carouselExampleIndicators" class="carousel  d-none d-sm-block col-md-4" data-ride="carousel">
+                <div id="carouselExampleIndicators" class="carousel  d-none d-sm-block col-md-6" data-ride="carousel">
                     <div class="carousel-inner">
                         {# img 1#}
                         <div class="carousel-item active">
@@ -165,15 +163,15 @@
                     </div>
 
                 </div>
-                <!-- BOUTONS -->
-                <div class="col-md-2">
-                    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                <!-- BOUTON -->
+                <div class="col-md-3">
+                    <a class="btn-middle carousel-control-next btn-middle" href="#carouselExampleIndicators" role="button" data-slide="next">
                         <span class="carousel-control-next-icon" aria-hidden="true"></span>
                         <span class="sr-only">Next</span>
                     </a>
 
                 </div>
-                <div class="offset-2"></div>
+                <div class="offset-1"></div>
 
                 <div class="img-alt-home d-block d-md-none">
                     <img src="{{ post.thumbnail.src }}" alt=" " id="mati-bras" class="thumb-medal flex-thumb thumb-medal2">
@@ -190,110 +188,16 @@
                     </div>
                 </div>
             {% endif %}
-            <div class="offset-1"></div>
-            {% if post.get_field('dispo') %}
-                <a id="article-anch3"></a>
-                <div class="col-md-10 bref">
-                    <a id="article-anch3" class="anch"></a>
-                    <h2 class="article-text-h2" id="title-spe">
-                        {{ post.title }}
-                    </h2>
-                    <div class="bref_block">
-
-                        <p class="bref-item style">
-                            {{ post.get_field('field_5cb19e8a1f92d') }}
-                        </p>
-                        <p class="bref-item">
-                            à partir de {{ post.get_field('field_5cb19f4acd2c1') }} ans
-                        </p>
-                        <p class="bref-item">
-                            jusqu'à {{ post.get_field('field_5cb19fb4cd2c2') }} ans
-                        </p>
-                        <div class="bref-item">
-
-                            <p class="school">
-                                Scolaires: du {{ post.get_field('field_5cb1e19399290') }} au {{ post.get_field('field_5cb1e23b477ab') }}.
-                            </p>
-                        </div>
 
 
-                        <p class="bref-item">
-                            durée: {{ post.get_field('field_5cb19fe0cd2c3') }} mn
-                        </p>
-                        <p class="bref-item">
-                            jauge: {{ post.get_field('field_5cb1a05dcd2c4') }}
-                        </p>
-
-                        <p class="bref-item">
-                            tarif *: {{ post.get_field('field_5cb1a073cd2c5') }} €
-                        </p>
-                        <p class="mentions">
-                            <i>* hors frais de déplacement et conditions particulière</i>
-                            <a href="">nous consulter</a>
-                        </p>
-                        <div>
-
-
-                            {% for event in events %}
-                                {% if post.get_field('field_5cbc31c7f2c13') == event.get_field('field_5cbc31c7f2c13') %}
-                                    {% if "now"|date<event.get_field('field_5cb4d81344d45')  %}
-                                    <h4 class="next-date next-date2">PROCHAINES REPRÉSENTATIONS</h4>
-                                     <section class="container">
-
-                                        <a class="row event-home-bloc" href="{{ event.link }}">
-                                            <div class="thumb thumb2 col-md-3">
-                                                <img src="{{ post.thumbnail.src }}" alt="thumb">
-                                            </div>
-                                            <p class="col-md-3">{{ event.get_field('field_5cb4d81344d45') }}</p>
-                                            <p class="col-md-3">{{ event.get_field('field_5cb4e5ba17780') }}</p>
-                                            <p class="col-md-3">{{ event.get_field('field_5cb4e62317783') }} {{ event.get_field('field_5cb4e63d17784') }}</p>
-                                        </a>
-                                    </section>
-
-                                    {% endif %}
-                                {% endif %}
-                            {% endfor %}
-
-
-                        </div>
-                    </div>
-
-
-                </div>
-                <div class="offset-1"></div>
-
-
-            {% else %}
 
             <a id="article-anch3" class="anch col-md-12"></a>
 
             <h2 class="article-h1">A L'AFFICHE</h2>
-                    <div class="article-loop article-loop2 container-fluid">
-                        {% for show in shows %}
+            {% include '/views/partials/loops/show-loop.twig' %}
 
-                            {% if show.get_field('dispo') %}
 
-                                <div class="show_1 row">
-                                    <a class="row" href="{{ show.link }}">
-                                        <h1 class="h1-medal col-12">
-                                            {{ show.title }}
-                                        </h1>
 
-                                        <div class="thumb-medal thumb-medal2 col-md-12">
-                                            <img src="{{show.thumbnail.src}}" alt="affiche" class="affiche">
-                                        </div>
-                                        <p class=" medal-text col-md-12">
-                                            {{ show.preview.read_more('lire la suite') }}
-                                        </p>
-                                    </a>
-                                </div>
-                            {% endif %}
-
-                        {% endfor %}
-
-                    </div>
-
-            {% endif %}
 
 
             <div class="offset-1"></div>

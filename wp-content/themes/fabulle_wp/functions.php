@@ -33,7 +33,7 @@ add_theme_support( 'post-thumbnails' );
 
   function remove_menu_items() {
     global $menu;
-    $restricted = array(__('Comments'));
+    $restricted = array(__('Dashboard'),__('Comments'));
     end ($menu);
     while (prev($menu)){
       $value = explode(' ',$menu[key($menu)][0]);
@@ -85,7 +85,7 @@ add_theme_support( 'post-thumbnails' );
       'rewrite'	 => array( 'slug' => 'dates'),
       'supports' => array( 'title','author'),
       'taxonomies' => array(' '),
-      'menu_position' => 3,
+      'menu_position' => 2,
       'menu-icon' => 'dashicons-admin-post'
     );
     register_post_type( 'dates', $args );
@@ -106,7 +106,7 @@ add_theme_support( 'post-thumbnails' );
       'rewrite'	 => array( 'slug' => 'actus'),
       'supports' => array( 'title','editor','excerpt','author', 'thumbnail'),
       'taxonomies' => array('category'),
-      'menu_position' => 4,
+      'menu_position' => 3,
       'menu_icon' => 'dashicons-code-standards',
     );
     register_post_type( 'actus', $args );
@@ -151,6 +151,28 @@ add_theme_support( 'post-thumbnails' );
       'menu_icon' => 'dashicons-admin-site-alt',
     );
     register_post_type( 'places', $args );
+
+    // CPT Membres
+    $labels = array(
+      'name' => 'Membres',
+      'all_items' => 'Tous les membres',  // affiché dans le sous menu
+      'singular_name' => 'Membre',
+      'add_new_item' => 'Nouveau',
+      'edit_item' => 'Modifier le membre',
+      'menu_name' => 'Membres'
+    );
+    $args = array(
+      'labels' => $labels,
+      'public' => true,
+      'show_in_rest' => true,
+      'has_archive' => true,
+      'supports' => array('title','thumbnail','editor'),
+      'taxonomies' => array('category'),
+      'menu_position' => 6,
+      'menu_icon' => 'dashicons-admin-users',
+    );
+    register_post_type( 'membres', $args );
+
 
   }
   add_action( 'init', 'fabulle_register_post_types'); // Le hook init lance la fonction

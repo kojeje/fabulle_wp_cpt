@@ -8,6 +8,13 @@
                     <img class="d-block w-100" src="{{ post.get_field('field_5cb0656577ff6') }}" alt="First slide">
                     <h1 class="carousel-caption d-none d-md-block caption caption2">
                         {{ post.get_field('field_5cb06683a9ebb') }}
+                        {#Vers ancre suivante#}
+                        <a href="#article-anch" class="anch">
+                            <div class="button button-h">
+
+                                <p><i class="fas fa-chevron-down"></i></p>
+                            </div>
+                        </a>
 
                     </h1>
                 </div>
@@ -42,13 +49,7 @@
                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                 <span class="sr-only">Next</span>
             </a>
-             {#Vers ancre suivante#}
-            <a href="#article-anch" class="anch">
-                <div class="button button-h">
 
-                    <p><i class="fas fa-chevron-down"></i></p>
-                </div>
-            </a>
         </div>
     {% endif %}
 
@@ -58,56 +59,65 @@
     <div class="container-fluid content-wrapper article_content show-content">
 
         <article class="row post-type-{{post.post_type}} show_teaser" id="post-{{post.ID}}">
-            <h1 class="article-h1 show-h1">{{ post.title }}</h1>
-            <div class="offset-md-2"></div>
-            <div class="col-6 col-md-3 article-content">
-                <div class="affiche">
-                    <img src="{{post.thumbnail.src}}" alt="affiche" class="affiche">
-                </div>
+            <h1 class="col-12 article-h1 show-h1">{{ post.title }}</h1>
+            <div class="offset-md-6 d-none d-md-block"></div>
+            <p class="col-12 col-md-3 article-text create_date">
+                Sortie: {{ post.get_field('field_5cb497265c4df') }}
+            </p>
+            <div class="offset-md-3 d-none d-md-block"></div>
+            <div class="offset-md-6 d-none d-md-block"></div>
+            <div class="offset-md-1 d-none d-md-block"></div>
+            <div class="col-10  article-content">
+                    <img src="{{post.thumbnail.src}}" alt="affiche" class="float-thumb affiche">
+                    {{ post.content }}
+
             </div>
             <div class="offset-md-1"></div>
 
-            <div class="col-md-4 article-content">
 
-                <h2 class="article-text ">
-                    {{ post.get_field('field_5cb19302c9a7d') }}
-                </h2>
-                    <p class="article-text create_date">
-                        création: {{ post.get_field('field_5cb497265c4df') }}
-                    </p>
-                    <p class="article-text article-sub-h2">
-                        {{ post.content }}
-                    </p>
-                    <a href="#article-anch2">
+                    <a href="#article-anch2" class="col-12">
                         <div class="button button2">
                             <p>
                                 <i class="fas fa-chevron-down"></i>
                             </p>
                         </div>
                     </a>
-            </div>
-            <div class="v-bloc col-md-12"></div>
+
+            <div class="v-bloc col-md-12 row"></div>
             <a id="article-anch2" class="show-content2"></a>
             {% if post.get_field('video-booleen') %}
-                <div class="col-md-6 article-content">
+                <div class="offset-md-1 d-none d-md-block"></div>
+                <div class="col-md-10 article-content">
                     <h2 class="article-h1 show-h1" id="imagine">
                         {{ post.get_field('field_5cb1941775e1b') }}
                     </h2>
-                    <p class="article-text">
-                        {{ post.get_field('field_5cb1939eb9083')  }}
-                    </p>
-                    <a href="#article-anch3">
-                        <div class="button button2">
 
-                            <p><i class="fas fa-chevron-down"></i></p>
-                        </div>
-                    </a>
+                    <div class="offset-md-1 d-none d-md-block"></div>
+
+
                 </div>
-                <div class="col-md-6 video">
-                    <div class="video-content">
-                        {{ post.get_field('field_5cb1e69bc71a5') }}
+
+                <div class="offset-md-1 d-none d-md-block"></div>
+                <div class="offset-md-1 d-none d-md-block"></div>
+                <div class="col-md-10 video">
+                    <div class="video">
+                        <p class="float-thumb video-content">
+                            {{ post.get_field('youtube') }}
+                        </p>
+                        {{ post.get_field('sub_1')  }}
+                        {{ post.get_field('text_1')  }}
+                        <a href="#article-anch3">
+                            <div class="button button2">
+
+                                <p><i class="fas fa-chevron-down"></i></p>
+                            </div>
+                        </a>
+
                     </div>
+
                 </div>
+
+                <div class="offset-md-1 d-none d-md-block"></div>
 
 
 
@@ -115,12 +125,14 @@
 
                 <div class="row article-content">
                     <div class="offset-md-1"></div>
-                    <div class="col-md-5 ">
-                        <h2 class="article-h1" id="imagine">
-                            {{ post.get_field('field_5cb1941775e1b') }}
-                        </h2>
+                    <h2 class="article-h1" id="imagine">
+                        {{ post.get_field('text_1') }}
+                    </h2>
+                    <div class="offset-md-1 d-none d-md-block"></div>
+                    <div class="col-md-10 ">
+                        <img src="{{ post.get_field('image_alt') }}" class="float-thumb2 affiche2" alt="img">
                             <p class="article-text">
-                                {{ post.get_field('field_5cb1939eb9083')  }}
+                                {{ post.get_field('image_alt')  }}
                             </p>
                             <a href="#article-anch3">
                                 <div class="button button2">
@@ -129,10 +141,9 @@
                                 </div>
                             </a>
                     </div>
-                    <div class="col-md-5 img_alt">
-                        <img src="{{ post.get_field('field_5cb488e6b0a43') }}" alt="img">
-                    </div>
-                    <div class="offset-md-1"></div>
+                    <div class="offset-md-1 d-none d-md-block"></div>
+
+
                 </div>
 
             {% endif %}
@@ -149,34 +160,50 @@
                         <p class="bref-item style">
                             {{ post.get_field('field_5cb19e8a1f92d') }}
                         </p>
-                        <p class="bref-item">
-                            à partir de {{ post.get_field('field_5cb19f4acd2c1') }} ans
-                        </p>
-                        <p class="bref-item">
-                            jusqu'à {{ post.get_field('field_5cb19fb4cd2c2') }} ans
-                        </p>
+                        {% if post.get_field('age_mini') and post.get_field('age_maxi')%}
+                            <div class="bref-item">
+
+                                <p class="school">
+                                    de {{ post.get_field('age_mini') }} à {{ post.get_field('age_maxi') }}.
+                                </p>
+                            </div>
+                        {% elseif  post.get_field('age_mini') and post.get_field('age_maxi') == null%}
+                          à partir de {{ post.get_field('age_mini') }} ans
+                        {% elseif  post.get_field('age_maxi') and post.get_field('age_mini') == null%}
+                            jusqu'à {{ post.get_field('age_mini') }} ans
+                        {% endif %}
+                        {% if post.get_field('classe_mini') and post.get_field('classe_maxi')%}
                         <div class="bref-item">
 
                             <p class="school">
-                                Scolaires: du {{ post.get_field('field_5cb1e19399290') }} au {{ post.get_field('field_5cb1e23b477ab') }}.
+                                Scolaires: du {{ post.get_field('classe_mini') }} au {{ post.get_field('classe_maxi') }}.
                             </p>
                         </div>
+                        {% elseif  post.get_field('classe_mini') and post.get_field('classe_maxi') == null%}
+                            Scolaires: à partir du {{ post.get_field('classe_mini') }}
+                        {% elseif  post.get_field('classe_maxi') and post.get_field('classe_mini') == null%}
+                            Scolaires: jusqu'au {{ post.get_field('classe_mini') }}
+                        {% endif %}
 
-
+                        {% if show.get_field('duree')  %}
                         <p class="bref-item">
-                            durée: {{ post.get_field('field_5cb19fe0cd2c3') }} mn
+                            durée: {{ post.get_field('duree') }} mn
                         </p>
-                        <p class="bref-item">
-                            jauge: {{ post.get_field('field_5cb1a05dcd2c4') }}
-                        </p>
-
-                        <p class="bref-item">
-                            tarif *: {{ post.get_field('field_5cb1a073cd2c5') }} €
-                        </p>
-                        <p class="mentions">
-                            <i>* hors frais de déplacement et conditions particulière</i>
-                            <a href="">nous consulter</a>
-                        </p>
+                        {% endif %}
+                        {% if show.get_field('jauge')  %}
+                            <p class="bref-item">
+                                jauge: {{ post.get_field('jauge') }}
+                            </p>
+                        {% endif %}
+                        {% if post.get_field('tarif')  %}
+                            <p class="bref-item">
+                                tarif *: {{ post.get_field('tarif') }} €
+                            </p>
+                            <p class="mentions">
+                                <i>* hors frais de déplacement et conditions particulière</i>
+                                <a href="">nous consulter</a>
+                            </p>
+                        {% endif %}
                         <div>
 
 

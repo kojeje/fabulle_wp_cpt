@@ -49,6 +49,7 @@
   ];
 
 
+
 // récupère les articles en fonction du tableau d'argument $args_posts
 // en utilisant la méthode de Timber get_posts
 // puis on les enregistre dans l'array $context sous la clé "posts"
@@ -58,6 +59,7 @@
   $context['oneevents'] = Timber::get_posts($args_articles4);
   $context['actus'] = Timber::get_posts($args_articles5);
   $context['places'] = Timber::get_posts($args_articles6);
+
 //  var_dump($context['oneevents']);die;
 
 

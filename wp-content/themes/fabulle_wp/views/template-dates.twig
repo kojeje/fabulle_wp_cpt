@@ -3,7 +3,7 @@
 {% block content %}
 
     <a id="article-anch" class="anch"></a>
-    <div class="content-wrapper">
+
         <article class="post-type-{{post.post_type}}" id="post-{{post.ID}}">
             <h1 class="date">Le {{ post.get_field('field_5cb4d81344d45')}}</h1>
             <h3 class="hour">à {{ post.get_field('field_5d569f323af7b')}}</h3>
@@ -12,39 +12,38 @@
                 {% for show in shows %}
                     {% if show.get_field('field_5cbc31c7f2c13') == post.get_field('field_5cbc31c7f2c13') %}
 
-                        <div class="container -fluid show3 show2 article-loop show">
-                            <a class="row" href="{{ show.link }}">
+                        <div class="col-12 col-md-5">
+                            <div class="show5 show article-loop">
+                                <a class="row" href="{{ show.link }}">
 
-                                <h1 class="article-h1 col-12">
-                                    {{ show.title }}
-                                </h1>
-                                <div class="offset-md-4"></div>
-                                <div class="offset-3 d-block d-md-none"></div>
-                                <div class="thumb-medal col-6 col-md-4">
-                                    <img src="{{show.thumbnail.src}}" alt="affiche" class="affiche">
-                                </div>
-                                <div class="offset-3 d-block d-md-none"></div>
-                                <div class="offset-md-4"></div>
+                                    <h1 class="article-sub-h1 col-12">
+                                        {{ show.title }}
+                                    </h1>
+                                    <div class="offset-1 d-block d-md-none"></div>
+                                    <div class="col-6 col-md-4">
+                                        <img src="{{show.thumbnail.src}}" alt="affiche" class="affiche">
+                                    </div>
+                                    <div class="offset-1 "></div>
 
-                                <div class="offset-6 "></div>
-                                <p class="col-6 col-md-4">
 
-                                </p>
-                                <p class="col-6 col-md-4">
-                                    {{ show.get_field('field_5cb19e8a1f92d') }}
-                                </p>
+                                    <div class="col-5 col-md-6 t-a-center">
+                                        <p>{{ show.get_field('field_5cb19e8a1f92d') }}</p>
+                                        <p>A partir de: {{ show.get_field('field_5cb19f4acd2c1') }} ans</p>
+                                        <p>durée: {{ show.get_field('field_5cb19fe0cd2c3') }} mn environ.</p>
+                                    </div>
 
-                                <p class="col-6 col-md-4">
-                                    A partir de: {{ show.get_field('field_5cb19f4acd2c1') }} ans
-                                </p>
-                                <p class="col-6 col-md-4">
-                                    durée: {{ show.get_field('field_5cb19fe0cd2c3') }} mn environ.
-                                </p>
-                                <div class="offset-md-3"></div>
-                            </a>
+                                    <p class="col-5 col-md-4">
+
+                                    </p>
+                                    <p class="col-6 col-md-4">
+
+                                    </p>
+                                    <div class="offset-md-3"></div>
+                                </a>
+                            </div>
                         </div>
 
-                        <div class="event">
+                        <div class="event col-12 col-md-6">
 
                             {% if post.get_field('field_5d51a189a0424') == false %}
                                 <h2 class="red-title">
@@ -73,12 +72,7 @@
                                         </p>
                                     {% endif %}
                                 {% endfor %}
-                                <a href="{{ site.url }}/lactu/#article-anch">
-                                    <p class="back-link nest-date next-date-3 ad-private">
-                                        <i class="fal fa-arrow-circle-left"></i>
-                                        autres dates
-                                    </p>
-                                </a>
+
                             {% endif %}
                             {% for place in places %}
 
@@ -123,9 +117,13 @@
                                                         {{ place.get_field('field_5cb4e67517785') }}
                                                     </div>
                                                 {% endif %}
-                                        </div>
-                                    </div>
-                                    {% if post.get_field('field_5d56ce23ce3b2') == 'payant' %}
+                                            </div>
+                                         </div>
+                                    {% endif %}
+                                {% endfor %}
+                            </div>
+                        </div>
+                        {% if post.get_field('field_5d56ce23ce3b2') == 'payant' %}
                                         {% if post.get_field('field_5d51a189a0424') == true %}
                                             <div class="place container">
                                                 <table class="table">
@@ -173,12 +171,9 @@
                                                         </a>
                                                     </i>
                                                 </p>
-                                                <a href="{{ site.url }}/lactu/#article-anch">
-                                                    <p class="back-link nest-date next-date-3">
-                                                        <i class="fal fa-arrow-circle-left"></i> autres dates
-                                                    </p>
-                                                </a>
+
                                             </div>
+
                                         {% endif %}
                                     {% elseif post.get_field('field_5d56ce23ce3b2') == 'gratuit' %}
                                         <div class="place container">
@@ -189,15 +184,17 @@
                                             </p>
                                         </div>
                                     {% endif %}
-
-
-                                {% endif %}
-                            {% endfor %}
-                        </div>
                     {% endif %}
                 {% endfor %}
+
             </section>
+            <a href="{{ site.url }}/lactu/#article-anch">
+                <p class="back-link nest-date next-date-3 ad-private">
+                    <i class="fal fa-arrow-circle-left"></i>
+                    autres dates
+                </p>
+            </a>
         </article>
-    </div>
+
 {% endblock %}
 

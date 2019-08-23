@@ -1,7 +1,8 @@
 <div class="row">
     {% for show in shows %}
 
-        {% if show.get_field('dispo') == '2' %}
+        {% if show.get_field('dispo') == '3' %}
+
             <div class="offset-md-1 d-none d-md-block"></div>
             <a href="{{ oneevent.link }}" class="col-12 col-md-5 row">
 
@@ -9,6 +10,8 @@
                     <h2 class="col-12">
                         {{ show.title }}
                     </h2>
+                    <div class="offset-8"></div>
+                    <p class="col-4 article-sub-h1">EN CRÉATION</p>
                     <div class="thumb-medal thumb-medal2 col-md-12">
                         <img src="{{show.thumbnail.src}}" alt="affiche" class="affiche float-thumb oneevent-img ">
                         {{ show.content|truncate(30)}}

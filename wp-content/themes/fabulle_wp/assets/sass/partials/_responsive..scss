@@ -33,7 +33,7 @@
     text-align: left !important;
   }
   .red-title{
-    color: white;
+    color: red;
     width: 50%;
     margin: auto;
     background: red !important;
@@ -79,7 +79,9 @@
    margin-top: 20vh;
    margin-bottom: 10vh;
  }
-
+  .w-md-45{
+    width: 45%;
+  }
 
 
 }
@@ -283,6 +285,9 @@
     margin: auto;
 
   }
+  .article-loop3{
+    width: 100%;
+  }
   .article-loop2 img
   {
 
@@ -355,7 +360,7 @@
   }
   .flex-title-bloc
   {
-    margin-top: 15vh;
+    margin-top: 5vh;
   }
 
 
@@ -372,6 +377,18 @@
   .article-h1
   {
     margin: auto;
+    font-size: 40px;
+    color: $link;
+    background: none;
+    display: block;
+    padding: 30px;
+    text-align: center;
+
+
+  }
+  .article-h1-left
+  {
+
     font-size: 40px;
     color: $link;
     background: none;
@@ -513,7 +530,8 @@
     -moz-border-radius: 20px;
     border-radius: 20px;
     z-index: 40;
-    order: 1;
+    margin: 30px;
+
   }
   .video-offset
   {
@@ -587,6 +605,17 @@
     margin-bottom: 100px;
 
   }
+  .show_2
+  {
+
+    border:2px solid $link;
+    -webkit-border-radius: 50px;
+    -moz-border-radius: 50px;
+    border-radius: 50px;
+    padding: 20px;
+    margin-bottom: 100px;
+
+  }
   .show2
   {
     width: 45%;
@@ -606,6 +635,12 @@
   .show4
   {
     width: 30%;
+  }
+  .show5{
+    border: 3px solid $white;
+    padding: 20px;
+    border-radius: 50px;
+    margin-top: 15vh;
   }
   .show-medal
   {
@@ -710,11 +745,14 @@
   }
   .h1-medal
   {
-
     padding: 30px;
     margin-bottom: 30px;
     font-size: 200%;
 
+  }
+  .h1-medal2{
+    font-size: 150%;
+    padding: 15px;
   }
   .totop i
   {
@@ -752,7 +790,8 @@
     margin: auto;
   }
   .affiche2{
-    width: 100% !important;
+    width: 30% !important;
+    display: block;
   }
   .medal-text
   {
@@ -791,6 +830,10 @@
   {
     font-size:2rem;
   }
+  .article-sub-h1{
+    font-size: 20px;
+  }
+
   .article-sub-h2
   {
     font-size: 1.2rem;
@@ -861,10 +904,13 @@
   }
   .oneevent-img{
     width: auto !important;
-    height: 300px !important;
-    margin: 30px !important;
+    height: 150px !important;
+    margin: 15px !important;
     display: block !important;
     float: left !important;
+  }
+  .oneevent-img2{
+    height: 100px !important;
   }
 }
 @media screen and (min-width:1500px)
