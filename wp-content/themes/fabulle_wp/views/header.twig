@@ -12,6 +12,7 @@
                     <a href="{{ item.link }}">
                         <li class="link">{{ item.title }}</li>
                     </a>
+                    {#{{ dump(item) }}#}
                 {% endfor %}
             </ul>
         </nav>
@@ -23,6 +24,7 @@
             </a>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
             {% for item in menu.items %}
+
                 <a class="add2 add-link dropdown-item link" href="{{ item.link }}">{{ item.title }}</a>
             {% endfor %}
             </div>

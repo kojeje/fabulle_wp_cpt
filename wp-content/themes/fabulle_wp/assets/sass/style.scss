@@ -28,10 +28,11 @@ h1
   position: sticky;
   top: 0;
   z-index: 1000;
-  background-image: linear-gradient(to bottom, #000000, #0d0108, #120314, #10081e, #000f28);
+  //background-image: linear-background: rgb(2,0,36);
+  background: rgb(0,0,0);
+  background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(0,7,18,1) 32%, rgba(0,15,40,0.9) 66%);
 }
-.caption
-{
+  caption {
 
   position: absolute;
   top: 10vh;
@@ -231,9 +232,11 @@ iframe
   -moz-border-radius: 10px;
   border-radius: 10px;
   border: 1px solid $link;
-  padding-top: 20px;
   cursor:pointer;
+  padding-top: 20px;
+  padding-bottom: 20px;
   transition: 0.5s;
+
 }
 .event-home-bloc-medal
 {
@@ -247,13 +250,17 @@ iframe
 .show-medal
 {
   width: 90%;
+  height: 40vh;
   margin: auto;
   //border-bottom: 2px solid $link;
   padding-bottom: 40px;
   margin-bottom: 30px;
 
-
-
+}
+.show-medal iframe{
+  display: block;
+  height: 20vh;
+  padding: 10px;
 }
 .thumb-medal
 {
@@ -462,4 +469,16 @@ iframe
   margin: auto;
 
 }
+.map-thumb iframe{
+  max-height: 15vh;
+  display: block;
+  width: 100%;
+  height: auto;
+  padding: 10px;
+
+}
+//.event-list{
+//  max-height: 15vh;
+//}
+
 @import "partials/responsive.";

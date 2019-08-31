@@ -41,8 +41,8 @@ add_theme_support( 'post-thumbnails' );
         unset($menu[key($menu)]);}
     }
   }
-
   add_action('admin_menu', 'remove_menu_items');
+
   // déclaration des custom post types
 
   function fabulle_register_post_types() {

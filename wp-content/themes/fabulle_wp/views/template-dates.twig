@@ -5,8 +5,7 @@
     <a id="article-anch" class="anch"></a>
 
         <article class="post-type-{{post.post_type}}" id="post-{{post.ID}}">
-            <h1 class="date">Le {{ post.get_field('field_5cb4d81344d45')}}</h1>
-            <h3 class="hour">à {{ post.get_field('field_5d569f323af7b')}}</h3>
+
             <section class="article-content row">
 
                 {% for show in shows %}
@@ -16,13 +15,14 @@
                             <div class="show5 show article-loop">
                                 <a class="row" href="{{ show.link }}">
 
-                                    <h1 class="article-sub-h1 col-12">
-                                        {{ show.title }}
-                                    </h1>
+                                    {#<h1 class="article-sub-h1 col-12">#}
+                                        {#{{ show.title }}#}
+                                    {#</h1>#}
                                     <div class="offset-1 d-block d-md-none"></div>
                                     <div class="col-6 col-md-4">
                                         <img src="{{show.thumbnail.src}}" alt="affiche" class="affiche">
                                     </div>
+
                                     <div class="offset-1 "></div>
 
 
@@ -32,13 +32,10 @@
                                         <p>durée: {{ show.get_field('field_5cb19fe0cd2c3') }} mn environ.</p>
                                     </div>
 
-                                    <p class="col-5 col-md-4">
 
-                                    </p>
-                                    <p class="col-6 col-md-4">
-
-                                    </p>
                                     <div class="offset-md-3"></div>
+                                    <h1 class="date col-12">Le {{ post.get_field('field_5cb4d81344d45')}}</h1>
+                                    <h3 class="hour col-12">à {{ post.get_field('field_5d569f323af7b')}}</h3>
                                 </a>
                             </div>
                         </div>

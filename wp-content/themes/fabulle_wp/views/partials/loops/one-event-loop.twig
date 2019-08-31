@@ -11,29 +11,27 @@
                     <i class="fal fa-calendar"></i>
                     prochaine représentation
                 </h2>
-                <div class="article-loop row container-fluid event-list">
+                <div class="event-list">
                     <div class="event2">
                         <a class="row event-home-bloc" href="{{ oneevent.link }}">
-                            <div class="offset-md-2 d-none d-md-block"></div>
-                            <div class="thumb3 col-12 col-md-8 d-none d-md-block">
+
+                            <div class="thumb3 col-12 col-md-4 d-none d-md-block">
                                 <img src="{{ oneshow.thumbnail.src }}" alt="thumb">
                             </div>
-                            <div class="offset-md-2 d-none d-md-block"></div>
-                            <p class="date-list col-12">{{ oneevent.get_field('date_show') }}</p>
+                            <div class="offset-md-1 d-none d-md-block"></div>
+                            <p class="date-list col-12 col-md-3">{{ oneevent.get_field('date_show') }}</p>
                             {% for place in places if place.get_field('salle') == oneevent.get_field('salle')%}
-                                <p class="col-12">{{ place.get_field('cp') }} {{ place.get_field('commune') }}</p>
-                                {% if place.get_field('pays') != 'France' %}
-                                    <p class="col-12 country">{{ place.get_field('pays') }}</p>
-                                {% endif %}
+                                <p class="col-12 col-md-4">
+                                    {{ place.get_field('cp') }} {{ place.get_field('commune') }}
+                                    {% if place.get_field('pays') != 'France' %}
+                                        <span class="country">{{ place.get_field('pays') }}</span>
+                                    {% endif %}
+                                </p>
+                                <div class="col-12">
+                                    {{ place.get_field('gmap') }}
+                                </div>
                             {% endfor %}
-
                         </a>
-
-                        <div class="title-bloc video-title-bloc col-12">
-
-
-                        </div>
-
                     </div>
                 </div>
 

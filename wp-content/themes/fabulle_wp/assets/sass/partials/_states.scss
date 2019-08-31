@@ -37,6 +37,9 @@ a:hover
   font-weight: 900;
   border: 3px solid $white;
 }
+.event-home-bloc:hover h2{
+  color: #000000;
+}
 .event-home-bloc:hover  .country{
   opacity: 1;
 }
@@ -44,6 +47,11 @@ a:hover
 .event-home-bloc:hover .salle
 {
   color: #000000 !important;
+}
+.event-home-bloc iframe:hover {
+  opacity: 1 !important;
+  padding: 0 !important;
+  z-index: auto;
 }
 .event-home-bloc-medal:hover
 {

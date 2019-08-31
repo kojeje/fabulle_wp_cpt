@@ -1,17 +1,16 @@
-<div class="article-loop">
+<div class="row show-medal">
     {% for show in shows %}
 
         {% if show.get_field('dispo') == '1' %}
 
-    <a href="{{ oneevent.link }}">
-            <div class="row show-medal show_1 show4">
-                <h2 class="h1-medal h1-medal2 col-12">
-                    {{ show.title }}
+    <a class="col-12 col-md-4" href="{{ oneevent.link }}">
+            <div class="show-medal show_1 show4">
+                <h2 class="h1-medal h1-medal2">
+                    <i class="fas fa-theater-masks"></i> {{ show.title }}
                 </h2>
-                <div class="thumb-medal thumb-medal2 col-md-12">
+                <div class="thumb-medal thumb-medal2">
                     <img src="{{show.thumbnail.src}}" alt="affiche" class="affiche oneevent-img oneevent-img2">
-                    {{ show.preview.length(30).read_more("<span>lire la suite</span>")
-                    }}
+                    {{ show.content|truncate(20)|raw }}
                 </div>
             </div>
 

@@ -125,7 +125,7 @@
                 <h2 class="col-12 col-md-6 article-h1 flex-h1 h1-event-list" >
                     <i class="fal fa-home-lg"> </i> Accueil
                 </h2>
-                <h4 class="col-md-12 article-sub-h2">{{ post.get_field('sub1') }}</h4>
+                <h3 class="col-md-12 article-sub-h1">{{ post.get_field('sub1') }}</h3>
 
                 <img src="{{ post.thumbnail.src }}" class="float-thumb" alt="">
                 {{ post.content }}
@@ -138,6 +138,8 @@
             {% include '/views/partials/loops/one-event-loop.twig' %}
 
 
+
+
         </section>
 
 
@@ -147,7 +149,7 @@
 <a class="col-12 d-none d-md-block" id="article-anch2"></a>
 <div class="article-loop article-loop2 video-bloc container-fluid">
     {% if post.get_field('field_5cb8c5272e364') %}
-        <section class="row">
+        <section class="row row-eq-height">
             <div class="offset-md-1 d-none d-md-block"></div>
             <div class="article-loop video-content col-12 col-md-4" id="video">
                 <h2 class="article-h1 h1-event-list" id="video-title">
@@ -157,7 +159,9 @@
                 {{ post.get_field('field_5cb8c5092e363') }}
 
             </div>
+            <div class="offset-md-1 d-none d-md-block"></div>
             {% include '/views/partials/loops/1actu.twig' %}
+            <div class="offset-md-1 d-none d-md-block"></div>
         </section>
 
         <a href="#article-anch3" class="col-md-12 d-none d-md-block">
@@ -201,12 +205,12 @@
 <a id="article-anch5" class="d-none d-md-block"></a>
 
 
-    {% include '/views/partials/loops/event-loop.twig' %}
+{% include '/views/partials/loops/event-loop.twig' %}
 
 
 
 <a class="col-md-12 d-lg-block d-none" id="article-anch6"></a>
-<div class="">
+<div class="article-loop">
     <div class="title-bloc">
         <h2 class="article-h1 h1-event-list a-l-affiche">
             <i class="far fa-theater-masks"></i> AUPARAVANT
