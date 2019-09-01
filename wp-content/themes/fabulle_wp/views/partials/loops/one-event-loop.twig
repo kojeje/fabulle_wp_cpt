@@ -5,7 +5,7 @@
             if oneshow.get_field('id_show') == oneevent.get_field('id_show')%}
             {% if oneevent.get_field('public') == true
                 and oneshow.get_field('dispo') == 1
-                and "now"|date > oneevent.get_field('date_show')
+                and "now"|date < oneevent.get_field('date_show')
             %}
                 <h2 class="article-h4 h1-event-list col-12">
                     <i class="fal fa-calendar"></i>

@@ -1,4 +1,4 @@
-<div class="article-loop row container-fluid event-list">
+<div class="row container-fluid event-list">
     <h2 class="article-h1 h1-event-list col-md-5 col-12"> <i class="fal fa-calendar"></i>
         Nous voir
     </h2>
@@ -17,7 +17,7 @@
                   {% if show.get_field('id_show') == event.get_field('id_show') %}
                     {% if event.get_field('public') == true
                         and show.get_field('dispo') == 1
-                        and "now"|date > event.get_field('date_show')
+                        and "now"|date < event.get_field('date_show')
                     %}
 
                                 <a class="row  event-home-bloc" href="{{ event.link }}">

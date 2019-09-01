@@ -1,0 +1,21 @@
+{% if post.get_field('field_5cb8c5272e364') %}
+
+
+    <div class="article-loop video-content col-12 col-md-4" id="video">
+        <h2 class="article-h1 h1-event-list" id="video-title">
+            <i class="fal fa-video"></i>
+            Videos
+        </h2>
+        {{ post.get_field('youtube') }}
+    </div>
+
+{% else %}
+    <div class="col-md-4">
+        {{ post.get_field('field_5cb8c6aff774f') }}
+    </div>
+    <div class="offset-md-1"></div>
+    <div class="col-md-4">
+        <img class="img" src="{{ post.get_field('field_5cb8f31ae5c37') }}" alt="alt_img">
+    </div>
+
+{% endif %}
