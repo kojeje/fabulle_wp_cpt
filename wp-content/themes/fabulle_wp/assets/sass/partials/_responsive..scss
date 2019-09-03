@@ -128,7 +128,7 @@
   .logo_fabulle
 
   {
-    max-width: 40%;
+    //max-width: 40%;
     padding: 10px;
   }
   .logo-fabulle2
@@ -352,6 +352,7 @@
     margin-top: 20px;
 
   }
+
   .button2
   {
     position: relative;
@@ -360,6 +361,10 @@
     opacity:0.5;
     bottom:auto;
     left: auto;
+    width: 100%;
+    display: block;
+    text-align: center;
+    margin-top: 10vh;
 
   }
   .button3

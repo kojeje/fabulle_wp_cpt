@@ -1,15 +1,15 @@
 <!doctype html>
 <html lang="fr">
 <head>
-   {% include "head.twig" %}
+   {% include "partials/head.twig" %}
 </head>
 <body>
 
     {% block tmp_slide %}{% endblock %}
-    {% include "header.twig" %}
+    {% include "partials/header.twig" %}
     {% block content %}{% endblock %}
-    {% include "footer.twig" %}
-    {% include "script.twig" %}
+    {% include "partials/footer.twig" %}
+    {% include "partials/script.twig" %}
 
 </body>
 

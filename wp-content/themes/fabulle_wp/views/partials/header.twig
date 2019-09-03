@@ -1,12 +1,12 @@
 <header class="header container-fluid">
     <div class="header_bloc row">
 
-        <div class="logo col-4">
+        <div class="logo col-2">
             <a href="https://www.kojeje.fr/fabulle/">
                 <img class="logo_fabulle" src="{{ theme.link }}/assets/img/fabulle_spectacles_enfants.png" alt="logo">
             </a>
         </div>
-        <nav class="nav d-none d-lg-block col-lg-8">
+        <nav class="nav d-none d-md-block col-md-8">
             <ul class="links">
                 {% for item in menu.items %}
                     <a href="{{ item.link }}">
@@ -16,8 +16,20 @@
                 {% endfor %}
             </ul>
         </nav>
-        <div class="d-lg-none d-block offset-4"></div>
-        <nav class="dropdown show nav d-lg-none d-block col-4">
+        <div id ="search" class="col-md-1">
+            <form class="row navbar-form navbar-left" role="search" action="{{theme.link}}/search.php">
+                <button class="col-3 btn btn-search btn-outline-success " type="submit">
+                    <i class="fal fa-search"></i>
+                </button>
+                <div class="col-9 form-group">
+                    <input type ="text" id="iconified" class="form-control empty" value="{{ function('get_search_query')}}">
+                </div>
+            </form >
+        </div>
+        <div class="offset-md-1 d-none d-md-block"></div>
+
+        <div class="d-md-none d-block offset-4"></div>
+        <nav class="dropdown show nav d-md-none d-block col-4">
 
             <a href="#" class="btn btn-secondary dropdown-toggle links" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <p><i class="fas fa-bars"></i></p>

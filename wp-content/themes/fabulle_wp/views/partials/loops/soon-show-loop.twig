@@ -1,24 +1,31 @@
 <div class="row">
-    {% for show in shows %}
+    {% for soonshow in soonshows %}
 
-        {% if show.get_field('dispo') == '3' %}
+        {% if soonshow.get_field('dispo') == '3' %}
 
             <div class="offset-md-1 d-none d-md-block"></div>
             <a href="{{ oneevent.link }}" class="col-12 col-md-5 row">
 
                 <div class="row  show_2">
                     <h2 class="col-12">
-                        {{ show.title }}
+                        {{ soonshow.title }}
                     </h2>
                     <div class="offset-8"></div>
                     <p class="col-4 article-sub-h1">EN CRÉATION</p>
                     <div class="thumb-medal thumb-medal2 col-md-12">
-                        <img src="{{show.thumbnail.src}}" alt="affiche" class="affiche float-thumb oneevent-img ">
-                        {{ show.content|truncate(30)}}
+                        <img src="{{soonshow.thumbnail.src}}" alt="affiche" class="affiche float-thumb oneevent-img ">
+                        {{ soonshow.content|truncate(30)}}
                     </div>
                 </div>
             </a>
         {% endif %}
     {% endfor %}
+    <a href="#article-anch7" class="col-xs-12 col-md-6">
+        <div class="button button2 button3">
+            <p>
+                <i class="fas fa-chevron-down"></i>
+            </p>
+        </div>
+    </a>
 </div>
 

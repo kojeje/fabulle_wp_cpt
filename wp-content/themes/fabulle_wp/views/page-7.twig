@@ -115,7 +115,7 @@
 <a id="article-anch" class="anch d-none d-md-block"></a>
 <div class="article-loop article-loop2" id="article-loop">
 
-    <article class="container-fluid post-type-{{post.post_type}} row" id="post-{{post.ID}}">
+    <div class="container-fluid post-type-{{post.post_type}} row" id="post-{{post.ID}}">
 
         <section class="article-content home row">
 
@@ -143,14 +143,18 @@
         </section>
 
 
-    </article>
+    </div>
 </div>
 
 <a class="col-12 d-none d-md-block" id="article-anch2"></a>
 <section class="row row-eq-height">
     <div class="offset-md-1 d-none d-md-block"></div>
     {% include '/views/partials/video.twig' %}
-    <div class="offset-md-1 d-none d-md-block"></div>
+    <a href="#article-anch3" class="col-md-2 d-none d-md-block">
+        <div class="button button2 button3">
+            <p><i class="fas fa-chevron-down"></i></p>
+        </div>
+    </a>
     {% include '/views/partials/loops/1actu.twig' %}
 
 
@@ -165,19 +169,13 @@
 
     </div>
     {% include '/views/partials/loops/show-loop.twig' %}
-    <a href="#article-anch5">
-        <div class="button button2 button3">
-            <p>
-                <i class="fas fa-chevron-down"></i>
-            </p>
-        </div>
-    </a>
-    <a class="col-md-12 d-lg-block d-none" id="article-anch4"></a>
+
+
 
 
 </div>
 
-<a id="article-anch5" class="d-none d-md-block"></a>
+<a id="article-anch4" class="d-none d-md-block"></a>
 
 
 {% include '/views/partials/loops/event-loop.twig' %}
@@ -188,37 +186,39 @@
 <div class="article-loop">
     <div class="title-bloc">
         <h2 class="article-h1 h1-event-list a-l-affiche">
-            <i class="far fa-theater-masks"></i> AUPARAVANT
+            <i class="far fa-theater-masks"></i> Anciens Spectacles
         </h2>
 
 
     </div>
     {% include '/views/partials/loops/old-show-loop.twig' %}
-    <a href="#article-anch7" class="d-none d-md-block">
-        <div class="button button2 button3">
-            <p><i class="fas fa-chevron-down"></i></p>
-        </div>
-    </a>
+
 
 </div>
 
-<a class="col-md-12 d-lg-block d-none" id="article-anch7"></a>
+<a class="col-md-12 d-lg-block d-none" id="article-anch5"></a>
 <div class="">
     <div class="title-bloc">
         <h2 class="article-h1 h1-event-list a-l-affiche">
-            <i class="far fa-theater-masks"></i> Prochainement
+            <i class="far fa-theater-masks"></i> Ils sont passé par là ...
         </h2>
+    </div>
+    {% include '/views/partials/loops/references-loop.twig' %}
+
+
+</div>
+    <a class="col-md-12 d-lg-block d-none" id="article-anch6"></a>
+    <div class="">
+        <div class="title-bloc">
+            <h2 class="article-h1 h1-event-list a-l-affiche">
+                <i class="far fa-theater-masks"></i> En création...
+            </h2>
+        </div>
+        {% include '/views/partials/loops/soon-show-loop.twig' %}
 
 
     </div>
-    {% include '/views/partials/loops/soon-show-loop.twig' %}
-    {#<a href="#article-anch6" class="d-none d-md-block">#}
-        {#<div class="button button2 button3">#}
-            {#<p><i class="fas fa-chevron-down"></i></p>#}
-        {#</div>#}
-    {#</a>#}
 
-</div>
 {% endblock %}
 
 

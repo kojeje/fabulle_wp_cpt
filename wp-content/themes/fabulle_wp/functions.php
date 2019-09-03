@@ -14,6 +14,7 @@ add_theme_support( 'post-thumbnails' );
 
   ) );
 
+
 // fonction pour créer des variables globales, accessibles dans tous les fichiers twig
   function add_to_context($data){
 
@@ -152,6 +153,26 @@ add_theme_support( 'post-thumbnails' );
     );
     register_post_type( 'places', $args );
 
+    // CPT References
+    $labels = array(
+      'name' => 'References',
+      'all_items' => 'Tous les références',  // affiché dans le sous menu
+      'singular_name' => 'Reference',
+      'add_new_item' => 'Nouveau',
+      'edit_item' => 'Modifier la référence',
+      'menu_name' => 'Reference'
+    );
+    $args = array(
+      'labels' => $labels,
+      'public' => true,
+      'show_in_rest' => true,
+      'has_archive' => true,
+      'supports' => array( 'title', 'author'),
+      'taxonomies' => array('category'),
+      'menu_position' => 5,
+      'menu_icon' => 'dashicons-admin-site-alt',
+    );
+    register_post_type( 'references', $args );
     // CPT Membres
     $labels = array(
       'name' => 'Membres',

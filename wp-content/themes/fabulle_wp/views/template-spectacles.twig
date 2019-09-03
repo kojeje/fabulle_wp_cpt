@@ -204,6 +204,12 @@
                                 <a href="">nous consulter</a>
                             </p>
                         {% endif %}
+                        {% if post.get_field('fiche_technique') %}
+                            <a href="{{ post.get_field('fiche_technique') }}" class="link">
+                                Fiche technique
+                            </a>
+                        {% endif %}
+
                         <div>
 
 

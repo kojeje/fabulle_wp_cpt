@@ -1,0 +1,50 @@
+<div class="row container-fluid event-list">
+
+    <a href="#article-anch6" class="col-md-12 d-none d-md-block">
+        <div class="button button2 button3">
+            <p><i class="fas fa-chevron-down"></i></p>
+        </div>
+    </a>
+    {#<div class="offset-md-5"></div>#}
+    <section class="event container-fluid">
+        <div id="title-bloc" class="title-bloc2 flex-title-bloc col-12 row">
+            <div class="container-fluid event-list">
+                <h2></h2>
+                {##}
+                {% for reference in references %}
+                    {% for show in shows%}
+                        {% if show.get_field('id_show') == reference.get_field('id_show') %}
+                                <div class="row  event-home-bloc">
+{#{{ dump(reference) }}                                    #}{#<div class="offset-md-2 d-none d-md-block"></div>#}
+                                    <div class="thumb3 col-12 col-md-2 d-none d-md-block">
+                                        <img src="{{ show.thumbnail.src }}" alt="thumb">
+                                    </div>
+                                    {#<div class="offset-md-2 d-none d-md-block"></div>#}
+                                    <p class="date-list col-12 col-md-2">{{ reference.get_field('date_ref')|raw}}</p>
+
+
+                                        <p class="col-12 col-md-3">{{ reference.get_field('salle') }}</p>
+                                        <p class="col-12 col-md-3">{{ reference.get_field('cp') }} {{ reference.get_field('commune') }}</p>
+                                        <p class="col-12 col-md-2 country">
+                                            {% if reference.get_field('pays') != 'France' %}
+                                                {{ reference.get_field('pays') }}
+                                            {% endif %}
+
+                                        </p>
+
+
+                                </div>
+                        {% endif %}
+                    {% endfor %}
+                {% endfor %}
+            </div>
+        </div>
+
+    </section>
+    <a href="#article-anch6" class="col-md-12 d-none d-md-block">
+        <div class="button button2 button3">
+            <p><i class="fas fa-chevron-down"></i></p>
+        </div>
+    </a>
+
+</div>

@@ -477,8 +477,37 @@ iframe
   padding: 10px;
 
 }
+.form-group{
+  margin: 0 !important;
+  padding-right: 0 !important;
+  padding-left: 0 !important;
+
+
+}
+.form-control{
+  border-radius: 0 50px 50px 0;
+  border: none;
+}
+.navbar-form{
+  padding-top: 50px;
+  opacity:0.5;
+
+}
 //.event-list{
 //  max-height: 15vh;
 //}
+.empty {
+  font-family: FontAwesome, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  text-decoration: inherit;
+
+}
+.btn-outline-success{
+  border:none;
+  border-radius: 50px 0 0 50px;
+  background-color: #fff;
+  color: black;
+}
 
 @import "partials/responsive.";

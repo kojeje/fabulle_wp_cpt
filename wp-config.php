@@ -3,7 +3,7 @@
  * La configuration de base de votre installation WordPress.
  *
  * Ce fichier contient les réglages de configuration suivants : réglages MySQL,
- * préfixe de table, clés secrètes, langue utilisée, et ABSPATH.
+ * préfixe de table, @és secrètes, langue utilisée, et ABSPATH.
  * Vous pouvez en savoir plus à leur sujet en allant sur
  * {@link http://codex.wordpress.org/fr:Modifier_wp-config.php Modifier
  * wp-config.php}. C’est votre hébergeur qui doit vous donner vos

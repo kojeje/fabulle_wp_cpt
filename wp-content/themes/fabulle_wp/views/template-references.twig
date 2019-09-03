@@ -1,0 +1,197 @@
+{% extends "base.twig" %}
+
+{% block content %}
+
+    <a id="article-anch" class="anch"></a>
+
+        <article class="post-type-{{post.post_type}}" id="post-{{post.ID}}">
+
+            <section class="article-content row">
+
+                {% for show in shows %}
+                    {% if show.get_field('field_5cbc31c7f2c13') == post.get_field('field_5cbc31c7f2c13') %}
+
+                        <div class="col-12 col-md-5">
+                            <div class="show5 show article-loop">
+                                <a class="row" href="{{ show.link }}">
+
+                                    {#<h1 class="article-sub-h1 col-12">#}
+                                        {#{{ show.title }}#}
+                                    {#</h1>#}
+                                    <div class="offset-1 d-block d-md-none"></div>
+                                    <div class="col-6 col-md-4">
+                                        <img src="{{show.thumbnail.src}}" alt="affiche" class="affiche">
+                                    </div>
+
+                                    <div class="offset-1 "></div>
+
+
+                                    <div class="col-5 col-md-6 t-a-center">
+                                        <p>{{ show.get_field('field_5cb19e8a1f92d') }}</p>
+                                        <p>A partir de: {{ show.get_field('field_5cb19f4acd2c1') }} ans</p>
+                                        <p>durée: {{ show.get_field('field_5cb19fe0cd2c3') }} mn environ.</p>
+                                    </div>
+
+
+                                    <div class="offset-md-3"></div>
+                                    <h1 class="date col-12">Le {{ post.get_field('field_5cb4d81344d45')}}</h1>
+                                    <h3 class="hour col-12">à {{ post.get_field('field_5d569f323af7b')}}</h3>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="event col-12 col-md-6">
+
+                            {% if post.get_field('field_5d51a189a0424') == false %}
+                                <h2 class="red-title">
+                                    Évènement privé
+                                </h2>
+                                {% for place in places %}
+
+
+                                    {% if place.get_field('field_5cb4e5ba17780') == post.get_field('field_5cb4e5ba17780') %}
+                                        <p class="ad ad-private">
+                                            {{ place.get_field('field_5cb4e62317783') }}
+                                            <strong>
+                                                {{ place.get_field('field_5cb4e63d17784') }}
+                                            </strong>
+                                        </p>
+                                        {% if  place.get_field('field_5d568faa16316')!= 'France' %}
+                                            <p class="ad ad-private country">
+                                                {{ place.get_field('field_5d568faa16316') }}
+                                            </p>
+                                        {% endif %}
+                                        <p class="ad ad-private url bk-black">
+                                            <i>* Cette représentation est un évènement privé, elle n'est donc pas ouverte au public.
+                                                <br>
+                                                Néanmoins si vous êtes diffuseur de spectacles,
+                                                <a href="{{ site.url/invitations }}">n'hésitez pas à demander votre invitation</a></i>
+                                        </p>
+                                    {% endif %}
+                                {% endfor %}
+
+                            {% endif %}
+                            {% for place in places %}
+
+
+                                {% if place.get_field('field_5cb4e5ba17780') == post.get_field('field_5cb4e5ba17780') %}
+                                    <div class="place container">
+                                        <div class="endroit row">
+                                            <div class="adress row">
+                                                {% if post.get_field('field_5d51a189a0424') == true %}
+                                                    <h1 class="h1-medal hall col-12">
+                                                        {{ place.get_field('field_5cb4e5ba17780') }}
+                                                    </h1>
+                                                    <div class="col-md-5">
+                                                        <p class="ad ad2">
+                                                            {{ place.get_field('field_5cb4e5e417781') }}
+                                                        </p>
+
+                                                        <p class="ad ad2">
+                                                            {{ place.get_field('field_5cb4e62317783') }}
+                                                            <strong>
+                                                                {{ place.get_field('field_5cb4e63d17784') }}
+                                                            </strong>
+                                                        </p>
+                                                        {% if  place.get_field('field_5d568faa16316')!= 'France' %}
+                                                            <p class="ad ad2 country">
+                                                                {{ place.get_field('field_5d568faa16316') }}
+                                                            </p>
+                                                        {% endif %}
+                                                    {% endif %}
+
+                                                    {% if post.get_field('field_5d51a189a0424') == true %}
+                                                        <p class="ad ad2 tel">
+                                                            {{ place.get_field('field_5cb72154c6b26') }}
+                                                        </p>
+                                                        <p class="ad ad2 url">
+                                                            <a href="{{ place.get_field('field_5cb7241778245') }}" target="_blank">site web</a>
+                                                        </p>
+                                                    </div>
+
+                                                    <div class="offset-md-1"></div>
+                                                    <div class="map col-md-6">
+                                                        {{ place.get_field('field_5cb4e67517785') }}
+                                                    </div>
+                                                {% endif %}
+                                            </div>
+                                         </div>
+                                    {% endif %}
+                                {% endfor %}
+                            </div>
+                        </div>
+                        {% if post.get_field('field_5d56ce23ce3b2') == 'payant' %}
+                                        {% if post.get_field('field_5d51a189a0424') == true %}
+                                            <div class="place container">
+                                                <table class="table">
+                                                    <tr>
+                                                        <th class="th">tarif</th>
+                                                        {% if post.get_field('field_5d56ce5e4c314') == true %}
+                                                            <th class="th">tarif réduit *</th>
+                                                        {% endif %}
+                                                         {% if post.get_field('field_5d56ceb7e7ca3') == true %}
+                                                            <th class="th">tarif groupe **</th>
+                                                         {% endif %}
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="td">{{ post.get_field('field_5d56cef153f08') }} €</td>
+                                                        {% if post.get_field('field_5d56ce5e4c314') == true %}
+                                                            <td class="td">{{ post.get_field('field_5d56cf3f2c0bc') }} €</td>
+                                                        {% endif %}
+                                                        {% if post.get_field('field_5d56ceb7e7ca3') == true %}
+                                                            <td class="td">{{ post.get_field('field_5d56cf6b9a2d7') }} €</td>
+                                                        {% endif %}
+
+                                                    </tr>
+
+                                                </table>
+                                                <p class="ad url t-a-center">
+                                                    <i>
+                                                        tarifs indicatifs
+                                                    </i>
+                                                </p>
+                                            </div>
+                                                <p class="ad url bk-black">
+                                                     <i>
+                                                         * pour les demandeurs d'emplois, titulaires du RSA, etc.
+
+                                                         ** tarif groupe applicable à partir de 20 personnes
+                                                     </i>
+                                                </p>
+                                                <p class="ad url bk-black">
+                                                    <i class="fal fa-lightbulb-dollar"></i>
+                                                    <i> Cette représentation est payante.
+
+                                                        Toutefois si vous êtes diffuseur de spectacles,
+                                                        <a href="{{ site.url/invitations }}">
+                                                            n'hésitez pas à demander votre invitation
+                                                        </a>
+                                                    </i>
+                                                </p>
+
+                                            </div>
+
+                                        {% endif %}
+                                    {% elseif post.get_field('field_5d56ce23ce3b2') == 'gratuit' %}
+                                        <div class="place container">
+                                            <p class="ad url strong t-a-center">
+                                                <strong>
+                                                    gratuit
+                                                </strong>
+                                            </p>
+                                        </div>
+                                    {% endif %}
+                    {% endif %}
+                {% endfor %}
+
+            </section>
+            <a href="{{ site.url }}/lactu/#article-anch">
+                <p class="back-link nest-date next-date-3 ad-private">
+                    <i class="fal fa-arrow-circle-left"></i>
+                    autres dates
+                </p>
+            </a>
+        </article>
+
+{% endblock %}
+

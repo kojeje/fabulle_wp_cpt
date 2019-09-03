@@ -25,7 +25,7 @@
   ];
   $args_articles3 = [
     'post_type' => 'dates',
-    'order'=>'ASC',
+    'order'=>'DESC',
     'meta_key' => 'date_show',
     'order_by' => 'date_show',
   ];
@@ -42,11 +42,39 @@
   'order'=>'ASC',
   'orderby' => 'date',
   'posts_per_page' => 1,
-];
+  ];
   $args_articles6 = [
-    'post_type' => 'places',
+  'post_type' => 'places',
 
   ];
+
+  $args_articles7 = [
+    'post_type' => 'references',
+    'meta_key' => 'date_ref',
+    'orderby' => 'date_ref',
+    'order' => 'DESC',
+
+
+  ];
+  $args_articles8 =[
+    'post_type' => 'spectacles',
+    'meta_key' => 'dispo',
+    'meta_value' => '2',
+
+
+
+  ];
+  $args_articles9 =[
+    'post_type' => 'spectacles',
+    'meta_key' => 'dispo',
+    'meta_value' => '3',
+
+
+
+  ];
+
+
+
 
 
 
@@ -59,8 +87,12 @@
   $context['oneevents'] = Timber::get_posts($args_articles4);
   $context['actus'] = Timber::get_posts($args_articles5);
   $context['places'] = Timber::get_posts($args_articles6);
+  $context['references'] = Timber::get_posts($args_articles7);
+  $context['oldshows'] = Timber::get_posts($args_articles8);
+  $context['soonshows'] = Timber::get_posts($args_articles9);
 
-//  var_dump($context['oneevents']);die;
+//  var_dump($var);
+
 
 
 
