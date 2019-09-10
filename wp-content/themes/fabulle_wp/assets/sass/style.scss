@@ -1,6 +1,6 @@
 @import "partials/var";
 @import "partials/fonts";
-@import "partials/states";
+
 
 
 html
@@ -142,11 +142,13 @@ a
 {
   font-size: 20px;
   text-align: center;
-  color: #000;
   background: $link;
   //margin-top: 50px;
   padding: 10px;
-
+  margin: auto;
+  color: $link;
+  background: none;
+  display: block;
 }
 .article-h2
 {
@@ -168,10 +170,6 @@ a
 {
   width: 90%;
   margin: auto;
-}
-#video-title
-{
-  order:1;
 }
 
 #video iframe{
@@ -228,14 +226,10 @@ iframe
   text-align: center;
   margin: auto;
   margin-top: 10px;
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  border-radius: 10px;
-  border: 1px solid $link;
   cursor:pointer;
   padding-top: 20px;
   padding-bottom: 20px;
-  transition: 0.5s;
+  transition: 2s;
 
 }
 .event-home-bloc-medal
@@ -385,7 +379,7 @@ iframe
   //max-width: 50% !important;
   //min-width: 25% !important;
   height: auto;
-  padding: 30px;
+  padding-right: 30px;
   float: left;
 }
 .float-thumb2{
@@ -493,9 +487,6 @@ iframe
   opacity:0.5;
 
 }
-//.event-list{
-//  max-height: 15vh;
-//}
 .empty {
   font-family: FontAwesome, sans-serif;
   font-style: normal;
@@ -509,5 +500,120 @@ iframe
   background-color: #fff;
   color: black;
 }
+.metiers{
+  font-size:8px;
+  width: 100%;
+}
+.membre{
+}
+.membre-f{
+
+  color: white;
+}
+.membre-f  .article-text-h2{
+  color: $link;
+}
+.btn-outline-success,
+.form-control{
+  background-color: #66ccff;
+
+}
+.btn-outline-success{
+  padding-right: 10px;
+  min-width: 20px;
+}
+.w-80{
+  width: 95%;
+}
+.m-a{
+  margin: auto;
+}
+.mt100{
+  margin-top: 100px;
+}
+.bref-item i{
+  color: $link;
+}
+.img50{
+  display: block;
+  width: 50%;
+  margin: auto;
+}
+.link\#66ccff2{
+  //border-top: 4px solid #66ccff;
+  color:#66ccff !important;
+
+}
+.link\#ff66332{
+  color:#ff6633 !important;
+}
+.link\#ffcc332{
+  color:#ffcc33 !important;
+}
+.parallax{
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: contain;
+
+}
+.parallax2{
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+}
+#home-referencies{
+  background-image: $url1;
+  //padding: 50px;
+  width: 100%;
+  margin-left: 0;
+  margin-right: 0;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  //border: 40px solid #ffb630;
+}
+#home-event{
+  background-image: $url2;
+  width: 100%;
+  margin-left: 0;
+  margin-right: 0;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+
+}
+.event-list2{
+  background-color: $dark-blue-transparent;
+  -webkit-border-radius: 50px;
+  -moz-border-radius: 50px;
+  border-radius: 50px;
+  padding: 30px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+.ptit_mot-inc{
+  background-image: $url3;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+
+}
+.separation{
+  width: 100%;
+  margin-top: 100px;
+}
+.separation-line{
+  height: 2px;
+  background-color: #66ccff;
+  margin-top: 50px;
+}
+.back-show{
+  background-image: $url4;
+}
+.back-home{
+  background-image: $url5;
+}
 
 @import "partials/responsive.";
+@import "partials/states";

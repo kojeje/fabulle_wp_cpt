@@ -24,7 +24,7 @@
   $args_shows = [
     'post_type' => 'spectacles',
     'meta_key' => 'dispo',
-    'order_by' => 'dispo',
+    'orderby' => 'dispo',
     'order' => 'ASC'
 
   ];
@@ -34,7 +34,7 @@
     'post_type' => 'dates',
     'order'=>'DESC',
     'meta_key' => 'date_show',
-    'order_by' => 'date_show',
+    'orderby' => 'date_show',
 
   ];
 

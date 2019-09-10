@@ -31,15 +31,20 @@ a:hover
 }
 .event-home-bloc:hover
 {
-  background: $link;
-  color: #000000 !important;
+  //background: $link;
+  //color: #000000 !important;
   font-size: 16px;
   font-weight: 900;
   border: 3px solid $white;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+
 }
-.event-home-bloc:hover h2{
-  color: #000000;
-}
+
+//.event-home-bloc:hover h2{
+//  color: #000000;
+//}
 .event-home-bloc:hover  .country{
   opacity: 1;
 }
@@ -52,6 +57,9 @@ a:hover
   opacity: 1 !important;
   padding: 0 !important;
   z-index: auto;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
 }
 .event-home-bloc-medal:hover
 {
@@ -86,13 +94,65 @@ a:hover
 .btn-outline-success:hover{
   background-color: #ffffff;
 }
-.navbar-form:hover
-
-{
-
+.navbar-form:hover {
   opacity:1;
-
 }
 
+.link:hover{
+  //border-top: 4px solid $carmin;
+  color: $carmin;
+  font-size: 24px;
+
+}
+.link2:hover{
+
+}
+.link\#66ccff:hover{
+  //border-top: 4px solid #66ccff;
+  color:#66ccff;
+
+}
+.link\#ff6633:hover{
+  color: #ff6633;
+  //border-top: 4px solid #ff6633;
+}
+.link\#ffcc33:hover{
+  color: #ffcc33;
+  //border-top: 4px solid #ffcc33;
+}
+.mt0{
+  margin-top: 0;
+}
+.p0{
+  padding: 0;
+}
+.link4:hover{
+  color: #f9e2e2 !important;
+}
+.link2:hover{
+  font-size: 50px;
+}
+//.home-post:hover,
+//.thumb p:hover{
+//  font-size: 125%;
+//}
+.cie-text:hover,
+.cie-text p:hover{
+  font-size: 125% !important;
+}
+.event-home-bloc2:hover{
+  background-color: rgba(0, 0, 0, 0.7);
+}
+.event-home-ref-block:hover{
+  border: 3px solid #ff6633;
+  background-color: $dark-blue-transparent;
+}
+.event-home-date-block:hover{
+  border: 3px solid #ffcc33;
+  background-color: $dark-blue-transparent;
+}
+.event-list2:hover{
+  background-color: $dark-blue-less-transparent;
+}
 
 

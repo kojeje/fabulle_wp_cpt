@@ -1,0 +1,21 @@
+<div class="row">
+    {% for oldshow in oldshows %}
+
+        {#{{ dump(oldshow.get_field('priorite'))}}#}
+            <div class="offset-md-1 d-none d-md-block"></div>
+            <a href="{{ oldshow.link }}" class="col-12 col-md-5 row">
+
+                <div class="row  show_2">
+                    <h2 class="col-12">
+                        {{ oldshow.title }}
+                    </h2>
+                    <div class="thumb-medal thumb-medal2 col-md-12">
+                        <img src="{{oldshow.thumbnail.src}}" alt="affiche" class="affiche float-thumb oneevent-img ">
+                        {{ oldshow.content|truncate(30)}}
+                    </div>
+                </div>
+            </a>
+    {% endfor %}
+
+</div>
+

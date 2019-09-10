@@ -7,10 +7,10 @@
             <a href="{{ show.link }}" class="col-12 col-md-5 row">
 
                 <div class="row  show_2">
-                    <h2 class="col-12">
+                    <h2 class="col-12 link ">
                         {{ show.title }}
                     </h2>
-                    <div class="thumb-medal thumb-medal2 col-md-12">
+                    <div class="thumb-medal thumb-medal2 col-md-12 cie-text">
                         <img src="{{show.thumbnail.src}}" alt="affiche" class="affiche float-thumb oneevent-img ">
                         {{ show.content|truncate(30)}}
                     </div>
@@ -20,11 +20,5 @@
         {% endif %}
     {% endfor %}
 
-    <a href="#article-anch4" class="col-xs-12 col-md-6">
-        <div class="button button2 button3">
-            <p>
-                <i class="fas fa-chevron-down"></i>
-            </p>
-        </div>
-    </a>
+
 </div>

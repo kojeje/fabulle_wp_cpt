@@ -6,29 +6,49 @@
     <div class="container-fluid content-wrapper article_content show-content">
 
         <article class="row post-type-{{post.post_type}}" id="post-{{post.ID}}">
-            <h1 class=" col-12">Membre
-            </h1>
+            <h1 class="col-md-4 col-12">Membre</h1>
 
+            <div class="container-fluid article-content ">
 
+               <div class="row">
+                   <div class="offset-md-1 d-none d-md-block"></div>
+                   <h2 class="article-h1 under-title col-12 col-md-3">{{ post.get_field('prenom') }} {{ post.get_field('nom') }}</h2>
 
+                   <div class=" col-md-4">
+                       <img src="{{post.thumbnail.src}}" alt="affiche">
+                   </div>
+                   <div class="offset-md-4 d-none d-md-block"></div>
 
+                   {% if post.get_field('nom_de_scene') %}
+                       <p class="t-a-center article-sub-h2 col-12 col-md-2">nom de scène: {{ post.get_field('nom_de_scene') }}</p>
 
-            <div class="container article-content ">
+                   {% else %}
+                       <div class="offset-md-2 d-none d-md-block"></div>
+                   {% endif %}
+                   {% if 'musicien(ne)/chanteur- chanteuse' in post.get_field('metiers')%}
+                       <p class="t-a-center article-sub-h2 col-12 col-md-2"> {{ post.get_field('instrument') }}</p>
+                   {% elseif 'comédien(ne)' in post.get_field('metiers') and  post.get_field('genre') == "femme"%}
+                       <p class="t-a-center article-sub-h2 col-12 col-md-2">comédienne </p>
+                   {% elseif 'comédien(ne)' in post.get_field('metiers') and  post.get_field('genre') == "homme"%}
+                       <p class="t-a-center article-sub-h2 col-12 col-md-2">comédien</p>
 
-                <h2 class="article-h1">{{ post.get_field('prenom') }} {{ post.get_field('nom') }}</h2>
-                <p class="t-a-center article-sub-h2 ">{{ post.get_field('nom_de_scene') }}</p>
-                {% if 'musicien(ne)/chanteur- chanteuse' in post.get_field('metiers')%}
-                    <p>instrument: {{ post.get_field('instrument') }}</p>
-                {% endif %}
-                <h3>Ceci explique cela...</h3>
-                {#<div class="word-date">#}
-                    {#{{ post.date|date('F Y') }}#}
-                {#</div>#}
-                <div class="col-md-12 col-12 ">
-                    <img src="{{post.thumbnail.src}}" alt="affiche" class="affiche2 float-thumb">
-                    {{ post.get_field('bio') }}
-                    <div class="member-show"></div>
-                </div>
+                   {% else %}
+                       <p class="t-a-center article-sub-h2 col-12 col-md-4">{{ post.get_field('metier') }}</p>
+                   {% endif %}
+                   <div class="offset-md-4 d-none d-md-block"></div>
+                   <div class="offset-md-3 d-none d-md-block"></div>
+                   <h3 class="col-12 col-md-8">Ceci explique cela...</h3>
+                   <div class="offset-md-1 d-none d-md-block"></div>
+                   <div class="offset-md-2 d-none d-md-block"></div>
+                   <div class="col-md-8 col-12 col-md-8">
+
+                       {{ post.get_field('bio') }}
+                       <div class="member-show"></div>
+                   </div>
+                   <div class="offset-md-2 d-none d-md-block"></div>
+
+               </div>
+
 
                 <div class="row">
                     {% for show in shows %}

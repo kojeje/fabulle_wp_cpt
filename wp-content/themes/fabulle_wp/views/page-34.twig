@@ -6,12 +6,12 @@
     <div class="content-wrapper article_content" xmlns="http://www.w3.org/1999/html">
         <article class="post-type-{{post.post_type}}" id="post-{{post.ID}}">
             <a id="article-anch anch"></a>
-            <h1 class="loop-title">A l'affiche !</h1>
-            {% include '/views/partials/loops/show-loop.twig' %}
-            {#<h1 class="loop-title">Ancien Spectacles</h1>#}
-            {#{% include '/views/partials/loops/old-show-loop.twig' %}#}
-            {#<h1 class="loop-title">Ils sont passés par là !</h1>#}
-            {#{% include '/views/partials/loops/ref-loop.twig' %}#}
+            <h1 class="article-h1 under-title under-title2 mt0 p0">A l'affiche !</h1>
+            {% include '/views/partials/loops/page-show-loop.twig' %}
+            <h1 class="article-h1 under-title under-title2 under-title2">Ancien Spectacles</h1>
+            {% include '/views/partials/loops/page-old-show-loop.twig' %}
+            <h1 class="article-h1 under-title under-title2">En création</h1>
+            {% include '/views/partials/loops/page-soon-show-loop.twig' %}
         </article>
     </div>
 

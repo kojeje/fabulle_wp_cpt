@@ -1,9 +1,7 @@
 {% extends 'base.twig' %}
 
 {% block tmp_slide %}
-
 <!-- SLIDER -->
-
     {# Si Slider existe#}
     {% if post.get_field('field_5cb8ecc79f5cc') == true %}
         <!-- IMAGES 1265 X 550 -->
@@ -19,7 +17,6 @@
                     </div>
                 </a>
             </div>
-
             <div class="carousel-inner">
                 {# img 1#}
                 <div class="carousel-item active">
@@ -109,116 +106,181 @@
         </div>
     {% endif %}
 {% endblock %}
-
 {% block content %}
 <!-- CORPS DE LA PAGE -->
+    {# accueil #}
 <a id="article-anch" class="anch d-none d-md-block"></a>
-<div class="article-loop article-loop2" id="article-loop">
 
-    <div class="container-fluid post-type-{{post.post_type}} row" id="post-{{post.ID}}">
+<div class="article-loop article-loop2 w-80 m-a" id="article-loop">
+    <div class="cpost-type-{{post.post_type}} row" id="post-{{post.ID}}">
 
-        <section class="article-content home row">
+        <section class="article-content home row row-eq-height back-home parallax2">
+            {% if events %}
+                <div class="col-12 col-md-5 row">
+                    <h2 class="link link#66ccff2 col-12 col-md-6 article-h1 under-title flex-h1 h1-event-list" >
+                        <i class=" fas fa-home-lg"> </i> ACCUEIL
+                    </h2>
+                    <div class="col-12 home-post cie-text">
+                        <h3 class="article-sub-h1 link linkZ">{{ post.get_field('sub1') }}</h3>
+
+                        <img src="{{ post.thumbnail.src }}" class="float-thumb" alt="Image pour {{ post.title}}">
+                        {{ post.content }}
+                        </div>
+                    <a href="#article-anch2" class="col-md-12 d-none d-md-block">
+                        <div class="button button2 button3">
+                            <p><i class="fas fa-chevron-down"></i></p>
+                        </div>
+                    </a>
+                </div>
+                {% include '/views/partials/loops/one-event-loop.twig' %}
+            {% else %}
+                <div class="offset-md-1 d-none d-md-block"></div>
+                <div class="col-12 col-md-4 row event-list2">
+
+                    <h2 class="link link#66ccff2 col-12 col-md-5 article-h1 under-title flex-h1 h1-event-list" >
+                        <i class=" fas fa-home-lg"> </i> ACCUEIL
+                    </h2>
+                    <div class="col-12 home-post cie-text">
+                        <h3 class="article-sub-h1 link linkZ">{{ post.get_field('sub1') }}</h3>
+
+                        <img src="{{ post.thumbnail.src }}" class="float-thumb" alt="Image pour {{ post.title}}">
+                        {{ post.content }}
+                    </div>
+                    <a href="#article-anch2" class="col-md-12 d-none d-md-block">
+                        <div class="button button2 button3">
+                            <p><i class="fas fa-chevron-down"></i></p>
+                        </div>
+                    </a>
+                </div>
+                <div class="offset-md-1 d-none d-md-block"></div>
+                {% include '/views/partials/video2.twig' %}
+            {% endif %}
+        </section>
+        {% include '/views/partials/separation.twig' %}
 
 
-
-            <div class="col-12 col-md-6">
-                <h2 class="col-12 col-md-6 article-h1 flex-h1 h1-event-list" >
-                    <i class="fal fa-home-lg"> </i> Accueil
+        <a class="col-12 d-none d-md-block" id="article-anch2"></a>
+        <section class="row row-eq-height ptit_mot-inc parallax2">
+            {% if events %}
+                {% include '/views/partials/video.twig' %}
+                <div class="offset-md-1 d-none d-md-block"></div>
+                {% include '/views/partials/loops/1actu.twig' %}
+            {% else %}
+                {% include '/views/partials/loops/1actu-row.twig' %}
+            {% endif %}
+            <a href="#article-anch3" class="anch t-a-center col-12 d-none d-md-block">
+                <div class="button button2 button3">
+                    <p><i class="fas fa-chevron-down"></i></p>
+                </div>
+            </a>
+        </section>
+        {% include '/views/partials/separation.twig' %}
+        <a class="col-md-12 d-lg-block d-none" id="article-anch3"></a>
+        <div class="article-loop article-loop2 back-show parallax2">
+            <div class="title-bloc">
+                <h2 class="event-list2 article-h1 under-title link link#ffcc332 link2 h1-event-list a-l-affiche">
+                    <i class="fas fa-theater-masks"></i> A L'AFFICHE
                 </h2>
-                <h3 class="col-md-12 article-sub-h1">{{ post.get_field('sub1') }}</h3>
+            </div>
+            {% include '/views/partials/loops/show-loop.twig' %}
+            <a href="#article-anch4" class="col-12 col-md-6">
+                <div class="button button2 button3">
+                    <p>
+                        <i class="fas fa-chevron-down"></i>
+                    </p>
+                </div>
+            </a>
+        </div>
+        {% include '/views/partials/separation.twig' %}
+        {% if events %}
+            <a id="article-anch4" class="d-none d-md-block"></a>
+            <div class="col-12 parallax2" id="home-event" >
 
-                <img src="{{ post.thumbnail.src }}" class="float-thumb" alt="">
-                {{ post.content }}
-                <a href="#article-anch2" class="col-md-12 d-none d-md-block">
-                    <div class="button button2 button3">
-                        <p><i class="fas fa-chevron-down"></i></p>
+            {% include '/views/partials/loops/event-loop.twig' %}
+            </div>
+
+            <a href="#article-anch5" class="col-md-12 d-none d-md-block">
+                <div class="button button2 button3">
+                    <p><i class="fas fa-chevron-down"></i></p>
+                </div>
+            </a>
+            {% include '/views/partials/separation.twig' %}
+        {% endif %}
+        {% if events %}
+            <a class="col-md-12 d-lg-block d-none" id="article-anch5"></a>
+        {% else %}
+            <a class="col-md-12 d-lg-block d-none" id="article-anch4"></a>
+        {% endif %}
+        <div class="col-12 parallax2" id="home-referencies" >
+
+            {% include '/views/partials/loops/references-loop.twig' %}
+
+            <a href="#article-anch6" class="col-md-12 d-none d-md-block">
+                <div class="button button2 button3">
+                    <p><i class="fas fa-chevron-down"></i></p>
+                </div>
+            </a>
+        </div>
+        {% include '/views/partials/separation.twig' %}
+
+
+        <a class="col-md-12 d-lg-block d-none" id="article-anch6"></a>
+        {% for cie in cies %}
+            {% if cie.id == 39 %}
+            <a href="{{ cie.link }}" class="bloc-title bloc-title2 col-12 row ">
+                <div class="offset-md-1 d-none d-md-block"></div>
+                <div class="col-12 col-md-4 ">
+                    <h1 class="article-h1 under-title loop-title loop-title2 link link#ff66332 link2">  <i class="fas fa-circle"></i> {{ cie.title|upper }}</h1>
+                    <div class="offset-md-1 d-none d-lg-block"></div>
+                    <div class="thumb home-post cie-text col-11 ">
+                        <img class="float-thumb img50" src="{{ cie.thumbnail.src }}" alt="image de {{ cie.title }}">
+                       {{ cie.content }}
+
+                    </div>
+                </div>
+                <div class="offset-md-1 d-none d-md-block"></div>
+                <div class="col-12 col-md-4">
+                    <h1 class="article-h1 under-title loop-title loop-title2 link link#ff66332 link2"> <i class="fas fa-circle"></i> {{ cie.get_field('subtitle') }}</h1>
+                    <div class="offset-md-1 d-none d-lg-block"></div>
+
+                    <p class="home-post thumb col-11 cie-text">
+                        <img class="float-thumb2 img50" src="{{ cie.get_field('imgalt') }}" alt="image de {{ cie.title }}">
+                       {{ cie.textalt }}
+
+                    </p>
+                </div>
+                <div class="offset-md-2 d-none d-md-block"></div>
+
+            </a>
+
+
+            {% endif %}
+        {% endfor %}
+        <a href="#article-anch8" class="col-md-12 d-none d-md-block">
+            <div class="button button2 button3">
+                <p><i class="fas fa-chevron-down"></i></p>
+            </div>
+        </a>
+        {% include '/views/partials/separation.twig' %}
+        <div class="row">
+            <a id="article-anch8" class="anch"></a>
+            <h1 class="article-h1 under-title col-12 link link#ff66332 link2">{{ 'Les membres'|upper }}</h1>
+
+            {% for membre in membres if membre.get_field('statut') == 'actuel' %}
+                <a href="{{ membre.link }}" class=" col-12 col-md-5">
+                    <div class="membre home-post">
+                        <h3 class="article-text-h2 col-12">{{ membre.get_field('prenom') }} {{ membre.get_field('nom') }} </h3>
+                        <img src="{{ membre.thumbnail.src }}" class="col-4 float-thumb" alt="Image pour {{ membre.title}}">
+                        <div class="col-12 cie-text">{{ membre.get_field('bio')|truncate(50) }}</div>
+                        {#<i class="metiers t-a-center">{{ membre.get_field('metiers')|join (',<br>') }}</i>#}
                     </div>
                 </a>
-            </div>
-            {% include '/views/partials/loops/one-event-loop.twig' %}
+                <div class="offset-md-1 d-none d-md-block"></div>
 
-
-
-
-        </section>
-
-
-    </div>
-</div>
-
-<a class="col-12 d-none d-md-block" id="article-anch2"></a>
-<section class="row row-eq-height">
-    <div class="offset-md-1 d-none d-md-block"></div>
-    {% include '/views/partials/video.twig' %}
-    <a href="#article-anch3" class="col-md-2 d-none d-md-block">
-        <div class="button button2 button3">
-            <p><i class="fas fa-chevron-down"></i></p>
+            {% endfor %}
         </div>
-    </a>
-    {% include '/views/partials/loops/1actu.twig' %}
-
-
-</section>
-<a class="col-md-12 d-lg-block d-none" id="article-anch3"></a>
-<div class="article-loop article-loop2">
-    <div class="title-bloc">
-        <h2 class="article-h1 h1-event-list a-l-affiche">
-            <i class="far fa-theater-masks"></i> A L'AFFICHE
-        </h2>
-
-
     </div>
-    {% include '/views/partials/loops/show-loop.twig' %}
-
-
-
-
 </div>
-
-<a id="article-anch4" class="d-none d-md-block"></a>
-
-
-{% include '/views/partials/loops/event-loop.twig' %}
-
-
-
-<a class="col-md-12 d-lg-block d-none" id="article-anch6"></a>
-<div class="article-loop">
-    <div class="title-bloc">
-        <h2 class="article-h1 h1-event-list a-l-affiche">
-            <i class="far fa-theater-masks"></i> Anciens Spectacles
-        </h2>
-
-
-    </div>
-    {% include '/views/partials/loops/old-show-loop.twig' %}
-
-
-</div>
-
-<a class="col-md-12 d-lg-block d-none" id="article-anch5"></a>
-<div class="">
-    <div class="title-bloc">
-        <h2 class="article-h1 h1-event-list a-l-affiche">
-            <i class="far fa-theater-masks"></i> Ils sont passé par là ...
-        </h2>
-    </div>
-    {% include '/views/partials/loops/references-loop.twig' %}
-
-
-</div>
-    <a class="col-md-12 d-lg-block d-none" id="article-anch6"></a>
-    <div class="">
-        <div class="title-bloc">
-            <h2 class="article-h1 h1-event-list a-l-affiche">
-                <i class="far fa-theater-masks"></i> En création...
-            </h2>
-        </div>
-        {% include '/views/partials/loops/soon-show-loop.twig' %}
-
-
-    </div>
-
 {% endblock %}
 
 

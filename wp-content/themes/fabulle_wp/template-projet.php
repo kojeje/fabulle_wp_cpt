@@ -28,7 +28,7 @@
     'post_type' => 'dates',
     'order'=>'DESC',
     'meta_key' => 'date_show',
-    'order_by' => 'date_show',
+    'orderby' => 'date_show',
 
   ];
   $args_actus = [
@@ -38,7 +38,7 @@
     'post_type' => 'places',
     'order' => 'DESC',
     'meta_key' => 'cp',
-    'order_by' => 'cp',
+    'orderby' => 'cp',
   ];
 
 // récupère les articles en fonction du tableau d'argument $args_posts

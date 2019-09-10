@@ -1,0 +1,23 @@
+<div class="row row-eq-height ">
+    {% for show in shows %}
+
+        {% if show.get_field('dispo') == '1' %}
+
+            <div class="offset-md-1 d-none d-md-block"></div>
+            <a href="{{ show.link }}" class="col-12 col-md-5 row">
+
+                <div class="row  show_2">
+                    <h2 class="col-12">
+                        {{ show.title }}
+                    </h2>
+                    <div class="thumb-medal thumb-medal2 col-md-12">
+                        <img src="{{show.thumbnail.src}}" alt="affiche" class="affiche float-thumb oneevent-img ">
+                        {{ show.content|truncate(30)}}
+                    </div>
+                </div>
+            </a>
+
+        {% endif %}
+    {% endfor %}
+
+</div>

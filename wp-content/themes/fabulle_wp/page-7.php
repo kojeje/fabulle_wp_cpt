@@ -25,16 +25,16 @@
   ];
   $args_articles3 = [
     'post_type' => 'dates',
-    'order'=>'DESC',
+    'order'=>'ASC',
     'meta_key' => 'date_show',
-    'order_by' => 'date_show',
+    'orderby' => 'date_show',
   ];
   $args_articles4 = [
     'post_type' => 'dates',
     'order'=>'ASC',
 //    'meta_key' => 'public',
 //    'meta_value' => 'true',
-    'order_by' => 'date_show',
+    'orderby' => 'date_show',
     'posts_per_page' => 1,
   ];
   $args_articles5 = [
@@ -53,6 +53,7 @@
     'meta_key' => 'date_ref',
     'orderby' => 'date_ref',
     'order' => 'DESC',
+    'posts_per_page' => 5,
 
 
   ];
@@ -72,6 +73,21 @@
 
 
   ];
+  $args_cie = [
+
+
+  'post_type' => 'page',
+  'post_id' => 39
+  ];
+  $args_member = [
+
+
+    'post_type' => 'membres',
+    'meta_key' => 'priorite',
+    'orderby' => 'priorite',
+    'order' => 'ASC'
+  ];
+
 
 
 
@@ -90,8 +106,8 @@
   $context['references'] = Timber::get_posts($args_articles7);
   $context['oldshows'] = Timber::get_posts($args_articles8);
   $context['soonshows'] = Timber::get_posts($args_articles9);
-
-//  var_dump($var);
+  $context['membres'] = Timber::get_posts($args_member);
+  $context['cies'] = Timber::get_posts($args_cie);
 
 
 

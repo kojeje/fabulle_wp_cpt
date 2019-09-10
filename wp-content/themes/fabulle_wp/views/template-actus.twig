@@ -68,7 +68,7 @@
 
                     <div class="offset-md-1 d-none d-md-block"></div>
                     <div class="col-md-10 col-12 img_alt" id="img-alt">
-                        <h2 class="article-h1">
+                        <h2 class="article-h1 under-title">
                             {{ post.get_field('field_5d55f554f07a2') }}
                         </h2>
                         <img src="{{ post.get_field('field_5d55f554f0949') }}" class=" float-thumb2 " alt="img">
@@ -87,7 +87,7 @@
             {% endif %}
             {% if post.get_field('field_5cb8ecc79f5cc') == true %}
                 <div class="col-12">
-                    <h2 class="article-h1 m-t-b">
+                    <h2 class="article-h1 under-title m-t-b">
                         Galerie
                     </h2>
                 </div>
@@ -193,7 +193,7 @@
 
             <a id="article-anch3" class="anch col-md-12"></a>
 
-            <h2 class="article-h1">A L'AFFICHE</h2>
+            <h2 class="article-h1 under-title">A L'AFFICHE</h2>
             {% include '/views/partials/loops/show-loop.twig' %}
 
 

@@ -1,5 +1,7 @@
 @media screen and (min-width:768px){
-
+  body{
+    font-size: 16px !important;
+  }
   .dropdown-item{
     font-size: 20px;
     width: 40%;
@@ -82,7 +84,47 @@
   .w-md-45{
     width: 45%;
   }
-
+  .under-title{
+    width: 100%;
+    margin: auto;
+    //border-bottom: 2px solid $link;
+    //border-left: 2px solid $link;
+    margin-bottom: 30px !important;
+  }
+  .under-title2{
+    margin-top:60px !important;
+  }
+  .membre,
+  .membre-f{
+    border: 1px solid;
+    -webkit-border-radius: 50px;
+    -moz-border-radius: 50px;
+    border-radius: 50px;
+    margin-bottom: 50px;
+    padding: 30px;
+  }
+  //.membre{
+  //  border-color: #ffffff;
+  //  font-size: 12px;
+  //}
+  .membre {
+    border-color: #ff6633;
+    font-size: 16px;
+  }
+  .show_2
+  {
+    margin-top: 30px;
+  }
+  .m-b-50{
+    margin-bottom: 100px;
+  }
+ .home-post,
+ .thumb p,
+ .cie-text,
+ .cie-text p{
+   transition: 0.6s;
+   cursor: zoom-in;
+ }
 
 }
 
@@ -97,7 +139,7 @@
   }
   h1
   {
-    font-size: 60px;
+    font-size: 50px;
     margin-bottom: 100px;
   }
 
@@ -109,13 +151,29 @@
   .event-home-bloc iframe{
     display: block;
     padding: 50px !important;
+    padding-left: 100px !important;
+    padding-right: 100px !important;
     opacity: 0.5;
     width: 100% !important;
-    transition: 0.8s;
+    border-radius: 50%;
     margin: auto;
+    transition: 2s;
+
   }
 
+  .event-home-bloc2{
+    transition: 0.8s;
+  }
+  .event-home-bloc2 iframe{
 
+    padding: 10px !important;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+    transition: 0.8s;
+    //padding-left: 40px !important;
+    //padding-right: 50px !important;
+
+  }
 
   .nav
   {
@@ -137,10 +195,7 @@
     margin: auto;
   }
 
-  .link:hover{
-    border-top: 4px solid $carmin;
-    color: $carmin;
-  }
+
 
 
 
@@ -150,6 +205,7 @@
     justify-content: space-around;
     width: 100%;
     list-style-type: none;
+
   }
 
   #article-anch,
@@ -163,7 +219,7 @@
   #article-anch9
   {
     display: block;
-    height:22vh;
+    height:17vh;
       width: 100%;
   }
 
@@ -192,11 +248,9 @@
     margin: auto;
 
   }
-  .link
-  {
-   text-decoration: none;
-   color: $white;
-   padding: 10px;
+
+  .link3{
+    color: #bdd6f2 !important;
   }
   .boucle
   {
@@ -233,6 +287,7 @@
     padding-top: 100px;
     padding-bottom: 300px;
     border-radius:50%;
+    background: rgba(0, 0, 0, 0.4);
   }
   .caption2
   {
@@ -326,7 +381,7 @@
   }
   .bloc-title
   {
-    margin-top: 30vh;
+    margin-top: 30px;
     margin-bottom: 20vh;
   }
   .video-bloc
@@ -357,19 +412,22 @@
   {
     position: relative;
     margin: auto;
-    font-size: 50px;
+
     opacity:0.5;
     bottom:auto;
     left: auto;
     width: 100%;
     display: block;
     text-align: center;
-    margin-top: 10vh;
+
 
   }
   .button3
   {
-    font-size: 6em;
+    font-size: 100px !important;
+  }
+  .button4{
+    margin-top: 10vh;
   }
   .flex-title-bloc
   {
@@ -389,13 +447,16 @@
   }
   .article-h1
   {
-    margin: auto;
     font-size: 40px;
-    color: $link;
-    background: none;
-    display: block;
     padding: 30px;
-    text-align: center;
+    margin-top: 50px;
+  }
+  .link
+  {
+    text-decoration: none;
+    color: $white;
+    padding: 10px;
+    transition: 0.3s;
 
 
   }
@@ -422,10 +483,7 @@
   }
 
 
-  .a-l-affiche
-  {
-    width: 80%;
-  }
+
   .affiche-medal
   {
 
@@ -543,8 +601,21 @@
     -moz-border-radius: 20px;
     border-radius: 20px;
     z-index: 40;
-    margin: 0px;
+    margin-left: 0;
+    margin-right: 30px;
+    margin-bottom: 50px;
 
+
+  }
+  .video-content2{
+    margin-top: 50px;
+  }
+  .video-content
+  {
+    background-color: black;
+  }
+  .show_2.show_2{
+    background-color: $dark-blue-transparent;
   }
   .video-offset
   {
@@ -567,10 +638,10 @@
     -moz-border-radius: 20px;
     border-radius: 20px;
     margin: auto;
+    margin-bottom: 50px;
   }
   .bref-item
   {
-    width: 40%;
     min-height: 50px;
     padding: 10px;
   }
@@ -626,8 +697,6 @@
     -moz-border-radius: 50px;
     border-radius: 50px;
     padding: 20px;
-    margin-bottom: 100px;
-
   }
   .show2
   {
@@ -831,6 +900,8 @@
   .event-home-bloc p
   {
     padding-top: 30px;
+    font-size: 18px;
+    text-align: center;
   }
 
   .article-text-h2
@@ -923,11 +994,25 @@
     height: auto;
     //width: 30%;
   }
+  .video{
+    width: 70%;
+    margin: auto;
+  }
 }
 @media screen and (min-width:1500px)
 {
   .text-content{
     font-size: 25px !important;
+  }
+  .article-loop2 img {
+
+    width: 30%;
+    display: block;
+
+  }
+  .cie-text,
+  .cie-text p{
+    font-size: 18px !important;
   }
 }
 

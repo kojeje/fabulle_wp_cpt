@@ -1,32 +1,48 @@
 <header class="header container-fluid">
     <div class="header_bloc row">
 
-        <div class="logo col-2">
+        <div class="logo col-6 col-md-2">
             <a href="https://www.kojeje.fr/fabulle/">
                 <img class="logo_fabulle" src="{{ theme.link }}/assets/img/fabulle_spectacles_enfants.png" alt="logo">
             </a>
         </div>
-        <nav class="nav d-none d-md-block col-md-8">
+        <nav class="nav d-none d-md-block col-md-9 col-lg-8">
             <ul class="links">
                 {% for item in menu.items %}
-                    <a href="{{ item.link }}">
-                        <li class="link">{{ item.title }}</li>
-                    </a>
                     {#{{ dump(item) }}#}
+                    {% if (item.post_name == 'accueil') or (item.post_name == 'nous-voir') %}
+                    <a href="{{ item.link }}">
+                        <li class="link link#66ccff">{{ item.title }}</li>
+                    </a>
+                    {% elseif (item.post_name == '40') or (item.post_name == 'references')%}
+                        <a href="{{ item.link }}">
+                            <li class="link link#ff6633">{{ item.title }}</li>
+                        </a>
+                    {% elseif (item.post_name == '766') or (item.post_name == '261')%}
+                        <a href="{{ item.link }}">
+                            <li class="link link#ffcc33">{{ item.title }}</li>
+                        </a>
+                    {% else %}
+                        <a href="{{ item.link }}">
+                            <li class="link">{{ item.title }}</li>
+                        </a>
+                    {% endif %}
+
+
                 {% endfor %}
             </ul>
         </nav>
-        <div id ="search" class="col-md-1">
-            <form class="row navbar-form navbar-left" role="search" action="{{theme.link}}/search.php">
-                <button class="col-3 btn btn-search btn-outline-success " type="submit">
+        <div id ="search" class="col-md-2">
+            <form class="row navbar-form navbar-left" role="search" action="{{ site.url }}">
+                <button class="col-4 btn btn-search btn-outline-success " type="submit">
                     <i class="fal fa-search"></i>
                 </button>
-                <div class="col-9 form-group">
+                <div class="col-8 form-group">
                     <input type ="text" id="iconified" class="form-control empty" value="{{ function('get_search_query')}}">
                 </div>
             </form >
         </div>
-        <div class="offset-md-1 d-none d-md-block"></div>
+
 
         <div class="d-md-none d-block offset-4"></div>
         <nav class="dropdown show nav d-md-none d-block col-4">

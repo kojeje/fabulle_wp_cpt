@@ -1,130 +1,97 @@
 {% extends 'base.twig' %}
 
 {% block content %}
+    <a id="article-anch"></a>
     <section class="content-wrapper article_content" xmlns="http://www.w3.org/1999/html">
         <article class="post-type-{{post.post_type}}" id="post-{{post.ID}} container-fluid">
-
-            <div class="bloc-title row ">
-                <a id="article-anch" class="anch col-12"></a>
-
+            <div class="bloc-title bloc-title2 row ">
                 <div class="offset-md-1 d-none d-lg-block"></div>
                 <div class="thumb col-12 col-lg-4">
-                    <img src="{{ post.thumbnail.src }}" alt="img">
+                    <img src="{{ post.thumbnail.src }}" alt="image de {{ post.title }}">
                 </div>
                 <div class="title-bloc col-12 col-lg-6">
-                    <h1 class="article-h1 loop-title loop-title2">{{ post.title }}</h1>
+                    <h1 class="article-h1 under-title loop-title loop-title2">{{ post.title }}</h1>
                     <p>{{ post.content }}</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="offset-md-1 d-none d-lg-block"></div>
+                <div class="title-bloc col-12 col-lg-6">
+                    <h1 class="article-h1 under-title loop-title loop-title2">{{ post.subtitle }}</h1>
+                    <p>{{ post.get_field('textalt') }}</p>
                     <a href="#article-anch2" class="flex-btn">
                         <div class="button button2 button3">
                             <p><i class="fas fa-chevron-down"></i></p>
                         </div>
                     </a>
-
+                </div>
+                <div class="thumb col-12 col-lg-4">
+                    <img src="{{ post.get_field('imgalt') }}" alt="image de {{ post.subtitle }}">
                 </div>
             </div>
-            <a id="article-anch2" class="anch"></a>
-            <section class="history container-fluid">
 
+            <div class="row">
+                <a id="article-anch2" class="anch"></a>
+                <h1 class="article-h1 under-title col-12">Les membres</h1>
 
-                <div class="article-loop cie-line row">
-
-                    <div class="offset-lg-1 d-none d-lg-block"></div>
-                    <div class="thumb col-12 col-lg-5">
-                        <img class="cie-thumb" src="{{ post.get_field('field_5cbf2cb8a2ed2') }}" alt="img">
-                        <a href="#article-anch3" class="flex-btn">
-                            <div class="button button2 button3">
-                                <p><i class="fas fa-chevron-down"></i></p>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="offset-lg-1 d-none d-md-block"></div>
-                    <div class="text col-12 col-lg-5">
-                        <h2 class="article-h1">{{ post.get_field('field_5cbf21bbb5e9f') }}</h2>
-                        <p class="article-h1 loop-title loop-title2">{{ post.get_field('field_5cbf21d4b5ea0') }}</p>
-                    </div>
-                </div>
-                {# Mati #}
-                <a id="article-anch3" class="anch"></a>
-                <h1>Matilda</h1>
-                <div class="article-loop cie-line row">
+                {% for membre in membres if membre.get_field('statut') == 'actuel' %}
+                    <a href="{{ membre.link }}" class=" col-12 col-md-5">
+                        <div class="membre">
+                            <h3 class="article-text-h2 col-12">{{ membre.get_field('prenom') }} {{ membre.get_field('nom') }} </h3>
+                            <img src="{{ membre.thumbnail.src }}" class="col-4 float-thumb" alt="Image pour {{ membre.title}}">
+                            <div class="col-12">{{ membre.get_field('bio')|truncate(50) }}</div>
+                            {#<i class="metiers t-a-center">{{ membre.get_field('metiers')|join (',<br>') }}</i>#}
+                        </div>
+                    </a>
                     <div class="offset-md-1 d-none d-md-block"></div>
-                    <div class="text col-12 col-md-5">
-                        <h2 class="article-h1">{{ post.get_field('field_5cbf21eab5ea1') }}</h2>
-                        <p class="article-h1 loop-title loop-title2">{{ post.get_field('field_5cbf221eb5ea2') }}</p>
-                        <p class="article-h1 loop-title loop-title2">{{ post.get_field('field_5cbf227eb5ea4') }}</p>
+
+                {% endfor %}
+                <div class="offset-md-1 d-none d-md-block"></div>
+                <a href="#article-anch3" class="col-xs-12 col-md-4">
+                    <div class="button button2 button3">
+                        <p>
+                            <i class="fas fa-chevron-down"></i>
+                        </p>
                     </div>
-                    <div class="offset-md-3 d-none d-md-block"></div>
-                    <div class="thumb col-12 col-md-3">
-                        <img src="{{ post.get_field('field_5cbf2cd2a2ed3') }}" alt="img">
-                        <a href="#article-anch4" class="flex-btn">
-                            <div class="button button2 button3">
-                                <p><i class="fas fa-chevron-down"></i></p>
+                </a>
+                <a id="article-anch3"></a>
+                <h1 class="article-h1 under-title col-12">Ils sont passés par chez nous</h1>
+
+                {% for membre in membres if membre.get_field('statut') == 'ancien' %}
+
+                        <a href="{{ membre.link }}" class=" col-12 col-md-5">
+                            <div class="membre">
+                                <h3 class="article-text-h2 col-12">{{ membre.get_field('prenom') }} {{ membre.get_field('nom') }} </h3>
+                                <img src="{{ membre.thumbnail.src }}" class="col-4 float-thumb" alt="Image pour {{ membre.title}}">
+                                <div class="col-12">{{ membre.get_field('bio')|truncate(50) }}</div>
+                                {#<i class="metiers t-a-center">{{ membre.get_field('metiers')|join (',<br>') }}</i>#}
                             </div>
                         </a>
+
+                {% endfor %}
+                <div class="offset-md-1 d-none d-md-block"></div>
+                <a href="#article-anch5" class="col-xs-12 col-md-4">
+                    <div class="button button2 button3">
+                        <p>
+                            <i class="fas fa-chevron-down"></i>
+                        </p>
                     </div>
+                </a>
+            </div>
+            <div class="container-fluid">
+                <div class="title-bloc">
+                    <h2 class="article-h1 under-title h1-event-list a-l-affiche">
+                        <i class="far fa-theater-masks"></i> Nous sommes  passé par là ...
+                    </h2>
                 </div>
-                {# Jérôme #}
-                <a id="article-anch4" class="anch"></a>
-                <h1>Jérôme</h1>
-                <div class="article-loop cie-line row">
-                    <div class="thumb col-12 col-md-3">
-                        <img src="{{ post.get_field('field_5cbf2cdea2ed4') }}" alt="img">
-                        <a href="#article-anch5" class="flex-btn">
-                            <div class="button button2 button3">
-                                <p><i class="fas fa-chevron-down"></i></p>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="offset-md-3 d-none d-md-block"></div>
-                    <div class="text col-12 col-md-5">
-                        <h2 class="article-h1">{{ post.get_field('field_5cbf21eab5ea1') }}</h2>
-                        <p class="article-h1 loop-title loop-title2">{{ post.get_field('field_5cbf227eb5ea4') }}</p>
-                    </div>
-                </div>
-                {# Manue #}
-                <a id="article-anch5" class="anch"></a>
-                <h1>Manue</h1>
-                <div class="article-loop cie-line row">
-                    <div class="offset-md-1 d-none d-md-block"></div>
-                    <div class="text col-12 col-md-5">
-                        <h2 class="article-h1">{{ post.get_field('field_5cbf229db5ea5') }}</h2>
-                        <p class="article-h1 loop-title loop-title2">{{ post.get_field('field_5cbf22bab5ea6') }}</p>
-                    </div>
-                    <div class="offset-md-3 d-none d-md-block"></div>
-                    <div class="thumb col-12 col-md-3">
-                        <img src="{{ post.get_field('field_5cbf30580a090') }}" alt="img">
-                        <a href="#article-anch6" class="flex-btn">
-                            <div class="button button2 button3">
-                                <p><i class="fas fa-chevron-down"></i></p>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                {# Olive #}
-                <a id="article-anch6" class="anch"></a>
-                <h1>Olive</h1>
-                <div class="article-loop cie-line row">
-                    <div class="thumb col-12 col-md-3">
-                        <img src="{{ post.get_field('field_5cbf49f10b26b') }}" alt="img">
-                        <a href="#article-anch7" class="flex-btn">
-                            <div class="button button2 button3">
-                                <p><i class="fas fa-chevron-down"></i></p>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="offset-md-3 d-none d-md-block"></div>
-                    <div class="text col-12 col-md-5">
-                        <h2 class="article-h1">{{ post.get_field('field_5cbf467a1ef9b') }}</h2>
-                        <p class="article-h1 loop-title loop-title2">{{ post.get_field('field_5cbf46971ef9c') }}</p>
-                    </div>
-                </div>
-            </section>
+                {% include '/views/partials/loops/references-loop.twig' %}
+            </div>
             {# Boucle spectacles#}
-            <a id="article-anch7"></a>
-            <a class="col-md-12 d-lg-block d-none" id="article-anch3"></a>
+            <a id="article-anch9"></a>
+            <a class="col-md-12 d-lg-block d-none" id="article-anch10"></a>
             <div class="article-loop article-loop2">
                 <div class="title-bloc">
-                    <h2 class="article-h1 h1-event-list a-l-affiche">
+                    <h2 class="article-h1 under-title h1-event-list a-l-affiche">
                         <i class="far fa-theater-masks"></i> A L'AFFICHE
                     </h2>
                     <a href="#article-anch4" class="d-none d-md-block">
@@ -134,19 +101,10 @@
                     </a>
                 </div>
                 {% include '/views/partials/loops/show-loop.twig' %}
-
-
             </div>
-
             <a id="article-anch4" class="d-none d-md-block"></a>
-
-
             {% include '/views/partials/loops/event-loop.twig' %}
-
-
-
-
-
         </article>
     </section>
+
 {% endblock %}
