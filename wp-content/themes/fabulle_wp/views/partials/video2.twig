@@ -1,16 +1,13 @@
 {% if post.get_field('field_5cb8c5272e364') %}
 
 
-    <div class="article-loop video-content video-content2 col-12 col-md-5 " id="video">
-        <h2 class="link link#66ccff2 article-h1 under-title h1-event-list" id="video-title">
-            <i class="fas fa-video"></i>
-            Videos
-        </h2>
+    <div class="title-bloc3 article-loop video-content col-12 col-md-5 flex-title-bloc" id="video">
+        <h2 class="titre-page2 event-list2 article-h1 under-title link link#ffcc332">Videos</h2>
         {{ post.get_field('youtube') }}
     </div>
 
 {% else %}
-    <div class="col-md-4">
+    <div class="title-bloc3 col-md-4 flex-title-bloc">
         {{ post.get_field('field_5cb8c6aff774f') }}
     </div>
     <div class="offset-md-1"></div>

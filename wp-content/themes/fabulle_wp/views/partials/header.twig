@@ -1,60 +1,91 @@
-<header class="header container-fluid">
+<header class="header">
     <div class="header_bloc row">
 
-        <div class="logo col-6 col-md-2">
+        <div class="logo col-3 col-md-2">
             <a href="https://www.kojeje.fr/fabulle/">
                 <img class="logo_fabulle" src="{{ theme.link }}/assets/img/fabulle_spectacles_enfants.png" alt="logo">
             </a>
         </div>
-        <nav class="nav d-none d-md-block col-md-9 col-lg-8">
+        <nav class="nav d-none d-lg-block col-lg-8">
             <ul class="links">
                 {% for item in menu.items %}
-                    {#{{ dump(item) }}#}
-                    {% if (item.post_name == 'accueil') or (item.post_name == 'nous-voir') %}
+
+
+                    {% if (item.post_name == 'accueil') or (item.post_name == 'nous-voir-2') %}
                     <a href="{{ item.link }}">
-                        <li class="link link#66ccff">{{ item.title }}</li>
+                        <p class="link link#66ccff">{{ item.title }}</p>
                     </a>
-                    {% elseif (item.post_name == '40') or (item.post_name == 'references')%}
+                    {% elseif (item.post_name == 'la-cie')%}
                         <a href="{{ item.link }}">
-                            <li class="link link#ff6633">{{ item.title }}</li>
+                            <p class="link link#ff6633">{{ item.title }}</p>
                         </a>
-                    {% elseif (item.post_name == '766') or (item.post_name == '261')%}
+                    {% elseif (item.post_name == 'spectacles') or (item.post_name == 'contact')%}
                         <a href="{{ item.link }}">
-                            <li class="link link#ffcc33">{{ item.title }}</li>
+                            <li class="link link#ffcc33">{{ item.title }}</p>
                         </a>
                     {% else %}
                         <a href="{{ item.link }}">
-                            <li class="link">{{ item.title }}</li>
+                            <p class="link">{{ item.title }}</p>
+                        </a>
+                    {% endif %}
+                {% endfor %}
+                <div id ="search" class="col-md-2">
+                    <form class="row navbar-form navbar-left w-100" role="search" action="{{ site.url }}">
+                        <button class="col-4 btn btn-search btn-outline-success " type="submit">
+                            <i class="fal fa-search"></i>
+                        </button>
+                        <div class="col-8 form-group">
+                            <input type ="text" id="iconified" class="form-control empty" value="{{ function('get_search_query')}}">
+                        </div>
+                    </form >
+                </div>
+            </ul>
+
+        </nav>
+
+        <div class="offset-md-1 d-none d-md-block"></div>
+
+
+        <div class=" offset-5 offset-md-7"></div>
+        <nav class="dropdown show nav d-lg-none d-block col-4 col-md-1">
+
+            <a href="#" class="btn btn-secondary dropdown-toggle links" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <p><i class="fas fa-bars"></i></p>
+            </a>
+            <div class="dropdown-menu row" aria-labelledby="dropdownMenuLink">
+                <div class="d-md-none d-block offset-3"></div>
+                <div class="logo col-6 col-md-2">
+                    <a href="https://www.kojeje.fr/fabulle/">
+                        <img class="logo_fabulle" src="{{ theme.link }}/assets/img/fabulle_spectacles_enfants.png" alt="logo">
+                    </a>
+                </div>
+                <div class="d-md-none d-block offset-3"></div>
+                {#{% for item in menu.items %}#}
+
+                {#<a class="add2 add-link dropdown-item link" href="{{ item.link }}">{{ item.title }}</a>#}
+            {#{% endfor %}#}
+                {% for item in menu.items %}
+                    {#{{ dump(item) }}#}
+                    {% if (item.post_name == 'accueil') or (item.post_name == 'nous-voir') %}
+                        <a class="add2 add-link dropdown-item" href="{{ item.link }}">
+                            <p class="link link#66ccff2">{{ item.title }}</p>
+                        </a>
+                    {% elseif (item.post_name == '40') or (item.post_name == 'references')%}
+                        <a class="add2 add-link dropdown-item" href="{{ item.link }}">
+                            <p class="link link#ff66332">{{ item.title }}</p>
+                        </a>
+                    {% elseif (item.post_name == '766') or (item.post_name == '261')%}
+                        <a class="add2 add-link dropdown-item" href="{{ item.link }}">
+                            <p class="link link#ffcc332">{{ item.title }}</p>
+                        </a>
+                    {% else %}
+                        <a class="add2 add-link dropdown-item" href="{{ item.link }}">
+                            <p class="link">{{ item.title }}</p>
                         </a>
                     {% endif %}
 
 
                 {% endfor %}
-            </ul>
-        </nav>
-        <div id ="search" class="col-md-2">
-            <form class="row navbar-form navbar-left" role="search" action="{{ site.url }}">
-                <button class="col-4 btn btn-search btn-outline-success " type="submit">
-                    <i class="fal fa-search"></i>
-                </button>
-                <div class="col-8 form-group">
-                    <input type ="text" id="iconified" class="form-control empty" value="{{ function('get_search_query')}}">
-                </div>
-            </form >
-        </div>
-
-
-        <div class="d-md-none d-block offset-4"></div>
-        <nav class="dropdown show nav d-md-none d-block col-4">
-
-            <a href="#" class="btn btn-secondary dropdown-toggle links" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <p><i class="fas fa-bars"></i></p>
-            </a>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-            {% for item in menu.items %}
-
-                <a class="add2 add-link dropdown-item link" href="{{ item.link }}">{{ item.title }}</a>
-            {% endfor %}
             </div>
 
         </nav>

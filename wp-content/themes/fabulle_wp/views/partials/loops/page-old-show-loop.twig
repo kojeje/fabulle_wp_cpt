@@ -6,13 +6,15 @@
             <a href="{{ oldshow.link }}" class="col-12 col-md-5 row">
 
                 <div class="row  show_2">
-                    <h2 class="col-12">
+                    <h2 class="col-12 d-none d-md-block">
                         {{ oldshow.title }}
                     </h2>
-                    <div class="thumb-medal thumb-medal2 col-md-12">
+                    <div class="offset-1"></div>
+                    <div class="thumb-medal thumb-medal2 col-10 col-md-12">
                         <img src="{{oldshow.thumbnail.src}}" alt="affiche" class="affiche float-thumb oneevent-img ">
                         {{ oldshow.content|truncate(30)}}
                     </div>
+                    <div class="offset-1"></div>
                 </div>
             </a>
     {% endfor %}

@@ -9,6 +9,8 @@ html
 }
 body
 {
+  width: 100%;
+  padding: 0;
   background: $dark-blue !important;
   color: $white !important;
 }
@@ -23,6 +25,15 @@ h1
   margin-bottom: 50px;
 
 }
+.w-80{
+  width: 95%;
+}
+.m-a{
+  margin: auto;
+}
+.mt100{
+  margin-top: 100px;
+}
 
 .header {
   position: sticky;
@@ -31,6 +42,7 @@ h1
   //background-image: linear-background: rgb(2,0,36);
   background: rgb(0,0,0);
   background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(0,7,18,1) 32%, rgba(0,15,40,0.9) 66%);
+  height: 17vh;
 }
   caption {
 
@@ -82,8 +94,6 @@ a
 }
 .dropdown
 {
-
-  padding: 16px;
   -webkit-border-radius: 20%;
   -moz-border-radius: 20%;
   border-radius: 20%;
@@ -94,7 +104,7 @@ a
   //position: fixed !important;
   //width: 100%;
   background: $dark-blue;
-  transform: translate3d( -64%, 0px, 0px) !important;
+  transform: translate3d( -69%, 0px, 0px) !important;
   font-size:15px;
   overflow-y: auto;
   pointer-events: auto;
@@ -131,7 +141,7 @@ a
 }
 .btn-secondary
 {
-  background: #000 !important;
+  background: transparent !important;
   border: none !important;
 }
 .button
@@ -244,7 +254,7 @@ iframe
 .show-medal
 {
   width: 90%;
-  height: 40vh;
+
   margin: auto;
   //border-bottom: 2px solid $link;
   padding-bottom: 40px;
@@ -285,6 +295,7 @@ iframe
   padding: 10px;
   color: #000;
   background: $link;
+  margin-bottom: 30px;
 
 }
 .date
@@ -379,8 +390,8 @@ iframe
   //max-width: 50% !important;
   //min-width: 25% !important;
   height: auto;
-  padding-right: 30px;
   float: left;
+  margin-bottom: 20px;
 }
 .float-thumb2{
   //max-width: 50% !important;
@@ -388,6 +399,9 @@ iframe
   height: auto;
   padding: 30px;
   float: right;
+  min-width: 25%;
+  max-width: 50%;
+
 }
 .ref-h3{
   font-size: 12px;
@@ -404,7 +418,7 @@ iframe
   margin-top: 40px !important;
   margin-bottom: 40px !important;
   transition: 0.5s;
-  cursor: zoom-in;
+
 }
 .t-a-center{
   text-align: center;
@@ -483,7 +497,7 @@ iframe
   border: none;
 }
 .navbar-form{
-  padding-top: 50px;
+
   opacity:0.5;
 
 }
@@ -522,15 +536,7 @@ iframe
   padding-right: 10px;
   min-width: 20px;
 }
-.w-80{
-  width: 95%;
-}
-.m-a{
-  margin: auto;
-}
-.mt100{
-  margin-top: 100px;
-}
+
 .bref-item i{
   color: $link;
 }
@@ -563,7 +569,6 @@ iframe
 
 }
 #home-referencies{
-  background-image: $url1;
   //padding: 50px;
   width: 100%;
   margin-left: 0;
@@ -574,7 +579,7 @@ iframe
   //border: 40px solid #ffb630;
 }
 #home-event{
-  background-image: $url2;
+
   width: 100%;
   margin-left: 0;
   margin-right: 0;
@@ -588,12 +593,10 @@ iframe
   -webkit-border-radius: 50px;
   -moz-border-radius: 50px;
   border-radius: 50px;
-  padding: 30px;
   margin-top: 30px;
   margin-bottom: 30px;
 }
 .ptit_mot-inc{
-  background-image: $url3;
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
   border-radius: 10px;
@@ -608,11 +611,36 @@ iframe
   background-color: #66ccff;
   margin-top: 50px;
 }
-.back-show{
-  background-image: $url4;
+
+.titre-page{
+  font-size: 22px;
 }
-.back-home{
-  background-image: $url5;
+.titre-page2{
+  font-size: 18px;
+}
+
+.caption-phone img{
+  display: none;
+}
+.cie-text,
+.cie-text p{
+  font-size: 14px !important;
+}
+.logo
+{
+
+  margin-bottom: 50px;
+}
+.bk-blue{
+  background-color: blue;
+  border: 2px solid white;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  opacity: 0.5;
+}
+.white{
+  color: white;
 }
 
 @import "partials/responsive.";

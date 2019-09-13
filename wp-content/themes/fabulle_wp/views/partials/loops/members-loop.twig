@@ -1,0 +1,15 @@
+{% for membre in membres if membre.get_field('statut') == 'actuel' %}
+    <div class="offset-md-1 d-none d-md-block"></div>
+    <a href="{{ membre.link }}" class=" col-12 col-md-4">
+        <div class="membre home-post row">
+            <h3 class="article-text-h2 col-12">{{ membre.get_field('prenom') }} {{ membre.get_field('nom') }} </h3>
+            <div class="col-12 cie-text">
+                <img src="{{ membre.thumbnail.src }}" class="col-4 float-thumb" alt="Image pour {{ membre.title}}">
+                {{ membre.get_field('bio')|truncate(40) }}</div>
+            {#<i class="metiers t-a-center">{{ membre.get_field('metiers')|join (',<br>') }}</i>#}
+        </div>
+    </a>
+    <div class="offset-md-1 d-none d-md-block"></div>
+
+
+{% endfor %}

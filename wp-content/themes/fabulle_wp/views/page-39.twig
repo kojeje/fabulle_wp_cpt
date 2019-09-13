@@ -70,7 +70,7 @@
 
                 {% endfor %}
                 <div class="offset-md-1 d-none d-md-block"></div>
-                <a href="#article-anch5" class="col-xs-12 col-md-4">
+                <a href="#article-anch4" class="col-xs-12 col-md-4">
                     <div class="button button2 button3">
                         <p>
                             <i class="fas fa-chevron-down"></i>
@@ -78,12 +78,8 @@
                     </div>
                 </a>
             </div>
+            <a id="article-anch4"></a>
             <div class="container-fluid">
-                <div class="title-bloc">
-                    <h2 class="article-h1 under-title h1-event-list a-l-affiche">
-                        <i class="far fa-theater-masks"></i> Nous sommes  passé par là ...
-                    </h2>
-                </div>
                 {% include '/views/partials/loops/references-loop.twig' %}
             </div>
             {# Boucle spectacles#}
@@ -103,7 +99,7 @@
                 {% include '/views/partials/loops/show-loop.twig' %}
             </div>
             <a id="article-anch4" class="d-none d-md-block"></a>
-            {% include '/views/partials/loops/event-loop.twig' %}
+            {% include '/views/partials/loops/event-loop2.twig' %}
         </article>
     </section>
 

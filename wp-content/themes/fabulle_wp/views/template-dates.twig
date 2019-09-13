@@ -43,9 +43,11 @@
                         <div class="event col-12 col-md-6">
 
                             {% if post.get_field('field_5d51a189a0424') == false %}
-                                <h2 class="red-title">
+                                <div class="offset-md-1 d-none d-md-block"></div>
+                                <h2 class="col-md-10 col-12 bk-red white">
                                     Évènement privé
                                 </h2>
+                                <div class="offset-md-1 d-none d-md-block"></div>
                                 {% for place in places %}
 
 
@@ -62,9 +64,7 @@
                                             </p>
                                         {% endif %}
                                         <p class="ad ad-private url bk-black">
-                                            <i>* Cette représentation est un évènement privé, elle n'est donc pas ouverte au public.
-                                                <br>
-                                                Néanmoins si vous êtes diffuseur de spectacles,
+                                            <i>* Cette représentation est un évènement privé, mais si vous êtes diffuseur de spectacles,
                                                 <a href="{{ site.url/invitations }}">n'hésitez pas à demander votre invitation</a></i>
                                         </p>
                                     {% endif %}
@@ -75,7 +75,7 @@
                                 {% if place.get_field('field_5cb4e5ba17780') == post.get_field('field_5cb4e5ba17780') %}
                                     <div class="place container">
                                         <div class="endroit row">
-                                            <div class="adress row">
+                                            <div class="adress col-12 row">
                                                 {% if post.get_field('field_5d51a189a0424') == true %}
                                                     <h1 class="h1-medal hall col-12">
                                                         {{ place.get_field('field_5cb4e5ba17780') }}

@@ -41,10 +41,12 @@ a:hover
   border-radius: 10px;
 
 }
+.event-home-bloc2:hover
+{
+  border: none;
+}
 
-//.event-home-bloc:hover h2{
-//  color: #000000;
-//}
+
 .event-home-bloc:hover  .country{
   opacity: 1;
 }
@@ -54,6 +56,14 @@ a:hover
   color: #000000 !important;
 }
 .event-home-bloc iframe:hover {
+  opacity: 1 !important;
+  padding: 0 !important;
+  z-index: auto;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+}
+.event-home-bloc2 iframe:hover {
   opacity: 1 !important;
   padding: 0 !important;
   z-index: auto;
@@ -153,6 +163,9 @@ a:hover
 }
 .event-list2:hover{
   background-color: $dark-blue-less-transparent;
+}
+.dropdown-toggle::after{
+  display:none;
 }
 
 

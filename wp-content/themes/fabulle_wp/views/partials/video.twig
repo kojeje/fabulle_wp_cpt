@@ -1,21 +1,26 @@
 {% if post.get_field('field_5cb8c5272e364') %}
 
-
-    <div class="article-loop video-content col-12 col-md-6" id="video">
-        <h2 class="link link#66ccff2 article-h1 under-title h1-event-list" id="video-title">
+    <div class="offset-1 d-block d-md-none"></div>
+    <div class="title-bloc3 article-loop video-content col-10 col-md-5 flex-title-bloc event-list2 row" id="video">
+        <h2 class="titre-page2 link link#66ccff2 " id="video-title">
             <i class="fas fa-video"></i>
             Videos
         </h2>
         {{ post.get_field('youtube') }}
+        <div class="offset-1 d-block d-md-none"></div>
     </div>
 
 {% else %}
-    <div class="col-md-4">
-        {{ post.get_field('field_5cb8c6aff774f') }}
+    <div class="offset-1 d-block d-md-none"></div>
+    <div class="title-bloc3 article-loop video-content col-10 col-md-6 flex-title-bloc event-list2 row" id="video">
+        <div class="col-md-4">
+            {{ post.get_field('field_5cb8c6aff774f') }}
+        </div>
+        <div class="offset-md-1"></div>
+        <div class="col-md-4">
+            <img class="img" src="{{ post.get_field('field_5cb8f31ae5c37') }}" alt="alt_img">
+        </div>
     </div>
-    <div class="offset-md-1"></div>
-    <div class="col-md-4">
-        <img class="img" src="{{ post.get_field('field_5cb8f31ae5c37') }}" alt="alt_img">
-    </div>
+    <div class="offset-1 d-block d-md-none"></div>
 
 {% endif %}
