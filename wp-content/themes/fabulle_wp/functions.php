@@ -183,18 +183,36 @@ add_theme_support( 'post-thumbnails' );
 
   add_filter('acf/settings/remove_wp_meta_box', '__return_false');
 
-  function remove_menu_items() {
-    global $menu;
-    $restricted = array(__('Dashboard'),__('Comments'));
-    end ($menu);
-    while (prev($menu)){
-      $value = explode(' ',$menu[key($menu)][0]);
-      if(in_array($value[0] != NULL?$value[0]:"" , $restricted)){
-        unset($menu[key($menu)]);}
-    }
-  }
-  add_action('admin_menu', 'remove_menu_items');
+//  function remove_menu_items() {
+//    global $menu;
+//    $restricted = [
+//      __('Dashboard'),
+//      __('Posts'),
+//      __('Comments')
+//    ];
+//    end ($menu);
+//    while (prev($menu)){
+//      $value = explode(' ',$menu[key($menu)][0]);
+//      if(in_array($value[0] != NULL?$value[0]:"" , $restricted)){
+//        unset($menu[key($menu)]);}
+//    }
+////  }
+//  add_action('admin_menu', 'remove_menu_items');
+  function remove_menus(){
 
+    remove_menu_page( 'index.php' );                  //Dashboard
+    remove_menu_page( 'edit.php' );                   //Posts
+//    remove_menu_page( 'upload.php' );                 //Media
+    remove_menu_page( 'edit.php?post_type=page' );    //Pages
+    remove_menu_page( 'edit-comments.php' );          //Comments
+    remove_menu_page( 'themes.php' );                 //Appearance
+//    remove_menu_page( 'plugins.php' );                //Plugins
+//    remove_menu_page( 'users.php' );                  //Users
+//    remove_menu_page( 'tools.php' );                  //Tools
+//    remove_menu_page( 'options-general.php' );        //Settings
+
+  }
+  add_action( 'admin_menu', 'remove_menus' );
   // déclaration des custom post types
 
   function fabulle_register_post_types() {
@@ -262,26 +280,7 @@ add_theme_support( 'post-thumbnails' );
       'menu_icon' => 'dashicons-code-standards',
     );
     register_post_type( 'actus', $args );
-    // CPT Projets
-    $labels = array(
-      'name' => 'Projets',
-      'all_items' => 'Tous les projets',  // affiché dans le sous menu
-      'singular_name' => 'Projet',
-      'add_new_item' => 'Nouveau',
-      'edit_item' => 'Modifier le projet',
-      'menu_name' => 'Projets'
-    );
-    $args = array(
-      'labels' => $labels,
-      'public' => true,
-      'show_in_rest' => true,
-      'has_archive' => true,
-      'supports' => array( 'title', 'editor','excerpt','author', 'thumbnail'),
-      'taxonomies' => array('category'),
-      'menu_position' => 4,
-      'menu_icon' => 'dashicons-hammer',
-    );
-    register_post_type( 'projets', $args );
+
 
     // CPT Places
     $labels = array(
@@ -348,4 +347,21 @@ add_theme_support( 'post-thumbnails' );
 
   }
   add_action( 'init', 'fabulle_register_post_types'); // Le hook init lance la fonction
+  function custom_menu_order($menu_ord) {
+    if (!$menu_ord) return true;
+    return array(
+      'index.php', // this represents the dashboard link
+      'edit.php?post_type=spectacles', // this is a custom post type menu
+      'edit.php?post_type=dates',
+      'edit.php?post_type=membres',
+      'edit.php?post_type=references',
+      'edit.php?post_type=actus',
+      'edit.php?post_type=page', // this is the default page menu
+      'edit.php?post_type=places',
+      'edit.php', // this is the default POST admin menu
+
+    );
+  }
+  add_filter('custom_menu_order', 'custom_menu_order');
+  add_filter('menu_order', 'custom_menu_order');
 

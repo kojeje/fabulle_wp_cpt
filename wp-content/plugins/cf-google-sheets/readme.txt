@@ -3,7 +3,7 @@ Contributors: alexagr, westerndeal, sooskriszta
 Donate link: https://paypal.me/alexagr
 Tags: Caldera Forms, Google Sheets, Google, Sheets
 Requires at least: 3.6
-Tested up to: 4.7
+Tested up to: 5.2.3
 Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -83,6 +83,9 @@ Sometimes it can take a while of spinning before it goes through. But if the ent
 3. Wrong Column name mapping (column names are the Caldera Forms slugs; they cannot have underscore or any special characters)
 
 == Changelog ==
+
+= 1.6 =
+* Update tested WordPress version
 
 = 1.5 =
 * Prevent fatal error when Caldera Forms is removed

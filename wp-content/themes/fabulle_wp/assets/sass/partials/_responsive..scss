@@ -80,6 +80,9 @@
     margin-top: 20vh;
     margin-bottom: 10vh;
   }
+  .w-md-30{
+    width: 30%;
+  }
   .w-md-45 {
     width: 45%;
   }
@@ -409,6 +412,10 @@
     max-width: 50% !important;
     min-width: 25% !important;
     height: auto !important;
+  }
+  .nomin-nomax{
+    min-width: 0 !important;
+    max-width: 100% !important;
   }
   #article-loop
   {

@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Google Sheets Integration for Caldera Forms
  * Description: Send data to Google Sheets on form submission
- * Version:     1.5
+ * Version:     1.6
  * Author:      Alex Agranov
  * License:     GPL-2.0+
  * License URI: http://www.gnu.org/licenses/gpl-2.0.txt
@@ -13,7 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 // Declare some global constants
-define( 'CFGS_CONNECTOR_VERSION', '1.5' );
+define( 'CFGS_CONNECTOR_VERSION', '1.6' );
 define( 'CFGS_CONNECTOR_ROOT', dirname( __FILE__ ) );
 define( 'CFGS_CONNECTOR_URL', plugins_url( '/', __FILE__ ) );
 define( 'CFGS_CONNECTOR_BASE_FILE', basename( dirname( __FILE__ ) ) . '/cf-google-sheets.php' );

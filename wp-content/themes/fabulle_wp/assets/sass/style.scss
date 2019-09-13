@@ -393,6 +393,9 @@ iframe
   float: left;
   margin-bottom: 20px;
 }
+.float-xs-thumb {
+  padding-right: 30px;
+}
 .float-thumb2{
   //max-width: 50% !important;
   //min-width: 25% !important;
@@ -435,9 +438,7 @@ iframe
 .float{
   float: left;
 }
-.w-20{
-  width: 20%;
-}
+
 .mr40{
   margin-right: 40px;
 }
@@ -641,6 +642,22 @@ iframe
 }
 .white{
   color: white;
+}
+.w-15{
+  width: 15%;
+}
+.w-20{
+  width: 20%;
+}
+.w-25{
+  width: 25%;
+}
+.w-30{
+  width: 30%;
+}
+.nomin-nomax{
+  min-width: 0;
+  max-width: 100%;
 }
 
 @import "partials/responsive.";
