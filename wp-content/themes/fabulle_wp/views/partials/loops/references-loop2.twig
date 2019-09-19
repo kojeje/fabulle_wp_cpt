@@ -1,0 +1,68 @@
+<div class="event-list envent-list2 col-12 w-100">
+    <section class="event">
+        <div id="title-bloc">
+            <div class="event-list2">
+                {# Titre #}
+                <div class="title-bloc">
+                    <h2 class="titre-page article-h1 under-title h1-event-list a-l-affiche link link#ff66332">
+                        <i class="fas fa-square"></i> NOUS SOMMES PASSÉS PAR LÀ ...
+                    </h2>
+                </div>
+                {# Pour chaque référence #}
+                {% for reference in references %}
+                    {# associe le spectacle correspondant à la reference #}
+                    {% for show in shows%}
+                        {% if show.get_field('id_show') == reference.get_field('id_show') %}
+                                <div class="row event-home-bloc event-home-bloc2 event-home-ref-block">
+                                    <div class="offset-3 d-block d-md-none"></div>
+                                    {# thumb #}
+                                    <div class="thumb3 col-6 col-md-2 ">
+                                        <img src="{{ show.thumbnail.src }}" alt="thumb">
+                                    </div>
+                                    <div class="offset-md-1 d-none d-md-block"></div>
+                                    <div class="offset-3 d-block d-md-none"></div>
+                                    {# affiche l'année de la référence #}
+                                    <p class="date-list col-12 col-md-1">{{ reference.get_field('date_ref')|raw}}</p>
+                                        {# affiche la salle #}
+                                        <p class="col-12 col-md-3">{{ reference.get_field('salle') }}</p>
+                                        {# affiche le cp et la commu #}
+                                    {# Si le spectacle se déroule en France #}
+                                    {% if reference.get_field('pays') == 'France' %}
+                                        {# CP et commune #}
+                                        <p class="col-12 col-md-5">{{ reference.get_field('cp') }} {{ reference.get_field('commune') }}</p>
+                                        {# Si le spectacle se déroule à l"étranger #}
+                                    {%else %}
+                                        {# CP et commune #}
+                                        <p class="col-12 col-md-3">{{ reference.get_field('cp') }} {{ reference.get_field('commune') }}</p>
+                                        {# affiche le pays #}
+                                        <p class="col-12 col-md-2 country">
+                                            {{ reference.get_field('pays') }}
+                                        </p>
+                                    {% endif %}
+
+
+                                </div>
+                        {% endif %}
+                    {% endfor %}
+                {% endfor %}
+                {# modifier lien vers balise interne en fonction de la presence d'évènement #}
+                {% if events %}
+                    <a href="#article-anch7" class="col-md-12 d-none d-md-block">
+                        <div class="button button2 button3">
+                            <p><i class="fas fa-chevron-down"></i></p>
+                        </div>
+                    </a>
+                {% else %}
+                    <a href="#article-anch6" class="col-md-12 d-none d-md-block">
+                        <div class="button button2 button3">
+                            <p><i class="fas fa-chevron-down"></i></p>
+                        </div>
+                    </a>
+                {% endif %}
+            </div>
+        </div>
+
+    </section>
+
+
+</div>
