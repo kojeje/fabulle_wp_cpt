@@ -108,6 +108,7 @@
   $context['soonshows'] = Timber::get_posts($args_articles9);
   $context['membres'] = Timber::get_posts($args_member);
   $context['cies'] = Timber::get_posts($args_cie);
+  $context['url'] = $_SERVER["REQUEST_URI"];
 
 
 

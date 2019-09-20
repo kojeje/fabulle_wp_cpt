@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row loop">
     {% for oldshow in oldshows %}
 
         {#{{ dump(oldshow.get_field('priorite'))}}#}
@@ -14,7 +14,7 @@
                         <img src="{{oldshow.thumbnail.src}}" alt="affiche" class="affiche float-thumb oneevent-img ">
                         {{ oldshow.content|truncate(30)}}
                     </div>
-                    <div class="offset-1"></div>
+
                 </div>
             </a>
     {% endfor %}

@@ -1,6 +1,5 @@
 {% extends 'base.twig' %}
 {% block content %}
-  
     <section class="container contact-section">
         <div class="contact-section2"> 
 
@@ -18,7 +17,7 @@
                             <i class="fal fa-phone tel_flex"></i>
                             <span class="tel_flex tel_flex2">06 28 23 01 11</span>
                         </p>
-                        <div class="contact-title">
+                        <div class="active#c90089 contact-title">
                             <h1>{{ post.title }}</h1>
                         </div>
                     </div>
@@ -30,6 +29,33 @@
 
 
                 </div>
+        </div>
+    </section>
+
+    <section class="container contact-section">
+        <div class="contact-section2">
+
+            <a id="article-anch" class="anch"></a>
+            <div class="back-home row">
+                <div class="offset-1 d-none d-lg-block"></div>
+                <div class="col-12 col-lg-5 coordonnees">
+
+
+
+
+                    <div class="active#c90089 contact-title">
+                        <h1>{{ 'newsletters'|capitalize }}</h1>
+                    </div>
+                </div>
+
+                <div class="form col-12 col-lg-5">
+                    {{ post.shortcode}}
+                    {{ dump(post) }}
+                </div>
+                <div class="offset-1 d-none d-md-block"></div>
+
+
+            </div>
         </div>
     </section>
 {% endblock %}

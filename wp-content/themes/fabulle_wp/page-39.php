@@ -41,7 +41,17 @@
   ];
   $args_membres = [
     'post_type' => 'membres',
-    'meta_key' => 'priorite',
+    'meta_key' => 'statut',
+    'meta_value'=>'actuel',
+    'orderby' => 'priorite',
+    'order'=>'ASC',
+
+
+  ];
+  $args_old_membres = [
+    'post_type' => 'membres',
+    'meta_key' => 'statut',
+    'meta_value'=>'ancien',
     'orderby' => 'priorite',
     'order'=>'ASC',
 
@@ -69,10 +79,12 @@
   $context['soonshows'] = Timber::get_posts($args_soonshows);
   $context['oldshows'] = Timber::get_posts($args_oldshows);
   $context['membres'] = Timber::get_posts($args_membres);
+  $context['oldmembres'] = Timber::get_posts($args_old_membres);
   $context['references'] = Timber::get_posts($args_ref);
   $context['places'] = Timber::get_posts($args_places);
+  $context['url'] = $_SERVER["REQUEST_URI"];
 
-
+//var_dump($context['oldmembres']);die;
 
 
 // appelle la vue twig "template-dates.twig" située dans le dossier views

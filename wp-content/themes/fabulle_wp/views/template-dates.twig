@@ -15,9 +15,8 @@
                             <div class="show5 show article-loop">
                                 <a class="row" href="{{ show.link }}">
 
-                                    {#<h1 class="article-sub-h1 col-12">#}
-                                        {#{{ show.title }}#}
-                                    {#</h1>#}
+
+
                                     <div class="offset-1 d-block d-md-none"></div>
                                     <div class="col-6 col-md-4">
                                         <img src="{{show.thumbnail.src}}" alt="affiche" class="affiche">
@@ -29,7 +28,41 @@
                                     <div class="col-5 col-md-6 t-a-center">
                                         <p>{{ show.get_field('field_5cb19e8a1f92d') }}</p>
                                         <p>A partir de: {{ show.get_field('field_5cb19f4acd2c1') }} ans</p>
-                                        <p>durée: {{ show.get_field('field_5cb19fe0cd2c3') }} mn environ.</p>
+
+                                        {# formatage de l'affichage la variable post.get_field('duree')
+                                        en heures et/ou minutes en fonction de son modulo de 60  #}
+                                        {# Si post.get_field('duree')%60 == 0 soit la durée multiple de 60 #}
+                                        {% if post.get_field('duree')  %}
+                                            {% if post.get_field('duree')%60 == 0  %}
+                                                <div class="bref-item">
+
+                                                    <p>
+                                                        {# n'affiche que la durée en heure (int#}
+                                                        {{ post.get_field('duree')/60 }}h env
+                                                    </p>
+                                                </div>
+                                            {#SI post.get_field('duree') % 60 >= 1,
+                                            donc si la durée est supérieure à 1h #}
+                                            {% elseif post.get_field('duree') % 60 >= 1 %}
+                                                <div class="bref-item">
+                                                    <p>
+                                                        <i class="fas fa-watch"></i>
+                                                        {# affiche que la durée en heure (int) et  les minutes restantes#}
+                                                        {{ (post.get_field('duree') - post.get_field('duree') % 60) / 60}}h {{ post.get_field('duree') % 60 }}mn env
+                                                    </p>
+                                                </div>
+
+                                            {% else %}
+                                                {#autre possibilité,
+                                            donc si la durée est inférieure à 1h #}
+                                                <div class="bref-item">
+                                                    {# affiche que la durée en mn (int)#}
+                                                    <p>
+                                                        {{ post.get_field('duree') }}mn env
+                                                    </p>
+                                                </div>
+                                            {% endif %}
+                                        {% endif %}
                                     </div>
 
 

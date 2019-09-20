@@ -9,11 +9,13 @@ html
 }
 body
 {
-  width: 100%;
+  width: 100vw !important;
   padding: 0;
+  margin: 0;
   background: $dark-blue !important;
   color: $white !important;
 }
+
 a,
 .flex-title-bloc a{
   cursor: pointer;
@@ -43,6 +45,11 @@ h1
   background: rgb(0,0,0);
   background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(0,7,18,1) 32%, rgba(0,15,40,0.9) 66%);
   height: 17vh;
+}
+.header_bloc,
+.loop{
+  margin-left: 0px !important;
+  margin-right: 0px !important;
 }
   caption {
 
@@ -97,6 +104,7 @@ a
   -webkit-border-radius: 20%;
   -moz-border-radius: 20%;
   border-radius: 20%;
+
 }
 
 .dropdown-menu
@@ -104,7 +112,7 @@ a
   //position: fixed !important;
   //width: 100%;
   background: $dark-blue;
-  transform: translate3d( -69%, 0px, 0px) !important;
+  transform: translate3d( -69%, -20px, 0px) !important;
   font-size:15px;
   overflow-y: auto;
   pointer-events: auto;
@@ -127,6 +135,7 @@ a
   color: $link !important;
   padding: 20px !important;
   text-align: center;
+  font-size: 30px !important;
 
 
 }
@@ -178,7 +187,7 @@ a
 }
 .post-type-page
 {
-  width: 90%;
+
   margin: auto;
 }
 
@@ -271,7 +280,10 @@ iframe
   margin-top: 20px;
   margin-bottom: 20px;
 }
-
+.thumb3{
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
 .article-sub-h2,
 .article-sub-h1
 {
@@ -286,6 +298,9 @@ iframe
   margin-top: 40px;
 
 }
+.event2{
+  overflow: hidden;
+}
 .salle
 {
   color: $link;
@@ -293,11 +308,19 @@ iframe
 .date-list
 {
   padding: 10px;
-  color: #000;
+  color: #000 !important;
   background: $link;
   margin-bottom: 30px;
 
 }
+.date-list2
+{
+  padding: 10px;
+  color: #000;
+  background: $link;
+  margin-bottom: 16px;
+}
+
 .date
  {
    font-size: 24px;
@@ -392,6 +415,8 @@ iframe
   height: auto;
   float: left;
   margin-bottom: 20px;
+  padding: 10px;
+  max-width: 40%;
 }
 .float-xs-thumb {
   padding-right: 30px;
@@ -547,7 +572,7 @@ iframe
   margin: auto;
 }
 .link\#66ccff2{
-  //border-top: 4px solid #66ccff;
+
   color:#66ccff !important;
 
 }
@@ -557,6 +582,10 @@ iframe
 .link\#ffcc332{
   color:#ffcc33 !important;
 }
+.link\#00c94a{
+  color:#00c94a !important;
+}
+
 .parallax{
   background-attachment: fixed;
   background-repeat: no-repeat;
@@ -659,6 +688,17 @@ iframe
   min-width: 0;
   max-width: 100%;
 }
+.map iframe{
+  min-height: 300px;
+}
+.article-event{
+  transition: 0.3s;
+  font-size: 40px;
+}
+.post-type-spectacles{
+  margin-left: 0.5vh;
+}
+
 
 @import "partials/responsive.";
 @import "partials/states";

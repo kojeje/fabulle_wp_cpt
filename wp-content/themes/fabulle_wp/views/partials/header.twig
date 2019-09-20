@@ -1,39 +1,94 @@
-<header class="header">
+{#header sticky #}
+   <header class="header">
     <div class="header_bloc row">
-
-        <div class="logo col-3 col-md-2">
+{#logo #}
+        <div class="logo col-3 col-lg-2">
             <a href="https://www.kojeje.fr/fabulle/">
                 <img class="logo_fabulle" src="{{ theme.link }}/assets/img/fabulle_spectacles_enfants.png" alt="logo">
             </a>
         </div>
+{#nav desktop #}
         <nav class="nav d-none d-lg-block col-lg-10">
+     {#menu#}
             <div class="links">
+{#          pour chaque item #}
                 {% for item in menu.items %}
+    {#              traitement d'affichage pour liens: 'accueil' #}
+                    {% if (item.post_name == 'accueil')  %}
+                        {% if url == '/fabulle/'%}
+                            <a href="{{ item.link }}">
+                                <p class="link#66ccff active-link active#66ccff">{{ item.title }}</p>
+                            </a>
+                        {% else %}
+                            <a href="{{ item.link }}">
+                                <p class="link link#66ccff">{{ item.title }}</p>
+                            </a>
+                        {% endif %}
+                    {% endif %}
+    {#              'la Cie'#}
+                    {%if (item.post_name == 'la-cie')%}
+                        {% if url == '/fabulle/la-compagnie/'%}
+                            <a href="{{ item.link }}">
+                                <p class="link#ff6633 active-link active#ff6633">{{ item.title }}</p>
+                            </a>
+                        {% else %}
+                            <a href="{{ item.link }}">
+                                <p class="link link#ff6633">{{ item.title }}</p>
+                            </a>
 
+                        {% endif %}
+                    {% endif %}
+    {#              'les spectacles'#}
+                    {%if (item.post_name == 'spectacles')%}
+                        {% if url == '/fabulle/les-spectacles/'%}
+                            <a href="{{ item.link }}">
+                                <p class="link#ffcc33 active-link active#ffcc33">{{ item.title }}</p>
+                            </a>
+                        {% else %}
+                            <a href="{{ item.link }}">
+                                <p class="link link#ffcc33">{{ item.title }}</p>
+                            </a>
 
-                    {% if (item.post_name == 'accueil') or (item.post_name == 'nous-voir') %}
-                    <a href="{{ item.link }}">
-                        <p class="link link#66ccff">{{ item.title }}</p>
-                    </a>
-                    {% elseif (item.post_name == 'la-cie')%}
-                        <a href="{{ item.link }}">
-                            <p class="link link#ff6633">{{ item.title }}</p>
-                        </a>
-                    {% elseif (item.post_name == 'spectacles') or (item.post_name == 'contact')%}
-                        <a href="{{ item.link }}">
-                            <p class="link link#ffcc33">{{ item.title }}</p>
-                        </a>
-                    {% else %}
-                        <a href="{{ item.link }}">
-                            <p class="link">{{ item.title }}</p>
-                        </a>
+                        {% endif %}
+                    {% endif %}
+    {#              'les dates'#}
+                    {%if (item.post_name == 'nous-voir')%}
+                        {% if url == '/fabulle/nous-voir/'%}
+                            <a href="{{ item.link }}">
+                                <p class="link#00c94a active-link active#00c94a">{{ item.title }}</p>
+                            </a>
+                        {% else %}
+                            <a href="{{ item.link }}">
+                                <p class="link link#00c94a">{{ item.title }}</p>
+                            </a>
+
+                        {% endif %}
+                    {% endif %}
+
+    {#              traitement d'affichage pour: 'contact'#}
+                    {% if (item.post_name == 'contact')  %}
+                    {#{% elseif (item.post_name == 'spectacles') or (item.post_name == 'contact')%}#}
+                        {% if url == '/fabulle/contact/'%}
+                            <a href="{{ item.link }}">
+                                <p class="link#c90089 active-link active#c90089">{{ item.title }}</p>
+                            </a>
+                        {% else %}
+                            <a href="{{ item.link }}">
+                                <p class="link link#c90089">{{ item.title }}</p>
+                            </a>
+                        {% endif %}
                     {% endif %}
                 {% endfor %}
+{#          Champ de recherche (en developpement)#}
+
                 <div id ="search" class="col-md-2">
+{#               formulaire#}
                     <form class="row navbar-form navbar-left w-100" role="search" action="{{ site.url }}">
+{#                  Submit#}
                         <button class="col-4 btn btn-search btn-outline-success " type="submit">
                             <i class="fal fa-search"></i>
                         </button>
+{#                  Input#}
                         <div class="col-8 form-group">
                             <input type ="text" id="iconified" class="form-control empty" value="{{ function('get_search_query')}}">
                         </div>
@@ -42,42 +97,43 @@
             </div>
 
         </nav>
-
-
-
-
+{#   Pour mobile et tablette  (< 992px) #}
         <div class=" offset-5 offset-md-7"></div>
-        <nav class="dropdown show nav d-lg-none d-block col-4 col-md-1">
-
+{#   Menu dropdown#}
+        <nav class="dropdown show nav d-lg-none d-block col-4 col-md-2 m-a">
+{#      Apparence replié#}
             <a href="#" class="btn btn-secondary dropdown-toggle links" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+{#          icone#}
                 <p><i class="fas fa-bars"></i></p>
             </a>
+{#       Déplié (popup)#}
             <div class="dropdown-menu row" aria-labelledby="dropdownMenuLink">
                 <div class="d-md-none d-block offset-3"></div>
+{#          logo#}
                 <div class="logo col-6 col-md-2">
                     <a href="https://www.kojeje.fr/fabulle/">
                         <img class="logo_fabulle" src="{{ theme.link }}/assets/img/fabulle_spectacles_enfants.png" alt="logo">
                     </a>
                 </div>
                 <div class="d-md-none d-block offset-3"></div>
-                {#{% for item in menu.items %}#}
-
-                {#<a class="add2 add-link dropdown-item link" href="{{ item.link }}">{{ item.title }}</a>#}
-            {#{% endfor %}#}
+{#           pour chaque item#}#}
                 {% for item in menu.items %}
-                    {#{{ dump(item) }}#}
+{#               traitement d'affichage pour liens: 'accueil' et  'nous voir'#}#}
                     {% if (item.post_name == 'accueil') or (item.post_name == 'nous-voir') %}
                         <a class="add2 add-link dropdown-item" href="{{ item.link }}">
                             <p class="link link#66ccff2">{{ item.title }}</p>
                         </a>
-                    {% elseif (item.post_name == '40') or (item.post_name == 'references')%}
+{#              traitement d'affichage pour lien: 'la Cie'#}
+                    {% elseif (item.post_name == 'la-cie')%}
                         <a class="add2 add-link dropdown-item" href="{{ item.link }}">
                             <p class="link link#ff66332">{{ item.title }}</p>
                         </a>
+{#              traitement d'affichage pour: 'contact'#}
                     {% elseif (item.post_name == '766') or (item.post_name == '261')%}
                         <a class="add2 add-link dropdown-item" href="{{ item.link }}">
                             <p class="link link#ffcc332">{{ item.title }}</p>
                         </a>
+{#              pour les autres liens éventuels#}
                     {% else %}
                         <a class="add2 add-link dropdown-item" href="{{ item.link }}">
                             <p class="link">{{ item.title }}</p>
@@ -86,6 +142,22 @@
 
 
                 {% endfor %}
+{#          Champ de recherche (en developpement)#}
+                <div id ="search" class="row">
+                    <div class="offset-1 d-block d-lg-none"></div>
+                    {#               formulaire#}
+                    <form class="row navbar-form navbar-left col-md-10" role="search" action="{{ site.url }}">
+                        {#                  Submit#}
+                        <button class="col-4 btn btn-search btn-outline-success " type="submit">
+                            <i class="fal fa-search"></i>
+                        </button>
+                        {#                  Input#}
+                        <div class="col-8 form-group">
+                            <input type ="text" id="iconified" class="form-control empty" value="{{ function('get_search_query')}}">
+                        </div>
+                    </form >
+                    <div class="offset-1 d-block d-lg-none"></div>
+                </div>
             </div>
 
         </nav>

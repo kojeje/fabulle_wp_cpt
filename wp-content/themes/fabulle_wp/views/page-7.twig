@@ -97,22 +97,21 @@
 <!-- CORPS DE LA PAGE -->
     {# accueil #}
 <a id="article-anch" class="anch d-none d-md-block"></a>
-
 <div class="article-loop article-loop2 w-100 m-a" id="article-loop">
     <div class="cpost-type-{{post.post_type}}" id="post-{{post.ID}}">
 
          {#Slogan smartphones#}
         {% include '/views/partials/slogan-phone.twig' %}
         {# ------------ SECTION 1 ---------------------------------------- #}
-        <section class="article-content home row back-home parallax2">
+        <section class="article-content home loop row back-home parallax2">
             {# Si il y a des dates à afficher#}
             {% if events %}
                 <div class="offset-md-1 d-none d-md-block"></div>
                 {#ACCUEIL#}
-                <div class="col-12 col-md-5 row event-list2">
+                <div class="col-12 col-md-5 row loop event-list2">
                     {#TITRE#}
                     <div class="offset-md-1 d-none d-md-block"></div>
-                    <h2 class="titre-page link link#66ccff2 col-12 col-md-8 flex-h1 h1-event-list">
+                    <h2 class="active#66ccff titre-page col-12 col-md-8 flex-h1 h1-event-list">
                         <i class=" fas fa-home-lg"> </i> ACCUEIL
                     </h2>
                     {#CONTENU#}
@@ -142,7 +141,7 @@
                 {#ACCUEIL#}
                 <div class="col-12 col-md-4 row event-list2 flex-title-bloc">
                     {#TITRE#}
-                    <h2 class="titre-page link link#66ccff2 col-12 col-md-8 flex-h1 h1-event-list" >
+                    <h2 class="active#66ccff titre-page col-12 col-md-8 flex-h1 h1-event-list" >
                         <i class=" fas fa-home-lg"> </i> ACCUEIL
                     </h2>
                     {# CONTENU#}
@@ -177,12 +176,12 @@
         {% include '/views/partials/separation.twig' %}
         {# ------------ SECTION 2 ---------------------------------------- #}
         <a class="col-12 d-none d-md-block" id="article-anch2"></a>
-        <section class="article-content home row row-eq-height ptit_mot-inc parallax2">
+        <section class="article-content home row loop row-eq-height ptit_mot-inc parallax2">
             {# Si il y a des dates à afficher#}
             {% if events %}
                 <div class="offset-md-1 d-none d-md-block"></div>
                 {% include '/views/partials/loops/1actu.twig' %}
-
+                <div class="d-none d-md-block d-lg-none offset-md-1"></div>
                 {% include '/views/partials/video.twig' %}
             {% else %}
                 {% include '/views/partials/loops/1actu-row.twig' %}
@@ -198,7 +197,7 @@
             <a class="col-md-12 d-lg-block d-none" id="article-anch3"></a>
             <section class="article-loop article-loop2 back-show parallax2">
                 <div class="title-bloc">
-                    <h2 class="titre-page event-list2 article-h1 under-title link link#ffcc332 link2 h1-event-list a-l-affiche">
+                    <h2 class="active#ffcc33 titre-page event-list2 article-h1 under-title h1-event-list a-l-affiche">
                             <i class="fas fa-star"></i> A L'AFFICHE
                     </h2>
                 </div>
@@ -212,7 +211,7 @@
         {# ------------ SECTION 4 ---------------------------------------- #}
         {% if events %}
             <a id="article-anch4" class="d-none d-md-block"></a>
-            <section class="col-12 parallax2" id="home-event" >
+            <section class="parallax2" id="home-event" >
 
             {% include '/views/partials/loops/event-loop.twig' %}
             </section>
@@ -222,7 +221,7 @@
             {% include '/views/partials/separation.twig' %}
         {% endif %}
         {# ------------ SECTION 5 ---------------------------------------- #}
-        <section class="row">
+        <section class="row loop">
             {# modifier balise interne en fonction de la presence d'évènement #}
             {% if events %}
                 <a class="col-md-12 d-lg-block d-none" id="article-anch5"></a>
@@ -239,9 +238,9 @@
                         {# contenu choisi de la page à afficher dans le bloc #}
 
                         {# Bloc text img 1 #}
-                        <div class="col-12 col-md-6 row">
+                        <div class="col-12 loop col-md-6 row">
                             {# Titre #}
-                            <h1 class="titre-page article-h1 under-title loop-title loop-title2 link link#ff66332 link2">
+                            <h1 class="active#ff6633 titre-page article-h1 under-title loop-title loop-title2 ">
                                 <i class="fas fa-circle"></i>
                                 {{ cie.title|upper }}
                             </h1>
@@ -255,9 +254,9 @@
                         </div>
                         {# Bloc text img 2 #}
                         {#<div class="offset-md-1 d-none d-md-block"></div>#}
-                        <div class="col-12 col-md-5">
+                        <div class="col-12 loop col-md-5">
                             {# Titre #}
-                            <h1 class="titre-page2 article-h1 under-title loop-title loop-title2 link link#ff66332 link2">
+                            <h1 class="active#ff6633  titre-page2 article-h1 under-title loop-title loop-title2 ">
                                 <i class="fas fa-circle"></i>
                                 {{ cie.get_field('subtitle') }}</h1>
                             <div class="offset-md-1 d-none d-lg-block"></div>
@@ -292,14 +291,14 @@
         </section>
 
         {# ------------ SECTION 5 ---------------------------------------- #}
-        <section class="row">
+        <section class="row loop">
 
             {% if events %}
                 <a class="col-md-12 d-lg-block d-none" id="article-anch6"></a>
             {% else %}
                 <a class="col-md-12 d-lg-block d-none" id="article-anch5"></a>
             {% endif %}
-            <h1 class="article-h1 under-title col-12 link link#ffcc332 link2">
+            <h1 class="active#ffcc33 article-h1 under-title col-12">
                 <i class="fas fa-star"></i>
                 {{ 'En création'|upper }}
             </h1>

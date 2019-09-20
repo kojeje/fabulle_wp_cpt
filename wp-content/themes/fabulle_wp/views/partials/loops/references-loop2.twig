@@ -13,7 +13,7 @@
                     {# associe le spectacle correspondant à la reference #}
                     {% for show in shows%}
                         {% if show.get_field('id_show') == reference.get_field('id_show') %}
-                                <div class="row event-home-bloc event-home-bloc2 event-home-ref-block">
+                                <a class="row event-home-bloc event-home-bloc2 event-home-ref-block " href="{{ show.link }}">
                                     <div class="offset-3 d-block d-md-none"></div>
                                     {# thumb #}
                                     <div class="thumb3 col-6 col-md-2 ">
@@ -39,26 +39,12 @@
                                             {{ reference.get_field('pays') }}
                                         </p>
                                     {% endif %}
-
-
-                                </div>
+                                </a>
                         {% endif %}
                     {% endfor %}
                 {% endfor %}
-                {# modifier lien vers balise interne en fonction de la presence d'évènement #}
-                {% if events %}
-                    <a href="#article-anch7" class="col-md-12 d-none d-md-block">
-                        <div class="button button2 button3">
-                            <p><i class="fas fa-chevron-down"></i></p>
-                        </div>
-                    </a>
-                {% else %}
-                    <a href="#article-anch6" class="col-md-12 d-none d-md-block">
-                        <div class="button button2 button3">
-                            <p><i class="fas fa-chevron-down"></i></p>
-                        </div>
-                    </a>
-                {% endif %}
+
+
             </div>
         </div>
 

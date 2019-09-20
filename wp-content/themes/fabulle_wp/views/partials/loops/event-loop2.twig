@@ -3,7 +3,7 @@
         <div id="title-bloc" class="title-bloc2 flex-title-bloc col-12 row">
             <div class="container-fluid event-list2 event-home-bloc">
                 {# titre section #}
-                <h2 class="titre-page article-h1 under-title h1-event-list col-md-5 col-12 link link#66ccff2">
+                <h2 class="active#00c94a titre-page article-h1 under-title h1-event-list col-md-5 col-12 link link#66ccff2">
                     <i class="far fa-eye"></i>
                     NOUS VOIR
                 </h2>
@@ -21,7 +21,7 @@
 
                             {% if event.get_field('public') == true
                                 and show.get_field('dispo') == 1
-                                and "now"|date < event.get_field('date_show')
+                                and "now" > event.get_field('date_show')%}
                             %}
                                 {# item date avec lien vers l'archive #}
                                 <a class="row event-home-bloc event-home-date-block" href="{{ event.link }}">
@@ -99,6 +99,10 @@
                         {% endif %}
                     {% endfor %}
                 {% endfor %}
+                <a href="{{ site.link }}/nous-voir" class="col-12 col-md-4">
+                    <i class="far fa-eye"></i>
+                    Toutes les représentations
+                </a>
             </div>
         </div>
 

@@ -41,6 +41,7 @@
   $context['shows'] = Timber::get_posts($args_shows);
   $context['events'] = Timber::get_posts($args_dates);
   $context['places'] = Timber::get_posts($args_places);
+  $context['url'] = $_SERVER["REQUEST_URI"];
 
 //  $context['refs'] = Timber::get_posts($args_articles3);
 

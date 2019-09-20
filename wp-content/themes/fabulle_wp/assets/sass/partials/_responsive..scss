@@ -151,7 +151,7 @@
     background-image: $url4;
   }
   .back-home {
-    background-image: $url5;
+    background-image: $url5 !important;
   }
   #home-event {
     background-image: $url2;
@@ -178,9 +178,43 @@
     //position: fixed !important;
     //width: 100%;
     background: $dark-blue;
-    transform: translate3d(-89%, 0px, 0px) !important;
+    transform: translate3d(-84%, -51px, 0px) !important;
 
   }
+  .caption{
+   top:2vh;
+    padding: 10px;
+    padding-top: 100px;
+    padding-bottom: 300px;
+    border-radius:50%;
+    background: rgba(0, 0, 0, 0.4);
+  }
+  .button{
+    display: block;
+    margin: auto;
+    font-size:100px;
+    width: 100px;
+    height: 100px;
+    text-align: center;
+    opacity:0.2;
+    transition:0.5s;
+  }
+  .button p{
+    margin: auto;
+  }
+  .date-list
+  {
+
+    margin-bottom: 0;
+
+  }
+  .event-home-bloc,ê
+  .event-home-bloc p {
+    font-size:16px;
+    padding: 10px;
+    padding-top: 40px;
+  }
+
 }
 
 @media screen and (min-width:992px)
@@ -200,6 +234,7 @@
     width: 100%;
 
   }
+
   .event-home-bloc iframe{
     display: block;
     padding: 50px !important;
@@ -259,7 +294,7 @@
   {
     display: block;
     height:17vh;
-      width: 100%;
+    width: 100%;
   }
 
   .thumb
@@ -435,17 +470,7 @@
   {
     margin-bottom: 10vh;
   }
-  .button{
-    display: block;
-    position: absolute;
-    bottom: 5vh;
-    font-size:100px;
-    width: 100px;
-    height: 100px;
-    text-align: center;
-    opacity:0.2;
-    transition:0.5s;
-  }
+
   .button-h
   {
 
@@ -500,7 +525,7 @@
   }
   .link
   {
-    color: $white;
+    color: $white !important;
     padding: 10px;
     transition: 0.3s;
 
@@ -852,6 +877,7 @@
   {
 
     padding-top: 3vh;
+    padding-bottom: 3vh;
     padding-left: 20px;
     min-width: 50%;
   }
@@ -895,10 +921,9 @@
   .totop
   {
     opacity: 0.5;
-
     position: sticky;
     bottom: 10vh;
-    margin-left: 93%;
+    margin-left: 88%;
     cursor: pointer;
     padding: 30px;
     font-size:8px;
@@ -906,6 +931,7 @@
     transition: 0.6s;
     z-index: 1;
     background: rgba(0, 0, 0, 1);
+    width: 10%;
 
   }
   .totop div, .totop p
@@ -987,7 +1013,7 @@
   }
     .id
     {
-      background-image: url('/wp-content/themes/fabulle_wp/assets/img/mati-bras.jpg');
+      background-image: url('https://kojeje.fr/fabulle/wp-content/themes/fabulle_wp/assets/img/mati-bras.jpg');
       background-repeat: no-repeat;
       background-position: center;
       background-size: cover;
@@ -1054,6 +1080,31 @@
   }
   .titre-page2{
     font-size: 25px;
+  }
+  .active-link {
+
+    font-size: 24px;
+
+  }
+
+  .active\#66ccff{
+    //border-top: 4px solid #66ccff;
+    color:#66ccff;
+
+  }
+  .active\#ff6633{
+    color: #ff6633;
+    //border-top: 4px solid #ff6633;
+  }
+  .active\#ffcc33{
+    color: #ffcc33;
+    //border-top: 4px solid #ffcc33;
+  }
+  .active\#00c94a{
+    color:#00c94a !important;
+  }
+  .active\#c90089{
+    color:#c90089 !important;
   }
 }
 

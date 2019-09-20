@@ -16,50 +16,47 @@
             %}
                 <div class="event-list container">
                     <div class="event2">
-                        <a class="row event-home-bloc event-home-bloc2" href="{{ oneevent.link }}">
-                            <div class="offset-md-2 offset-1"></div>
+                        <a class="row loop event-home-bloc event-home-bloc2" href="{{ oneevent.link }}">
+
                             {# Titre #}
-                            <h2 class="titre-page2 link2#66ccff2 article-h1 under-title link2 h1-event-list col-12">
+                            <h2 class="active#00c94a titre-page2 link2#66ccff2 article-event under-title  h1-event-list col-12">
                                 <i class="far fa-eye"></i>
                                 {{ 'prochaine représentation'|capitalize }}
                             </h2>
                             {#contenu#}
-                            <div class="offset-1"></div>
-                            <div class="thumb3 col-10 col-md-12 event-list2">
+                            {#<div class="d-md-none d-block offset-1"></div>#}
+                            {#<div class="d-none d-md-block d-lg-none offset-md-1"></div>#}
+                            <div class="thumb3 col-12">
                                 <img src="{{ oneshow.thumbnail.src }}" alt="thumb">
                             </div>
-                            <div class="offset-1"></div>
-                            <div class="offset-md-2 offset-1"></div>
+                            {#<div class="d-md-none d-block offset-1"></div>#}
+
                             {#date de l'evenement#}
-                            <div class="date-list row col-10 col-md-12 m-a t-a-center">
+                            {#<div class="d-none d-md-block d-lg-none offset-md-1"></div>#}
+                            <div class="date-list row col-12 t-a-center">
                                 <p class="col-12">{{ oneevent.get_field('date_show') }}</p>
                                 {% for place in places if place.get_field('salle') == oneevent.get_field('salle')%}
                                 {# Boucle du lieu correspondant #}
                                 {# coordonnées #}
                                 {# pour les évènements ayant lieu en France #}
-                                    {% if place.get_field('pays') == 'France' %}
-                                        <p class="col-12 col-md-6">{{ place.get_field('cp') }}</p>
-                                        <p class="col-12 col-md-6">{{ place.get_field('commune') }}</p>
-                                        {# A l'étranger #}
-                                    {% else %}
-                                        <p class="col-12 col-md-6">
+                                {% if place.get_field('pays') == 'France' %}
+                                    <p class="col-12 col-md-6 t-a-center">{{ place.get_field('cp') }}</p>
+                                    <p class="col-12 col-md-12 t-a-center">{{ place.get_field('commune') }}</p>
+                                    {# A l'étranger #}
+                                {% else %}
+                                    <p class="col-12 t-a-center">
                                             {{ place.get_field('commune') }}</p>
-                                        <p class="d-block col-12 col-md-6">
+                                    <p class="d-block col-12 t-a-center">
                                             <span class=" country t-a-center w-100">
                                                 {{ place.get_field('pays') }}
                                             </span>
                                         </p>
-                                    {% endif %}
+                                {% endif %}
                             </div>
-                            <div class="offset-md-2 offset-1"></div>
                             {# intégration d'une carte#}
-                            <div class="offset-1"></div>
-                            <div class="col-10 col-md-9 map">
+                            <div class="col-12 col-md-11 map">
                                 {{ place.get_field('gmap') }}
                             </div>
-                            <div class="offset-1"></div>
-
-
                             {% endfor %}
                         </a>
                     </div>
@@ -71,15 +68,13 @@
                     <i class="fal fa-video"></i> Videos
                 </h2>
                 <section class="article-content row">
-                    <div class="offset-md-1 d-none d-md-block"></div>
+
                     {# embed video#}
                     <div class="article-loop video-content col-12 col-md-12" id="video">
                         {{ post.get_field('field_5cb8c5092e363') }}
                     </div>
-                    <div class="offset-md-1 d-none d-md-block"></div>
-                    <div class="title-bloc video-title-bloc col-12">
 
-                    </div>
+
                 </section>
 
             {% endif %}

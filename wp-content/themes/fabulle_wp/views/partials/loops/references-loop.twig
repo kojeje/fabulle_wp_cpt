@@ -1,6 +1,6 @@
-<div class="event-list col-12 w-100">
+<div class="event-list envent-list2 col-12 w-100">
     <section class="event">
-        <div id="title-bloc" class="title-bloc2 flex-title-bloc">
+        <div id="title-bloc">
             <div class="event-list2">
                 {# Titre #}
                 <div class="title-bloc">
@@ -13,7 +13,7 @@
                     {# associe le spectacle correspondant à la reference #}
                     {% for show in shows%}
                         {% if show.get_field('id_show') == reference.get_field('id_show') %}
-                                <div class="row event-home-bloc event-home-bloc2 event-home-ref-block">
+                                <a class="row event-home-bloc event-home-bloc2 event-home-ref-block" href="{{ show.link }}">
                                     <div class="offset-3 d-block d-md-none"></div>
                                     {# thumb #}
                                     <div class="thumb3 col-6 col-md-2 ">
@@ -41,7 +41,7 @@
                                     {% endif %}
 
 
-                                </div>
+                                </a>
                         {% endif %}
                     {% endfor %}
                 {% endfor %}

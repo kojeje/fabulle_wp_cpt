@@ -49,7 +49,26 @@
 
 
 
+
   ];
+
+//  function curPageURL() {
+//    $pageURL = 'http';
+//
+////    if ($_SERVER["HTTPS"] == "on") {
+////      $pageURL .= "s";
+////    }
+//    $pageURL .= "://";
+//
+//    if ($_SERVER["SERVER_PORT"] != "8000") {
+//      $pageURL .= $_SERVER["SERVER_NAME"].":".$_SERVER["SERVER_PORT"].$_SERVER["REQUEST_URI"];
+//    } else {
+//      $pageURL .= $_SERVER["SERVER_NAME"].$_SERVER["REQUEST_URI"];
+//    }
+//
+//    return $pageURL;
+//  }
+
 //  $args_articles3 = [
 //    'post_type' => 'post',
 //    'category_name' => 'reference'
@@ -63,8 +82,8 @@
   $context['events'] = Timber::get_posts($args_articles2);
   $context['oldshows'] = Timber::get_posts($args_articles8);
   $context['soonshows'] = Timber::get_posts($args_articles9);
+  $context['url'] = $_SERVER["REQUEST_URI"];
 //  $context['refs'] = Timber::get_posts($args_articles3);
-
 
 
   // appelle la vue twig "page-34.twig" située dans le dossier views

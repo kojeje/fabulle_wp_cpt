@@ -82,8 +82,7 @@ a:hover
 }
 .dropdown-item:hover
 {
-  border-bottom: 15px solid $white;
-  color: $white !important;
+
   background: transparent !important;
 
 }
@@ -114,21 +113,25 @@ a:hover
   font-size: 24px;
 
 }
-.link2:hover{
 
-}
 .link\#66ccff:hover{
   //border-top: 4px solid #66ccff;
-  color:#66ccff;
+  color:#66ccff !important;
 
 }
 .link\#ff6633:hover{
-  color: #ff6633;
+  color: #ff6633 !important;
   //border-top: 4px solid #ff6633;
 }
 .link\#ffcc33:hover{
-  color: #ffcc33;
+  color: #ffcc33 !important;
   //border-top: 4px solid #ffcc33;
+}
+.link\#00c94a:hover{
+  color:#00c94a !important;
+}
+.link\#c90089:hover{
+  color:#c90089 !important;
 }
 .mt0{
   margin-top: 0;
@@ -138,6 +141,9 @@ a:hover
 }
 .link4:hover{
   color: #f9e2e2 !important;
+}
+.link3:hover{
+  font-size: 35px;
 }
 .link2:hover{
   font-size: 50px;

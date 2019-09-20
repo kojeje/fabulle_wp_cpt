@@ -39,6 +39,7 @@
 
   $context['shows'] = Timber::get_posts($args_shows);
   $context['events'] = Timber::get_posts($args_events);
+  $context['url'] = $_SERVER["REQUEST_URI"];
 
 //  var_dump($context['shows']);die;
 
