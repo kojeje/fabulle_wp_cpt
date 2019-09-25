@@ -378,9 +378,6 @@ iframe
   z-index: 30;
     padding: 50px;
     border-radius: 20px;
-
-
-    
 }
 
 .form
@@ -388,14 +385,19 @@ iframe
     margin-top: 0;
 }
 
-  .btn
-    {
-        color: white;
-    }
-.btn:hover
-{
-  color:#ffb630;
- 
+.btn
+  {
+      color: #ffb630;
+      -webkit-border-radius: 20px;
+      -moz-border-radius: 20px;
+      border-radius: 20px;
+      transition: 0.3s;
+      margin-top: 10px;
+      width: 30%;
+      margin-left: 60%;
+  }
+.btn-search{
+  margin: 0;
 }
 
 .ptit_mot
@@ -521,6 +523,7 @@ iframe
 .form-control{
   border-radius: 0 50px 50px 0;
   border: none;
+
 }
 .navbar-form{
 
@@ -555,7 +558,7 @@ iframe
 }
 .btn-outline-success,
 .form-control{
-  background-color: #66ccff;
+  background-color: #a7daf2;
 
 }
 .btn-outline-success{
@@ -635,6 +638,7 @@ iframe
 .separation{
   width: 100%;
   margin-top: 100px;
+  margin-bottom: 100px;
 }
 .separation-line{
   height: 2px;
@@ -698,6 +702,13 @@ iframe
 .post-type-spectacles{
   margin-left: 0.5vh;
 }
+.simple{
+  color: #ffffff;
+  font-size: 12px;
+  margin-bottom: 5px;
+  margin-right: 5px;
+}
+
 
 
 @import "partials/responsive.";

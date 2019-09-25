@@ -12,7 +12,7 @@
             if oneshow.get_field('id_show') == oneevent.get_field('id_show')%}
             {% if oneevent.get_field('public') == true
                 and oneshow.get_field('dispo') == 1
-                and "now"|date < oneevent.get_field('date_show')
+                and "now" >= event.get_field('date_show')
             %}
                 <div class="event-list container">
                     <div class="event2">
@@ -25,16 +25,16 @@
                             </h2>
                             {#contenu#}
                             {#<div class="d-md-none d-block offset-1"></div>#}
-                            {#<div class="d-none d-md-block d-lg-none offset-md-1"></div>#}
-                            <div class="thumb3 col-12">
-                                <img src="{{ oneshow.thumbnail.src }}" alt="thumb">
-                            </div>
-                            {#<div class="d-md-none d-block offset-1"></div>#}
+                            <div class="d-none d-md-block offset-md-2"></div>
+                            <div class="date-list row col-8 t-a-center">
+                                <div class="thumb3 col-12">
+                                    <p class="col-12">{{ oneevent.get_field('date_show') }}</p>
+                                    <img src="{{ oneshow.thumbnail.src }}" alt="thumb">
+                                </div>
 
-                            {#date de l'evenement#}
-                            {#<div class="d-none d-md-block d-lg-none offset-md-1"></div>#}
-                            <div class="date-list row col-12 t-a-center">
-                                <p class="col-12">{{ oneevent.get_field('date_show') }}</p>
+
+
+
                                 {% for place in places if place.get_field('salle') == oneevent.get_field('salle')%}
                                 {# Boucle du lieu correspondant #}
                                 {# coordonnées #}
@@ -53,6 +53,7 @@
                                         </p>
                                 {% endif %}
                             </div>
+                            <div class="d-none d-md-block offset-md-2"></div>
                             {# intégration d'une carte#}
                             <div class="col-12 col-md-11 map">
                                 {{ place.get_field('gmap') }}
@@ -60,6 +61,10 @@
                             {% endfor %}
                         </a>
                     </div>
+                    <a href="{{ site.link }}/nous-voir" class="col-12 col-md-4">
+                        <i class="far fa-eye"></i>
+                        Toutes les représentations
+                    </a>
                 </div>
             {#Sinon si video existante#}
             {% elseif post.get_field('video-booleen') == true %}

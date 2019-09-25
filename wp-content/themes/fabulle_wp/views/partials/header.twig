@@ -68,7 +68,7 @@
     {#              traitement d'affichage pour: 'contact'#}
                     {% if (item.post_name == 'contact')  %}
                     {#{% elseif (item.post_name == 'spectacles') or (item.post_name == 'contact')%}#}
-                        {% if url == '/fabulle/contact/'%}
+                        {% if url == '/fabulle/contact/' or url == '/fabulle/newsletter/'%}
                             <a href="{{ item.link }}">
                                 <p class="link#c90089 active-link active#c90089">{{ item.title }}</p>
                             </a>

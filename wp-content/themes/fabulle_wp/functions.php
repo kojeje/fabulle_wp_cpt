@@ -344,6 +344,27 @@ add_theme_support( 'post-thumbnails' );
     );
     register_post_type( 'membres', $args );
 
+    // CPT contact
+    $labels = array(
+      'name' => 'Contacts',
+      'all_items' => 'Tous les contactss',  // affiché dans le sous menu
+      'singular_name' => 'Contact',
+      'add_new_item' => 'Nouveau',
+      'edit_item' => 'Modifier le contact',
+      'menu_name' => 'Contacts'
+    );
+    $args = array(
+      'labels' => $labels,
+      'public' => true,
+      'show_in_rest' => true,
+      'has_archive' => true,
+      'supports' => array('title','thumbnail','editor'),
+      'taxonomies' => array('category'),
+      'menu_position' => 7,
+      'menu_icon' => 'dashicons-admin-users',
+    );
+    register_post_type( 'contacts', $args );
+
 
   }
   add_action( 'init', 'fabulle_register_post_types'); // Le hook init lance la fonction
@@ -358,6 +379,7 @@ add_theme_support( 'post-thumbnails' );
       'edit.php?post_type=actus',
       'edit.php?post_type=page', // this is the default page menu
       'edit.php?post_type=places',
+      'edit.php?post_type=contacts',
       'edit.php', // this is the default POST admin menu
 
     );

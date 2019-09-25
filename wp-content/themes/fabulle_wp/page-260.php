@@ -13,8 +13,16 @@
 // on ajoute la variable post (qui contient le post) à la variable
 // qu'on enverra à la vue twig
   $context['post'] = $post;
-// retourne l'email relative dans une variable
+// On crée une requête pour chercher les post_types 'contacts' qu'on inscrit dans une variable
+  $args_contacts = [
+    'post_type' => 'contacts'
+  ];
+// On crée un objet contenant les post_type 'contacts"
+  $context['contacts'] = Timber::get_posts($args_contacts);
+// retourne l'email relative dans
+// une variable
   $context['url'] = $_SERVER["REQUEST_URI"];
+
 
 // appelle la vue twig "page-7.twig" située dans le dossier views
 // en lui passant la variable $context qui contient notamment ici les articles

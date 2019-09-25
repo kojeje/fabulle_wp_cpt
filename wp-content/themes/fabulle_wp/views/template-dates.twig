@@ -154,6 +154,7 @@
                         {% if post.get_field('field_5d56ce23ce3b2') == 'payant' %}
                                         {% if post.get_field('field_5d51a189a0424') == true %}
                                             <div class="place container">
+
                                                 <table class="table">
                                                     <tr>
                                                         <th class="th">tarif</th>
@@ -165,12 +166,20 @@
                                                          {% endif %}
                                                     </tr>
                                                     <tr>
+                                                        {#plein tarif#}
                                                         <td class="td">{{ post.get_field('field_5d56cef153f08') }} €</td>
+                                                        {#réduit#}
                                                         {% if post.get_field('field_5d56ce5e4c314') == true %}
-                                                            <td class="td">{{ post.get_field('field_5d56cf3f2c0bc') }} €</td>
-                                                        {% endif %}
-                                                        {% if post.get_field('field_5d56ceb7e7ca3') == true %}
-                                                            <td class="td">{{ post.get_field('field_5d56cf6b9a2d7') }} €</td>
+                                                            {# Si réduit pas gratuit #}
+                                                            {% if post.get_field('field_5d56cf3f2c0bc') > 0 %}
+                                                                <td class="td">{{ post.get_field('field_5d56cf3f2c0bc') }} €</td>
+                                                            {% elseif post.get_field('field_5d56cf3f2c0bc') == 0 %}
+                                                                 <td class="td">gratuit</td>
+                                                            {% endif %}
+                                                            {# groupes #}
+                                                            {% if post.get_field('field_5d56ceb7e7ca3') == true %}
+                                                                <td class="td">{{ post.get_field('field_5d56cf6b9a2d7') }} €</td>
+                                                            {% endif %}
                                                         {% endif %}
 
                                                     </tr>

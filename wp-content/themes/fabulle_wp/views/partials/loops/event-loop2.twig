@@ -21,7 +21,7 @@
 
                             {% if event.get_field('public') == true
                                 and show.get_field('dispo') == 1
-                                and "now" > event.get_field('date_show')%}
+                                and "now" >= event.get_field('date_show')%}
                             %}
                                 {# item date avec lien vers l'archive #}
                                 <a class="row event-home-bloc event-home-date-block" href="{{ event.link }}">

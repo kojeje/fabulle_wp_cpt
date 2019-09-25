@@ -1,28 +1,74 @@
 {% extends 'base.twig' %}
 {% block content %}
-    <section class="container contact-section">
-        <div class="contact-section2"> 
+    {#------------CONTACT PRODUCTION -----------------------------
 
+    Si la fonction contact prod est activé#}
+    {% if post.get_field('contact_prod_bolleen') == true %}
+    <section class="container contact-section">
+        <div class="contact-section2">
            <a id="article-anch" class="anch"></a>
                 <div class="id row">
                     <div class="offset-2 d-none d-lg-block"></div>
-                    <div class="col-12 col-lg-4 coordonnees">
-                        <img src="{{ post.thumbnail.src }}" class="logo2" alt="contact">
-                        <p>54 rue de Mégret</p>
-                        <p>
-                            <span>33400</span> <strong>Talence</strong>
-                        </p>
-
-                        <p class="d-flex justify-content-start">
-                            <i class="fal fa-phone tel_flex"></i>
-                            <span class="tel_flex tel_flex2">06 28 23 01 11</span>
-                        </p>
+                    {# Titre #}
+                    <div class="col-12 col-lg-4 coordonnees row">
                         <div class="active#c90089 contact-title">
                             <h1>{{ post.title }}</h1>
                         </div>
+                        {#Sous-titre#}
+                        <h2 class="t-a-center col-12">Booking</h2>
+                        {% if post.get_field('logo_prod') %}
+                            <div class="offset-2"></div>
+                            <img src="{{ post.get_field('logo_prod') }}" class="logo2 col-8" alt="logo de {{ post.get_field('nom_prod') }}">
+                            <div class="offset-2"></div>
+                        {% endif %}
+                        {# Raiso sociale #}
+                        <div class="offset-1"></div>
+                        <p class="col-10 article-sub-h1">{{ post.get_field('nom_prod') }}</p>
+                        <div class="offset-1"></div>
+                        {# Adresse #}
+                        <p class="col-12 t-a-center">{{ post.get_field('adresse') }}</p>
+                        {# CP + Commune #}
+                        <p>
+                            <span>{{ post.get_field('cp') }}</span> <strong>{{ post.get_field('commune') }}</strong>
+                        </p>
+                        {# tel fixe #}
+                        {% if post.get_field('telephone_fixe') %}
+                            <p class="t-a-center d-flex justify-content-start col-12">
+                                <i class="fal fa-phone"></i>
+                                <span class="m-a d-block"> +33 {{ post.get_field('telephone_fixe') }}</span>
+                            </p>
+                        {% endif %}
+                        {# tel mobile #}
+                        {% if post.get_field('telephone_mobile') %}
+                            <p class="t-a-center d-flex justify-content-start col-12">
+                                <i class="fas fa-mobile-alt"></i>
+                                <span class="m-a d-block">+33 {{ post.get_field('telephone_mobile') }}</span>
+                            </p>
+                        {% endif %}
+                        {# site web#}
+                        {% if post.get_field('url') %}
+                            <p class="col-12 t-a-center ad ad2 url">
+                                <a href="{{ post.get_field('url') }}" target="_blank">site web</a>
+                            </p>
+                        {% endif %}
+                        {% if post.get_field('map_prod') %}
+                            <div>
+                                {{ post.get_field('map_prod') }}
+                            </div>
+                        {% endif %}
+
                     </div>
 
                     <div class="form col-12 col-lg-4">
+                        {# Entete #}
+                        <p>
+                            <i>
+                                Pour faire venir un spectacle, demander un devis, et toute question relative à la facturation...
+                                <br>
+                                C'est ici!
+                            </i>
+                        </p>
+                        {# formulaire#}
                         {{ post.content }}
                     </div>
                     <div class="offset-2 d-none d-md-block"></div>
@@ -30,32 +76,56 @@
 
                 </div>
         </div>
+    {% endif %}
     </section>
+    {% if post.get_field('contact_prod_bolleen') == false %}
+        <section class="container contact-section">
+            <div class="contact-section2">
 
-    <section class="container contact-section">
-        <div class="contact-section2">
+                <a id="article-anch" class="anch"></a>
+                <div class="id row">
 
-            <a id="article-anch" class="anch"></a>
-            <div class="back-home row">
-                <div class="offset-1 d-none d-lg-block"></div>
-                <div class="col-12 col-lg-5 coordonnees">
+                    <div class="offset-2 d-none d-lg-block"></div>
+                    <div class="col-12 col-lg-4 coordonnees">
+                        <div class="active#c90089 contact-title">
+                            <h1>{{ post.title }}</h1>
+                        </div>
+                        <h2>Écrire à Fabulle</h2>
 
+                        <img src="{{ post.get_field('logo_cie') }}" class="logo2" alt="logo de Fabulle et cie">
 
+                        <p>{{ post.get_field('adresse_cie') }}</p>
+                        <p>
+                            <span>{{ post.get_field('cp_cie') }}</span> <strong>{{ post.get_field('commune_cie') }}</strong>
+                        </p>
 
+                        <p class="d-flex justify-content-start">
+                            <i class="fal fa-phone tel_flex"></i>
+                            <span class="tel_flex tel_flex2">+33 {{ post.get_field('telephone_fixe') }}</span>
+                        </p>
+                        <p class="ad ad2 url">
+                            <a href="{{ place.get_field('url') }}" target="_blank">site web</a>
+                        </p>
 
-                    <div class="active#c90089 contact-title">
-                        <h1>{{ 'newsletters'|capitalize }}</h1>
                     </div>
+
+                    <div class="form col-12 col-lg-4">
+                        <p>
+                            <i>
+                                Vous avez quelque chose à dire à Fabulle ?...
+                                <br>
+                                C'est ici!
+                            </i>
+
+                        </p>
+                        {{ post.get_field('code_court_mati') }}
+                    </div>
+                    <div class="offset-2 d-none d-md-block"></div>
+
+
                 </div>
-
-                <div class="form col-12 col-lg-5">
-                    {{ post.shortcode}}
-                    {{ dump(post) }}
-                </div>
-                <div class="offset-1 d-none d-md-block"></div>
-
-
             </div>
-        </div>
-    </section>
+        </section>
+    {% endif %}
+
 {% endblock %}

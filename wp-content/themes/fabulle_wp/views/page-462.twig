@@ -1,24 +1,35 @@
 {% extends 'base.twig' %}
 {% block content %}
     <section class="container contact-section">
-        <div class="contact-section2"> 
+        <div class="contact-section2">
 
-           <a id="article-anch" class="anch"></a>
-                <div class="id row">
-                    <div class="contact-title col-12 t-a-center">
+            <a id="article-anch" class="anch"></a>
+            <div class="id row">
+                <div class="offset-2 d-none d-lg-block"></div>
+                <div class="col-12 col-lg-4 coordonnees">
+                    <img src="{{ post.thumbnail.src }}" class="logo2" alt="contact">
+                    <p>54 rue de Mégret</p>
+                    <p>
+                        <span>33400</span> <strong>Talence</strong>
+                    </p>
+
+                    <p class="d-flex justify-content-start">
+                        <i class="fal fa-phone tel_flex"></i>
+                        <span class="tel_flex tel_flex2">06 28 23 01 11</span>
+                    </p>
+                    <div class="active#c90089 contact-title">
                         <h1>{{ post.title }}</h1>
                     </div>
-                    <div class="offset-md-2 d-none d-lg-block"></div>
-                    <div class="col-12 col-lg-8 coordonnees">
-                        <img src="{{ post.thumbnail.src }}" class="logo2" alt="contact">
-                        {{ post.content }}
-                    </div>
-                    <div class="offset-2 d-none d-md-block"></div>
-
-
-
-
                 </div>
+
+                <div class="form col-12 col-lg-4">
+                    {{ post.content }}
+                </div>
+                <div class="offset-2 d-none d-md-block"></div>
+
+
+            </div>
         </div>
     </section>
+
 {% endblock %}

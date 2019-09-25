@@ -18,7 +18,7 @@
                               #}
                     {% if show.get_field('id_show') == event.get_field('id_show')
                         and show.get_field('dispo') == 1
-                        and "now" > event.get_field('date_show')%}
+                        and "now" >= event.get_field('date_show')%}
 
                         {% if event.get_field('public') == true %}
                             {# item date avec lien vers l'archive #}

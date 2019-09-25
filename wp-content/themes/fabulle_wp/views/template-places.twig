@@ -5,12 +5,12 @@
     <a id="article-anch" class="anch"></a>
     <div class="content-wrapper">
         <article class="post-type-{{post.post_type}}" id="post-{{post.ID}}">
-            <section class="article-content row">
-                <div class="place container">
+            <section class="article-content container">
+                <div class="place">
 
                     <div class="endroit row">
 
-                        <div class="adress col-md-5">
+                        <div class="adress col-md-5 col-12">
                             <h1 class="h1-medal hall">
                                 {{ post.title }}
                             </h1>
@@ -36,17 +36,18 @@
                                 <a href="{{ post.get_field('field_5cb7241778245') }}" target="_blank">site web</a>
                             </p>
                         </div>
-                        <div class="offset-md-1"></div>
-                        <div class="map col-md-6 event-home-bloc event-home-bloc2">
+
+                        <div class="map col-12 col-md-5 event-home-bloc event-home-bloc2">
                             {{ post.get_field('field_5cb4e67517785') }}
                         </div>
                     </div>
-                    <a href="{{ site.url }}/lactu/#article-anch">
-                        <p class="back-link nest-date next-date-3">
-                            <i class="fal fa-arrow-circle-left"></i> retour dates
-                        </p>
-                    </a>
+
                 </div>
+                <a href="{{ site.url }}/lactu/#article-anch">
+                    <p class="back-link nest-date next-date-3">
+                        <i class="fal fa-arrow-circle-left"></i> retour dates
+                    </p>
+                </a>
             </section>
         </article>
     </div>

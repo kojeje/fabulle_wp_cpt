@@ -34,6 +34,9 @@
   $args_places =[
     'post_type' => 'places'
   ];
+  $args_contacts = [
+    'post_type' => 'contacts'
+  ];
 
 // récupère les articles en fonction du tableau d'argument $args_posts
 // en utilisant la méthode de Timber get_posts
@@ -42,6 +45,9 @@
   $context['shows'] = Timber::get_posts($args_shows);
   $context['events'] = Timber::get_posts($args_dates);
   $context['places'] = Timber::get_posts($args_places);
+  $context['contacts'] = Timber::get_posts($args_contacts);
+
+  $context['url'] = $_SERVER["REQUEST_URI"];
 
 // appelle la vue twig "template-spectacles.twig" située dans le dossier views
 // en lui passant la variable $context qui contient notamment ici les articles
