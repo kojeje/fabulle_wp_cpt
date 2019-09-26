@@ -25,7 +25,6 @@
                         {{ post.get_field('field_5cb0672123300') }}
                         <a href="#article-anch" class="anch">
                             <div class="button button-h">
-
                                 <p><i class="fas fa-chevron-down"></i></p>
                             </div>
                         </a>
@@ -82,7 +81,9 @@
             <div class="offset-md-6 d-none d-md-block"></div>
             {# DATE DE CREATION #}
             <div class="col-12 col-md-3 article-text create_date">
+                {# date de sortie ('Y') #}
                 <p>Sortie: {{ post.get_field('field_5cb497265c4df') }}</p>
+                {# si indispo #}
                 {% if post.get_field('dispo') == 2 %}
                     <p class="active#c90089">
                         ce spectacle n'est plus disponible
@@ -91,13 +92,13 @@
 
             </div>
             <div class="offset-md-3 d-none d-md-block"></div>
-            <div class="offset-md-3 d-none d-md-block"></div>
+            <div class="offset-md-2 d-none d-md-block"></div>
             {# THUMB + PRESENTATION#}
-            <div class="col-md-6  col-12 article-content">
+            <div class="col-md-8  col-12 article-content">
                 <img src="{{post.thumbnail.src}}" alt="affiche" class="float-thumb affiche">
                 {{ post.content }}
             </div>
-            <div class="offset-md-3 d-none d-md-block"></div>
+            <div class="offset-md-2 d-none d-md-block"></div>
 
             <div class="offset-2"></div>
             {#Vers ancre suivante#}
@@ -109,259 +110,354 @@
                 </div>
             </a>
             {# ANCRE 2 #}
-            <a id="article-anch2" class="show-content2"></a>
-            {# SI VIDEO#}
+            <a id="article-anch2" class=" row show-content2"></a>
+
+            {# -------------------------SI VIDEO-----------------------------------------------------#}
+
             {% if post.get_field('video-booleen') == true%}
-
                 <div class="m-b-50 col-12">
-                    {#VIDEO#}
-                    <div class="video">
-                        <p class="float-thumb video-content">
-                            {{ post.get_field('youtube') }}
-                        </p>
-                        <div class="offset-md-1 d-none d-md-block"></div>
-                        <div class="col-md-10 article-content">
-                            <h2 class="article-h2 under-title show-h1" id="imagine">
-                                {{ post.get_field('field_5cb1941775e1b') }}
+                    {# BLOC VIDEO #}
+                    <div class="video row">
+                        {#titre#}
+                        <div class="float-thumb col-12 col-md-6 col-lg-5 video-content">
+                            {# titre #}
+                            <h2 class="article-h1">
+                                Vidéos de
+                                <br>
+                                {#titre spectacle#}
+                                <span class="article-h2  white">
+                                    {{ post.title }}
+                                </span>
                             </h2>
-                            <div class="offset-md-1 d-none d-md-block"></div>
+                            {# Video Youtube #}
+                            <p>{{ post.get_field('youtube') }}</p>
+                            <a href="#article-anch3">
+                                <div class="button button2">
+                                    <p><i class="fas fa-chevron-down"></i></p>
+                                </div>
+                            </a>
                         </div>
+                        <div class="offset-md-1 d-none d-md-block"></div>
+                        {# Bloc sub+text supplémentaire #}
+                        <div class="col-12 col-md-5">
+                            {# sub_2 #}
+                            <h2 class="article-h1 under-title show-h1" id="imagine">
+                                {{ post.get_field('sub_2') }}
+                            </h2>
+                            {# text_2 #}
+                            <p class="article-content">
+                                {{ post.get_field('text_2') }}
+                            </p>
+                        </div>
+                    </div>
 
 
-                        <a href="#article-anch3">
+
+                    </div>
+
+
+            {# ------------------------- SI PAS VIDEO et si text_2,
+                                                                    on n'afficche que le sub_2 + text_2  -----------------------------------------------------#}
+            {% elseif post.get_field('text_2') %}
+                <div class="row article-content">
+                    <div class="offset-md-1"></div>
+                    {# sub_2 #}
+                    <h2 class="article-h1 under-title" id="imagine">
+                        {{ post.get_field('sub_2') }}
+                    </h2>
+                    <div class="offset-md-2 d-none d-md-block"></div>
+                    {# text_2 t#}
+                    <div class="col-md-8 col-12">
+                        {{ post.get_field('text_2') }}
+                    </div>
+
+                    <div class="offset-md-2 d-none d-md-block"></div>
+
+
+                </div>
+                {#Vers ancre suivante#}
+                <a href="#article-anch3" class="m-a">
+                    <div class="button button2">
+
+                        <p class="m-a"><i class="fas fa-chevron-down "></i></p>
+                    </div>
+                </a>
+
+            {% endif %}
+            {% if  post.get_field('video-booleen') == true
+                or post.get_field('text_2') %}
+                <a id="article-anch3" class=" row show-content2"></a>
+            {% else %}
+                <a id="article-anch2" class=" row show-content2"></a>
+            {% endif %}
+            {% if post.get_field('sound_booleen') == true%}
+             {% if post.get_field('video-booleen') == false%}
+                 <a id="article-anch3" class="anch col-md-12"></a>
+                 <div class="m-b-50 col-12">
+                    {#Sound#}
+                    <div class="video row">
+
+                        <p class="float-thumb video-content col-md-6 col-12">
+                            {{ post.get_field('sound') }}
+                        </p>
+                        <div class="col-md-5 col-12">
+                            <h2 class="article-h1">
+                                Écoutez
+                                <span class="article-h2  white">
+                                    {{ post.title }}
+                                </span>
+                            </h2>
+                            <a href="#article-anch4" class="d-md-block d-none">
                             <div class="button button2">
                                 <p><i class="fas fa-chevron-down"></i></p>
                             </div>
                         </a>
+                        </div>
+
+
                     </div>
-                </div>
+                 </div>
+             {% else %}
+                 <div class="m-b-50 col-12">
+                     {#sound#}
+                     <div class="video row">
+                         <div class="col-12 row col-md-6">
+                             <h1 class="article-h1 col-12">
+                                 Écoutez
+                                 <span class="article-h2  white">
+                                {{ post.title }}
+                            </span>
+                             </h1>
+                             <a href="#article-anch4" class="col-md-12 d-md-block d-none">
+                                 <div class="button button2">
+                                    <p>
+                                        <i class="fas fa-chevron-down"></i>
+                                    </p>
+                                 </div>
 
-            {% elseif post.sub2  %}
-                <div class="row article-content">
-                    <div class="offset-md-1"></div>
-                    <h2 class="article-h1 under-title" id="imagine">
-                        {{ post.sub2 }}
-                    </h2>
-                    <div class="offset-md-1 d-none d-md-block"></div>
-                    <div class="col-md-10 ">
-                        <img src="{{ post.get_field('image_alt') }}" class="float-thumb2 affiche2" alt="img">
-                        {{ post.get_field('text_1') }}
-                            <a href="#article-anch3">
-                                <div class="button button2">
-
-                                    <p><i class="fas fa-chevron-down"></i></p>
-                                </div>
-                            </a>
-                    </div>
-                    <div class="offset-md-1 d-none d-md-block"></div>
+                             </a>
+                         </div>
 
 
-                </div>
 
+                         <p class="float-thumb video-content col-md-6 col-12">
+                             {{ post.get_field('sound') }}
+
+                         </p>
+                     </div>
+                 </div>
             {% endif %}
-            {% if post.get_field('sound_booleen') == true%}
+        {% endif %}
+        <a id="article-anch4" class=" row show-content2"></a>
+        <div class="row loop">
 
-            <div class="m-b-50 col-12">
-                {#VIDEO#}
-                <div class="video row">
-                    <p class="float-thumb video-content col-md-6 col-12">
-                        {{ post.get_field('sound') }}
+            <h1 class="article-h1 under-title col-12">Les artistes</h1>
+
+            {% for membre in post.get_field('artistes') %}
+                <div class="offset-md-1 d-none d-md-block"></div>
+                <a href="{{ membre.link }}" class="membre row col-12 col-md-5">
+
+                    <h3 class="article-text-h2 col-12">{{ membre.get_field('prenom') }} {{ membre.get_field('nom') }} </h3>
+
+                    <div class="col-12">
+                            <img src="{{ membre.thumbnail.src }}" class="col-4 float-thumb" alt="Image pour {{ membre.title}}">
+                            {{ membre.get_field('bio')|truncate(25) }}</div>
+
+                </a>
+
+            {% endfor %}
+            <a href="#article-anch5" class="col-md-12 d-md-block d-none">
+                <div class="button button2">
+                    <p>
+                        <i class="fas fa-chevron-down"></i>
                     </p>
-                    <div class="offset-md-1 d-none d-md-block"></div>
-                    <a href="#article-anch3 col-md-6 d-md-block d-none">
-                        <div class="button button2">
-                            <h2 class="article-h1">Ecouter {{ post.title }}</h2>
-                            <p><i class="fas fa-chevron-down"></i></p>
-                        </div>
-                    </a>
                 </div>
-            </div>
-            {% endif %}
-            <div class="row loop">
 
-                <h1 class="article-h1 under-title col-12">Les artistes</h1>
-
-                {% for membre in post.get_field('artistes') %}
-                    <div class="offset-md-1 d-none d-md-block"></div>
-                    <a href="{{ membre.link }}" class="membre row col-12 col-md-5">
-
-                        <h3 class="article-text-h2 col-12">{{ membre.get_field('prenom') }} {{ membre.get_field('nom') }} </h3>
-
-                        <div class="col-12">
-                                <img src="{{ membre.thumbnail.src }}" class="col-4 float-thumb" alt="Image pour {{ membre.title}}">
-                                {{ membre.get_field('bio')|truncate(25) }}</div>
-
-                    </a>
-
-                {% endfor %}
-            </div>
-            <div class="offset-1"></div>
-            {% if post.get_field('dispo') == 1 %}
-                <a id="article-anch3"></a>
-                <div class="col-12 bref">
-                    <div class="bref_block row">
-                        <h2 class="col-8 article-h1 under-title">
-                            En bref
-                        </h2>
-                        <div class="col-10 loop row">
+            </a>
+        </div>
+        <div class="offset-1"></div>
+        {% if post.get_field('dispo') == 1 %}
+            <a id="article-anch5"></a>
+            <div class="col-12 bref">
+                <div class="bref_block row">
+                    <h2 class="col-8 article-h1 under-title">
+                        En bref
+                    </h2>
+                    <div class="col-10 loop row">
+                        <div class="bref-item">
+                            <p>
+                                {{ post.get_field('style') }}
+                            </p>
+                        </div>
+                        {% if post.get_field('age_mini') and post.get_field('age_maxi')%}
                             <div class="bref-item">
+
+                                <p class="school">
+                                    <i class="fas fa-birthday-cake"></i> de {{ post.get_field('age_mini') }} à {{ post.get_field('age_maxi') }} ans.
+                                </p>
+                            </div>
+                        {% elseif  post.get_field('age_mini') and post.get_field('age_maxi') == null%}
+                        <div class="bref-item">
+
+                            <p class="school">
+                                <i class="fas fa-birthday-cake"></i> à partir de {{ post.get_field('age_mini') }} ans
+                            </p>
+                        </div>
+                        {% elseif  post.get_field('age_maxi') and post.get_field('age_mini') == null%}
+                        <div class="bref-item">
+
+                            <p class="school">
+                                <i class="fas fa-birthday-cake"></i>jusqu'à {{ post.get_field('age_mini') }} ans
+                            </p>
+                        </div>
+                        {% endif %}
+                        {% if post.get_field('classe_mini') and post.get_field('classe_maxi')%}
+                        <div class="bref-item">
+
+                            <p class="school">
+                                <i class="fas fa-bus-school"></i>  {{ post.get_field('classe_mini') }} à {{ post.get_field('classe_maxi') }}.
+                            </p>
+                        </div>
+                        {% elseif  post.get_field('classe_mini') and post.get_field('classe_maxi') == null%}
+                        <div class="bref-item">
+
+                            <p class="school">
+                                <i class="fas fa-bus-school"></i>  {{ post.get_field('classe_mini') }}
+                            </p>
+                        </div>
+                        {% elseif  post.get_field('classe_maxi') and post.get_field('classe_mini') == null%}
+                        <div class="bref-item">
+
+                            <p class="school">
+                                <i class="fas fa-bus-school"></i> jusqu'au {{ post.get_field('classe_mini') }}
+                            </p>
+                        </div>
+                        {% endif %}
+
+                        {% if post.get_field('duree')  %}
+
+                            {% if post.get_field('duree')%60 == 0  %}
+                                <div class="bref-item">
+
+                                    <p>
+                                        {{ post.get_field('duree')/60 }}h env
+                                    </p>
+                                </div>
+                            {% elseif (post.get_field('duree') % 60)/60 >= 1 %}
+                                <div class="bref-item">
+                                        <p>
+                                            <i class="fas fa-watch"></i>
+                                            {{ (post.get_field('duree') - post.get_field('duree') % 60) / 60}}h {{ post.get_field('duree') % 60 }}mn env
+                                        </p>
+                                </div>
+                            {% elseif (post.get_field('duree') % 60)/60 <= 1  %}
+
+                                <div class="bref-item">
+
+                                    <p>
+                                        {{ post.get_field('duree') }}mn env
+                                    </p>
+                                </div>
+                            {% endif %}
+                        {% endif %}
+                        {% if post.get_field('jauge')  %}
+                        <div class="bref-item">
+                            <p class="school">
+                                <i class="fas fa-user-friends"></i>: {{ post.get_field('jauge') }} personnes max.
+                            </p>
+                        </div>
+                        {% endif %}
+                        <div class="bref-item effectif">
+                            <p class="school">
+                                <i class="fas fa-guitar effectif-item"></i>
+                                <strong class="effectif-item">{{ post.get_field('artistes')|length }}
+                                    {% if post.get_field('artistes')|length == 1 %}
+                                        artiste
+                                    {% elseif  post.get_field('artistes')|length > 1 %}
+                                        artistes
+                                    {% endif %}
+                                </strong>
+                            </p>
+                        </div>
+                        <div class="bref-item effectif">
+                            {%  if post.get_field('tech') %}
+                            <p class="school">
+                                <i class="fas fa-headphones effectif-item"></i>
+                                <strong class="effectif-item">{{ post.get_field('tech')|length }}
+                                    {% if post.get_field('tech')|length == 1 %}
+                                        technicien
+                                    {% elseif  post.get_field('tech')|length > 1 %}
+                                        techniciens
+                                    {% endif %}
+                                </strong>
+                            </p>
+                            {% endif %}
+                        </div>
+                        {% if post.get_field('ouverture') and post.get_field('profondeur') == null%}
+                            <div class="bref-item">
+                                <p class="school">
+                                    <i class="fas fa-ruler"></i> {{ post.get_field('ouverture') }} m
+                                </p>
+                            </div>
+                        {% elseif post.get_field('ouverture') and post.get_field('profondeur') %}
+                            <div class="bref-item">
+                                <p class="school">
+                                    <i class="fas fa-ruler"></i> {{ post.get_field('ouverture') }} X {{ post.get_field('profondeur') }}m minimum
+                                </p>
+                            </div>
+                        {% endif %}
+                        {% if post.get_field('fiche_technique') %}
+                            <div class="bref-item">
+
+                                <p class="school">
+                                    <a href="{{ post.get_field('fiche_technique') }}" class="link link4">
+                                        <i class="fas fa-file-alt"></i> Fiche technique
+                                    </a>
+                                </p>
+
+                            </div>
+                        {% endif %}
+                        {% if post.get_field('tarif')  %}
+                            <div class="bref-item effectif">
+
+                                    <p class="school">
+                                        <i class="fas fa-euro-sign"></i>: {{ post.get_field('tarif') }}
+                                    </p>
+                            </div>
+                            <div class="bref-item effectif">
+                                    <p class="mentions">
+                                        <i class="fas fa-euro-sign"></i><i> hors frais de déplacement et conditions particulière</i>
+                                        <a class="link link3 link4" href="{{ site.url }}/contact">nous consulter</a>
+                                    </p>
+
+                            </div>
+
+                        {% endif %}
+                        <a href="#article-anch6" class="col-md-12 d-md-block d-none">
+                            <div class="button button2">
                                 <p>
-                                    {{ post.get_field('style') }}
+                                    <i class="fas fa-chevron-down"></i>
                                 </p>
                             </div>
-                            {% if post.get_field('age_mini') and post.get_field('age_maxi')%}
-                                <div class="bref-item">
 
-                                    <p class="school">
-                                        <i class="fas fa-birthday-cake"></i> de {{ post.get_field('age_mini') }} à {{ post.get_field('age_maxi') }} ans.
-                                    </p>
-                                </div>
-                            {% elseif  post.get_field('age_mini') and post.get_field('age_maxi') == null%}
-                            <div class="bref-item">
-
-                                <p class="school">
-                                    <i class="fas fa-birthday-cake"></i> à partir de {{ post.get_field('age_mini') }} ans
-                                </p>
-                            </div>
-                            {% elseif  post.get_field('age_maxi') and post.get_field('age_mini') == null%}
-                            <div class="bref-item">
-
-                                <p class="school">
-                                    <i class="fas fa-birthday-cake"></i>jusqu'à {{ post.get_field('age_mini') }} ans
-                                </p>
-                            </div>
-                            {% endif %}
-                            {% if post.get_field('classe_mini') and post.get_field('classe_maxi')%}
-                            <div class="bref-item">
-
-                                <p class="school">
-                                    <i class="fas fa-bus-school"></i>  {{ post.get_field('classe_mini') }} à {{ post.get_field('classe_maxi') }}.
-                                </p>
-                            </div>
-                            {% elseif  post.get_field('classe_mini') and post.get_field('classe_maxi') == null%}
-                            <div class="bref-item">
-
-                                <p class="school">
-                                    <i class="fas fa-bus-school"></i>  {{ post.get_field('classe_mini') }}
-                                </p>
-                            </div>
-                            {% elseif  post.get_field('classe_maxi') and post.get_field('classe_mini') == null%}
-                            <div class="bref-item">
-
-                                <p class="school">
-                                    <i class="fas fa-bus-school"></i> jusqu'au {{ post.get_field('classe_mini') }}
-                                </p>
-                            </div>
-                            {% endif %}
-
-                            {% if post.get_field('duree')  %}
-
-                                {% if post.get_field('duree')%60 == 0  %}
-                                    <div class="bref-item">
-
-                                        <p>
-                                            {{ post.get_field('duree')/60 }}h env
-                                        </p>
-                                    </div>
-                                {% elseif (post.get_field('duree') % 60)/60 >= 1 %}
-                                    <div class="bref-item">
-                                            <p>
-                                                <i class="fas fa-watch"></i>
-                                                {{ (post.get_field('duree') - post.get_field('duree') % 60) / 60}}h {{ post.get_field('duree') % 60 }}mn env
-                                            </p>
-                                    </div>
-                                {% elseif (post.get_field('duree') % 60)/60 <= 1  %}
-
-                                    <div class="bref-item">
-
-                                        <p>
-                                            {{ post.get_field('duree') }}mn env
-                                        </p>
-                                    </div>
-                                {% endif %}
-                            {% endif %}
-                            {% if post.get_field('jauge')  %}
-                            <div class="bref-item">
-                                <p class="school">
-                                    <i class="fas fa-user-friends"></i>: {{ post.get_field('jauge') }} personnes max.
-                                </p>
-                            </div>
-                            {% endif %}
-                            <div class="bref-item effectif">
-
-                                <p class="school">
-                                    <i class="fas fa-guitar effectif-item"></i>
-                                    <strong class="effectif-item">{{ post.get_field('artistes')|length }}
-                                        {% if post.get_field('artistes')|length == 1 %}
-                                            artiste
-                                        {% elseif  post.get_field('artistes')|length > 1 %}
-                                            artistes
-                                        {% endif %}
-                                    </strong>
-                                </p>
-                            </div>
-                            <div class="bref-item effectif">
-                                {%  if post.get_field('tech') %}
-                                <p class="school">
-                                    <i class="fas fa-headphones effectif-item"></i>
-                                    <strong class="effectif-item">{{ post.get_field('tech')|length }}
-                                        {% if post.get_field('tech')|length == 1 %}
-                                            technicien
-                                        {% elseif  post.get_field('tech')|length > 1 %}
-                                            techniciens
-                                        {% endif %}
-                                    </strong>
-                                </p>
-                                {% endif %}
-                            </div>
-                            {% if post.get_field('ouverture') and post.get_field('profondeur') == null%}
-                                <div class="bref-item">
-                                    <p class="school">
-                                        <i class="fas fa-ruler"></i> {{ post.get_field('ouverture') }} m
-                                    </p>
-                                </div>
-                            {% elseif post.get_field('ouverture') and post.get_field('profondeur') %}
-                                <div class="bref-item">
-                                    <p class="school">
-                                        <i class="fas fa-ruler"></i> {{ post.get_field('ouverture') }} X {{ post.get_field('profondeur') }}m minimum
-                                    </p>
-                                </div>
-                            {% endif %}
-                            {% if post.get_field('fiche_technique') %}
-                                <div class="bref-item">
-
-                                    <p class="school">
-                                        <a href="{{ post.get_field('fiche_technique') }}" class="link link4">
-                                            <i class="fas fa-file-alt"></i> Fiche technique
-                                        </a>
-                                    </p>
-
-                                </div>
-                            {% endif %}
-                            {% if post.get_field('tarif')  %}
-                                <div class="bref-item effectif">
-
-                                        <p class="school">
-                                            <i class="fas fa-euro-sign"></i>: {{ post.get_field('tarif') }}
-                                        </p>
-                                </div>
-                                <div class="bref-item effectif">
-                                        <p class="mentions">
-                                            <i class="fas fa-euro-sign"></i><i> hors frais de déplacement et conditions particulière</i>
-                                            <a class="link link3 link4" href="{{ site.url }}/contact">nous consulter</a>
-                                        </p>
-
-                                </div>
-
-                            {% endif %}
-                        </div>
-                        {# séparateur #}
-                        {% include '/views/partials/separation.twig' %}
-                        {% include '/views/partials/contacts.twig' %}
+                        </a>
                     </div>
-                </div>
+                    {# séparateur #}
+                    {% include '/views/partials/separation.twig' %}
+                    <a id="article-anch6"></a>
+                    {% include '/views/partials/contacts.twig' %}
+                    <a href="#article-anch7" class="col-md-12 d-md-block d-none">
+                        <div class="button button2">
+                            <p>
+                                <i class="fas fa-chevron-down"></i>
+                            </p>
+                        </div>
 
-            <div class="date-list event-list2">
+                    </a>
+                </div>
+            </div>
+            <a id="article-anch7"></a>
+            <div class="date-list container-fluid event-list2">
                 <div class="row row-eq-height">
                     {% for event in events if post.get_field('id_show') == event.get_field('id_show')  %}
                         <div class="offset-4 d-block d-md-none"></div>
@@ -378,13 +474,10 @@
 
                                 {% if event.get_field('public') == true %}
                                     {# item date avec lien vers l'archive #}
-                                    <a class="row event-home-bloc event-home-date-block" href="{{ event.link }}">
-                                        {# thumbnail #}
-                                        <div class="thumb3 col-12 col-md-2 ">
-                                            <img src="{{ post.thumbnail.src }}" alt="thumb">
-                                        </div>
+                                    <a class="row col-12 event-home-bloc event-home-date-block" href="{{ event.link }}">
+
                                         {# date du spectacle #}
-                                        <p class="date-list col-12 col-md-2">
+                                        <p class="date-list col-12 col-md-4">
                                             {{ event.get_field('date_show') }}
                                         </p>
                                         {# Pour chaque date on retourne le lieu correspondant #}
@@ -457,8 +550,6 @@
                 </div>
                 <div class="offset-1"></div>
             {% else %}
-            <a id="article-anch3" class="anch col-md-12"></a>
-
             <h2 class="article-h1 under-title">A L'AFFICHE</h2>
                 <div class="article-loop article-loop2 container-fluid">
                     {% include '/views/partials/loops/show-loop2.twig' %}

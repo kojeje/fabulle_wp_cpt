@@ -2,7 +2,15 @@
 @import "partials/fonts";
 
 
-
+.simple{
+  color: #ffffff;
+  font-size: 12px;
+  margin-bottom: 5px;
+  margin-right: 5px;
+}
+.simple2{
+  color:#000000;
+}
 html
 {
   scroll-behavior: smooth;
@@ -702,14 +710,34 @@ iframe
 .post-type-spectacles{
   margin-left: 0.5vh;
 }
-.simple{
-  color: #ffffff;
+
+.help-block{
   font-size: 12px;
-  margin-bottom: 5px;
-  margin-right: 5px;
+  opacity: 0.5;
+  transition: 0.3s;
+}
+.date-it{
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  border-radius: 20px;
+  border: 1px solid white;
+  cursor: pointer;
+}
+.date-list h5{
+   font-weight: 900;
+   font-size: 18px;
+ }
+.country-accordeon{
+
+  //height: 0;
+  transform: scaleY(0);
+  transform-origin: 50% 0;
+  transition:1s ease;
 }
 
-
+.link5{
+  color:#ffb630;
+}
 
 @import "partials/responsive.";
 @import "partials/states";

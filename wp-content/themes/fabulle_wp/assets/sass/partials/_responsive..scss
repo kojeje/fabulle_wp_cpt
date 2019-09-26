@@ -557,7 +557,7 @@
     font-size: 25px;
   }
   .simple {
-    color: #ffffff;
+
     font-size: 14px !important;
     margin-bottom: 5px;
     margin-right: 5px;
@@ -1117,6 +1117,10 @@
     color:#c90089 !important;
   }
 }
+.date-list h5{
+
+  font-size: 22px;
+}
 
 @media screen and (min-width:1500px)
 {
@@ -1126,6 +1130,9 @@
   .article-loop2 img {
     width: 30%;
     display: block;
+  }
+  .date-list img{
+    width: 100%;
   }
   .home-post img{
     width: 60%;
@@ -1162,9 +1169,6 @@
   }
   .links{
     font-size:16px;
-  }
-  .article-content p{
-    font-size: 25px;
   }
 }
 

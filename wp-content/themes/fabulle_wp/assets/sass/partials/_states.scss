@@ -95,7 +95,8 @@ a:hover
   background-color: rgba(0, 0, 0, 0.2);
   border-radius:50px;
   padding: 20px;
-  font-size: 12px;
+  font-size: 25px;
+
 }
 .read-more span:hover{
   color: $white;
@@ -178,9 +179,15 @@ a:hover
   color:#000000;
   background-color: #ffb630;
   border: 2px solid #ffffff;
-
-
 }
-
+.help-block:hover{
+  opacity: 1;
+}
+.date-it:hover .country-accordeon{
+  transform: scaleY(1);
+}
+.date-it:hover .country-offset{
+  display: none !important;
+}
 
 

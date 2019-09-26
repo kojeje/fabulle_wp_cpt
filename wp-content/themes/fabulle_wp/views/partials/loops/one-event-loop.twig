@@ -25,35 +25,40 @@
                             </h2>
                             {#contenu#}
                             {#<div class="d-md-none d-block offset-1"></div>#}
-                            <div class="d-none d-md-block offset-md-2"></div>
-                            <div class="date-list row col-8 t-a-center">
-                                <div class="thumb3 col-12">
+                            <div class="d-none d-md-block offset-md-1"></div>
+                            <div class="date-list date-it row col-10 t-a-center">
+                                <div class="thumb3 col-12 row">
                                     <p class="col-12">{{ oneevent.get_field('date_show') }}</p>
-                                    <img src="{{ oneshow.thumbnail.src }}" alt="thumb">
+                                    <div class="offset-1"></div>
+                                    <div class="col-10"> <img src="{{ oneshow.thumbnail.src }}" alt="thumb"></div>
+
+                                    <div class="offset-1"></div>
                                 </div>
-
-
-
-
                                 {% for place in places if place.get_field('salle') == oneevent.get_field('salle')%}
                                 {# Boucle du lieu correspondant #}
                                 {# coordonnées #}
                                 {# pour les évènements ayant lieu en France #}
                                 {% if place.get_field('pays') == 'France' %}
-                                    <p class="col-12 col-md-6 t-a-center">{{ place.get_field('cp') }}</p>
-                                    <p class="col-12 col-md-12 t-a-center">{{ place.get_field('commune') }}</p>
+                                    <p class="col-12 col-md-6 country-accordeon t-a-center">{{ place.get_field('cp') }}</p>
+                                    <p class="col-12 col-md-12 country-accordeon t-a-center">{{ place.get_field('commune') }}</p>
                                     {# A l'étranger #}
                                 {% else %}
-                                    <p class="col-12 t-a-center">
-                                            {{ place.get_field('commune') }}</p>
+                                    <p class="col-5 country-accordeon t-a-center">
+                                        {{ place.get_field('salle') }}
+                                    </p>
+
+                                    <p class="col-5 country-accordeon t-a-center">
+                                        {{ place.get_field('commune') }}
+                                    </p>
+
                                     <p class="d-block col-12 t-a-center">
-                                            <span class=" country t-a-center w-100">
-                                                {{ place.get_field('pays') }}
-                                            </span>
-                                        </p>
+                                        <span class=" country t-a-center w-100">
+                                            {{ place.get_field('pays') }}
+                                        </span>
+                                    </p>
                                 {% endif %}
                             </div>
-                            <div class="d-none d-md-block offset-md-2"></div>
+                            <div class="d-none d-md-block offset-md-1"></div>
                             {# intégration d'une carte#}
                             <div class="col-12 col-md-11 map">
                                 {{ place.get_field('gmap') }}
