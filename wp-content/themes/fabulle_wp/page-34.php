@@ -52,29 +52,6 @@
 
   ];
 
-//  function curPageURL() {
-//    $pageURL = 'http';
-//
-////    if ($_SERVER["HTTPS"] == "on") {
-////      $pageURL .= "s";
-////    }
-//    $pageURL .= "://";
-//
-//    if ($_SERVER["SERVER_PORT"] != "8000") {
-//      $pageURL .= $_SERVER["SERVER_NAME"].":".$_SERVER["SERVER_PORT"].$_SERVER["REQUEST_URI"];
-//    } else {
-//      $pageURL .= $_SERVER["SERVER_NAME"].$_SERVER["REQUEST_URI"];
-//    }
-//
-//    return $pageURL;
-//  }
-
-//  $args_articles3 = [
-//    'post_type' => 'post',
-//    'category_name' => 'reference'
-//  ];
-
-
 // récupère les articles en fonction du tableau d'argument $args_posts
 // en utilisant la méthode de Timber get_posts
 // puis on les enregistre dans l'array $context sous la clé "posts"

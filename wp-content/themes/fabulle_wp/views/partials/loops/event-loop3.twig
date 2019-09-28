@@ -1,0 +1,20 @@
+<section class="event container-fluid">
+    <div id="title-bloc" class="title-bloc2 flex-title-bloc col-12 row">
+        <div class="container-fluid event-list2 event-home-bloc">
+            {# titre section #}
+            <h2 class="active#00c94a titre-page article-h1 under-title h1-event-list col-md-5 col-12 link#66ccff2">
+                <i class="far fa-eye"></i>
+                Nous Voir
+            </h2>
+
+            <section class="row ">
+                {% include '/views/partials/event-card.twig' %}
+            </section>
+            <a href="{{ site.link }}/nous-voir" class="col-12 col-md-4">
+                <i class="far fa-eye"></i>
+                Toutes les représentations
+            </a>
+        </div>
+    </div>
+
+</section>

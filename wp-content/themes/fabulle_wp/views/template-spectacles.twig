@@ -506,12 +506,12 @@
                                   et
                                       si le spectacle est dispo
                                   et
-                                      si la date est à venir
+                                      si la date est à venir‡
                                       #}
                                 {% elseif event.get_field('public') == false %}
 
                                     {# item date avec lien vers l'archive #}
-                                    <a class="row event-home-bloc event-home-date-block" href="{{ event.link }}">
+                                    <a class="row event-home-bloc event-home-date-block col-12" href="{{ event.link }}">
                                         {# date du spectacle #}
                                         <p class="date-list col-12 col-md-4">
                                             {{ event.get_field('date_show') }}

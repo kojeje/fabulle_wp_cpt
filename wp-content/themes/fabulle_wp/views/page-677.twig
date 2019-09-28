@@ -6,10 +6,13 @@
            <a id="article-anch" class="anch"></a>
                 <div class="row">
 
-                    <div class="col-12 row coordonnees">
-                        <img src="{{ post.thumbnail.src }}" class="col-4 logo2" alt="contact">
+                    <div class="col-12 col-md-6 row coordonnees">
+                        <div class="col-12">
+                            <img src="{{ post.thumbnail.src }}"  alt="contact">
+                        </div>
+
                         <div class="offset-8"></div>
-                        <div class="col-12 col-md-6">
+                        <div class="col-12">
                             <p>54 rue de Mégret</p>
                             <p>
                                 <span>33400</span> <strong>Talence</strong>
@@ -19,12 +22,12 @@
                                 <span class="tel_flex tel_flex2">06 28 23 01 11</span>
                             </p>
                         </div>
-                        <div class="col-lg-6 article-sub-h2">
+                        <div class="col-12 article-sub-h2">
                             <h1 class="article-h1 under-title">{{ post.title }}</h1>
                         </div>
                     </div>
 
-                    <div class="form col-12">
+                    <div class="form col-12 col-md-6">
                         {{ post.content }}
                     </div>
                     <div class="offset-2 d-none d-md-block"></div>

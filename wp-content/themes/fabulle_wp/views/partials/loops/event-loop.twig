@@ -7,7 +7,7 @@
                 Nous Voir
             </h2>
 
-            <section class="row ">
+            <section class="row">
                 {% for event in events %}
                     {# Pour chaque date on retourne l'objet spectacle correspondant #}
                     {% for show in shows%}
@@ -110,11 +110,8 @@
                                                     {{ place.get_field('pays') }}
                                                 </p>
                                             {% endif %}
-
                                         {% endfor %}
                                     </div>
-
-
                                 </a>
                             {% endif %}
                         {% endif %}

@@ -1,8 +1,4 @@
 <?php
-  /**
-   * template name: actu
-   * Template Post Type:  actus
-   */
 
 
 
@@ -17,46 +13,56 @@
   $context['post'] = $post;
 
 
-
 // tableau d'arguments pour modifier la requête en base
 // de données, et venir récupérer uniquement les trois
 // derniers articles
-  $args_shows = [
-    'post_type' => 'spectacles',
-  ];
+
+
   $args_events = [
     'post_type' => 'dates',
-    'order'=>'DESC',
-    'meta_key' => 'date_show',
-    'orderby' => 'date_show',
+
 
   ];
-  $args_projets = [
-    'post_type' => 'projets',
-  ];
-  $args_places = [
-    'post_type' => 'places',
+  $args_shows =[
+    'post_type' => 'spectacles',
+    'meta_key' => ('dispo'),
+    'meta_value' => '2',
+    'orderby' => 'priorite',
     'order' => 'DESC',
-    'meta_key' => 'cp',
-    'orderby' => 'cp',
+
+
+
+
+
   ];
+  $args_actus =[
+    'post_type' => 'actus',
+    'orderby' => 'date',
+    'order' => 'ASC'
+
+  ];
+
   $args_news =[
     'post_type' => 'page',
     'page_id' => 462,
   ];
+  $args_contacts = [
+  'post_type' => 'contacts'
+];
+// On crée un objet contenant les post_type 'contacts"
+  $context['contacts'] = Timber::get_posts($args_contacts);
 
 
 // récupère les articles en fonction du tableau d'argument $args_posts
 // en utilisant la méthode de Timber get_posts
 // puis on les enregistre dans l'array $context sous la clé "posts"
-//  $context['articles'] = Timber::get_posts($args_articles);
   $context['shows'] = Timber::get_posts($args_shows);
   $context['events'] = Timber::get_posts($args_events);
-  $context['projets'] = Timber::get_posts($args_projets);
-  $context['places'] = Timber::get_posts($args_places);
-  $context['news'] = Timber::get_posts($args_news);
+  $context['actus'] = Timber::get_posts($args_actus);
+  $context['url'] = $_SERVER["REQUEST_URI"];
+//  $context['refs'] = Timber::get_posts($args_articles3);
 
 
-// appelle la vue twig "template-spectacles.twig" située dans le dossier views
+  // appelle la vue twig "page-34.twig" située dans le dossier views
 // en lui passant la variable $context qui contient notamment ici les articles
-  Timber::render('template-actus.twig', $context);
+  Timber::render('page-955.twig', $context);

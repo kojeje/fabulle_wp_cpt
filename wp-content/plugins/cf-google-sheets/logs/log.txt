@@ -1,0 +1,23 @@
+28 septembre 2019 17:19:17 	 PHP 7.2.8Array
+(
+    [ERROR_MSG] => Error refreshing the OAuth2 token, message: '{
+  "error": "invalid_request",
+  "error_description": "Missing required parameter: refresh_token"
+}'
+    [TRACE_STK] => #0 /Volumes/macbook2/Sites/FABULLE PROJECT/fabulle_wp_cpt/wp-content/plugins/cf-google-sheets/lib/php-google-oauth/auth/Google_OAuth2.php(239): CFGS_Google_OAuth2->refreshTokenRequest(Array)
+#1 /Volumes/macbook2/Sites/FABULLE PROJECT/fabulle_wp_cpt/wp-content/plugins/cf-google-sheets/lib/php-google-oauth/Google_Client.php(312): CFGS_Google_OAuth2->refreshToken(NULL)
+#2 /Volumes/macbook2/Sites/FABULLE PROJECT/fabulle_wp_cpt/wp-content/plugins/cf-google-sheets/lib/google-sheets.php(50): CFGS_Google_Client->refreshToken(NULL)
+#3 /Volumes/macbook2/Sites/FABULLE PROJECT/fabulle_wp_cpt/wp-content/plugins/cf-google-sheets/includes/class-cfgs-service.php(88): cfgooglesheet->auth()
+#4 /Volumes/macbook2/Sites/FABULLE PROJECT/fabulle_wp_cpt/wp-content/plugins/caldera-forms/classes/core.php(3425): Cfgs_Connector_Service->cfgs_publish(Array, Array, '_cf_process_5d8...')
+#5 /Volumes/macbook2/Sites/FABULLE PROJECT/fabulle_wp_cpt/wp-content/plugins/caldera-forms/classes/core.php(5203): Caldera_Forms::process_submission()
+#6 /Volumes/macbook2/Sites/FABULLE PROJECT/fabulle_wp_cpt/wp-content/plugins/caldera-forms/classes/core.php(3821): Caldera_Forms::process_form_via_post()
+#7 /Volumes/macbook2/Sites/FABULLE PROJECT/fabulle_wp_cpt/wp-includes/class-wp-hook.php(286): Caldera_Forms->cf_init_system('')
+#8 /Volumes/macbook2/Sites/FABULLE PROJECT/fabulle_wp_cpt/wp-includes/class-wp-hook.php(310): WP_Hook->apply_filters(NULL, Array)
+#9 /Volumes/macbook2/Sites/FABULLE PROJECT/fabulle_wp_cpt/wp-includes/plugin.php(465): WP_Hook->do_action(Array)
+#10 /Volumes/macbook2/Sites/FABULLE PROJECT/fabulle_wp_cpt/wp-settings.php(546): do_action('wp_loaded')
+#11 /Volumes/macbook2/Sites/FABULLE PROJECT/fabulle_wp_cpt/wp-config.php(94): require_once('/Volumes/macboo...')
+#12 /Volumes/macbook2/Sites/FABULLE PROJECT/fabulle_wp_cpt/wp-load.php(37): require_once('/Volumes/macboo...')
+#13 /Volumes/macbook2/Sites/FABULLE PROJECT/fabulle_wp_cpt/wp-blog-header.php(13): require_once('/Volumes/macboo...')
+#14 /Volumes/macbook2/Sites/FABULLE PROJECT/fabulle_wp_cpt/index.php(17): require('/Volumes/macboo...')
+#15 {main}
+)

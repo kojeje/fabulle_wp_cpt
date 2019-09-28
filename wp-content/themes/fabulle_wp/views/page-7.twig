@@ -98,7 +98,7 @@
     {# accueil #}
 <a id="article-anch" class="anch d-none d-md-block"></a>
 <div class="article-loop article-loop2 w-100 m-a" id="article-loop">
-    <div class="cpost-type-{{post.post_type}}" id="post-{{post.ID}}">
+    <div class="row cpost-type-{{post.post_type}}" id="post-{{post.ID}}">
 
          {#Slogan smartphones#}
         {% include '/views/partials/slogan-phone.twig' %}
@@ -106,7 +106,6 @@
         <section class="article-content home loop row back-home parallax2">
             {# Si il y a des dates à afficher#}
             {% if events %}
-                <div class="offset-md-1 d-none d-md-block"></div>
                 {#ACCUEIL#}
                 <div class="col-12 col-md-5 row loop event-list2">
                     {#TITRE#}
@@ -131,11 +130,11 @@
                     </a>
                 </div>
                 <div class="offset-md-1 d-none d-md-block"></div>
-
                 {#Prochaine date#}
                 {% include '/views/partials/loops/one-event-loop.twig' %}
 
-            {#Sinon#}
+                <div class="offset-md-1 d-none d-md-block"></div>
+                {#Sinon#}
             {% else %}
                 <div class="offset-md-1 d-none d-md-block"></div>
                 {#ACCUEIL#}
@@ -300,21 +299,203 @@
             {% include '/views/partials/separation.twig' %}
         </section>
 
-        {# ------------ SECTION 5 ---------------------------------------- #}
-        <section class="row loop">
+        {# ------------ SECTION 6 - Newsletter contact ---------------------------------------- #}
+        {% if events %}
+            <a class="col-md-12 d-lg-block d-none" id="article-anch6"></a>
+        {% else %}
+            <a class="col-md-12 d-lg-block d-none" id="article-anch5"></a>
+        {% endif %}
+        <h1 class="article-h1 col-12">Contact/Newsletters</h1>
+        <div class="offset-5"></div>
+        {% for contact in contacts if contact.id == 916 %}
+            <div class="col-2"><img src="http://localhost:8000/wp-content/uploads/2019/09/fabulle-bleue.png" alt="Ca c'est Fabulle qui vous écrit {{ post.title }}"></div>
+            <div class="offset-5"></div>
+            <div class="offset-md-2 d-none d-md-block"></div>
+            <section class="col-12 col-md-4 row">
+                <div class="offset-3"></div>
+                <div class="offset-3"></div>
+                {{ '[mailpoet_form id="3"]'|shortcodes }}
+            </section>
+            <div class="offset-md-1 d-none d-md-block"></div>
+            <section class="col-12 col-md-4">
+                    <section class="form col-md-12">
+                        <p>
+                            <i>
+                                Écrivez à <span class="article-sub-h1">Fabulle</span>  !...
+                                <br>
+                                Envie de partager ? Un dessin? Un petit mot gentil ?
+                                <br>
+                                C'est ici!
+                            </i>
+                        </p>
+                        {{ contact.get_field('code_court_cie')|shortcodes }}
+                    </section>
 
-            {% if events %}
-                <a class="col-md-12 d-lg-block d-none" id="article-anch6"></a>
-            {% else %}
-                <a class="col-md-12 d-lg-block d-none" id="article-anch5"></a>
-            {% endif %}
-            <h1 class="active#ffcc33 article-h1 under-title col-12">
-                <i class="fas fa-star"></i>
-                {{ 'En création'|upper }}
-            </h1>
-            {% include '/views/partials/loops/soon-show-loop.twig' %}
+            </section>
+            <div class="offset-md-3 d-none d-md-block"></div>
+            <section class="id col-12 col-md-6">
+                <div class="row container m-a">
+                    {# ancre interne #}
+                    <a id="article-anch" class="anch"></a>
+                    {% for contact in contacts if contact.get_field('type_de_contact') == 'prod'
+                        and post.get_field('contact').id == contact.id
+                    %}
+                        {# Entete #}
 
-        </section>
+                        {# Titre #}
+                        <div class="offset-md-1 d-none d-md-block"></div>
+                        <div class="col-12 col-md-5 coordonnees row">
+                            <div class="active#c90089 contact-title">
+                                <h1>Contact</h1>
+                            </div>
+                            {#Sous-titre#}
+                            <h2 class="t-a-center col-12">Booking</h2>
+                            {% if contact.get_field('logo_prod') %}
+                                <div class="offset-2"></div>
+                                <div class="logo2 col-8">
+                                    <img src="{{ contact.get_field('logo_prod') }}" alt="logo de {{ contact.get_field('nom_prod') }}">
+                                </div>
+
+                                <div class="offset-2"></div>
+                            {% endif %}
+                            {# Raiso sociale #}
+                            <div class="offset-1"></div>
+                            <p class="col-10 article-sub-h1">{{ contact.get_field('nom_prod') }}</p>
+                            <div class="offset-1"></div>
+                            {# Adresse #}
+                            <p class="col-12 t-a-center">{{ contact.get_field('adresse') }}</p>
+                            {# CP + Commune #}
+                            <p class="col-12 t-a-center">
+                                <span>{{ contact.get_field('cp') }}</span> <strong class="link5">{{ contact.get_field('commune') }}</strong>
+                            </p>
+                            {# tel fixe #}
+                            {% if contact.get_field('telephone_fixe') %}
+                                <div class="offset-2"></div>
+                                <p class=" d-flex justify-content-around col-8">
+                                    <i class="fal fa-phone"></i>
+                                    <span class="m-a d-block"> +33 {{ contact.get_field('telephone_fixe') }}</span>
+                                </p>
+                                <div class="offset-2"></div>
+                            {% endif %}
+                            {# tel mobile #}
+                            {% if contact.get_field('telephone_mobile') %}
+                                <div class="offset-2"></div>
+                                <p class=" d-flex justify-content-around col-8">
+                                    <i class="fas fa-mobile-alt"></i>
+                                    <span class="m-a d-block">+33 {{ contact.get_field('telephone_mobile') }}</span>
+                                </p>
+                                <div class="offset-2"></div>
+                            {% endif %}
+                            {# site web#}
+                            {% if contact.get_field('url') %}
+                                <p class="col-12 t-a-center ad ad2 url">
+                                    <a href="{{ contact.get_field('url') }}" target="_blank">site web</a>
+                                </p>
+                            {% endif %}
+                            {# map #}
+                            {% if contact.get_field('map_prod') %}
+                                <div class="col-12">
+                                    {{ contact.get_field('map_prod') }}
+                                </div>
+                            {% endif %}
+                        </div>
+                        <div class="form col-12 col-md-5">
+                            {# Entete #}
+                            <p>
+                                <i>
+                                    Pour faire venir
+                                    {% if post.post_type == 'spectacles' %}
+                                        <br>
+                                        <span class="article-sub-h1">
+                                        "{{ post.title }}"
+                                    </span>
+                                    {% elseif post.post_type != 'spectacles' %}
+                                        un spectacle de
+                                        <span class="article-sub-h1">
+                                        Fabulle et cie
+                                    </span>
+                                    {% endif %}
+                                    , demander un devis, et toute question relative à la facturation...
+                                    <br>
+                                    C'est ici!
+                                </i>
+                            </p>
+                            {# formulaire#}
+                            {{ contact.get_field('code_court_prod')|shortcodes }}
+                        </div>
+                        <div class="offset-md-1 d-none d-md-block"></div>
+                    {% endfor %}
+                    {% for contact in contacts if contact.get_field('type_de_contact') == 'cie'
+                        and post.get_field('contact').id == contact.id
+                    %}
+
+                        {# Contact#}
+                        <div class="offset-md-1 d-none d-md-block"></div>
+                        <div class="row col-12 col-md-5 coordonnees">
+                            <div class="active#c90089 contact-title">
+                                <h1>Contact</h1>
+                            </div>
+                            <div class="col-12"><img src="{{ contact.thumbnail.src }}" alt="logo de Fabulle et cie"></div>
+
+
+
+                            <div class="offset-1"></div>
+                            <p class="t-a-center col-10">{{ contact.get_field('adresse_cie') }}</p>
+                            <div class="offset-1"></div>
+                            <div class="offset-1"></div>
+                            <p class="t-a-center col-10">
+                                <span>{{ contact.get_field('cp_cie') }}</span> <strong class="link5">{{ contact.get_field('commune_cie') }}</strong>
+                            </p>
+                            <div class="offset-1"></div>
+                            {% if contact.get_field('telephone_fixe_cie') %}
+                                <div class="offset-1"></div>
+                                <p class=" d-flex justify-content-around col-10">
+                                <span class="m-a d-block">
+                                <i class="fas fa-mobile-alt"></i>
+                                +33 {{ contact.get_field('telephone_fixe_cie') }}</span>
+                                </p>
+                                <div class="offset-1"></div>
+                            {% endif %}
+                            {% if contact.get_field('telephone_mobile_cie') %}
+                                <div class="offset-1"></div>
+                                <p class=" d-flex justify-content-around col-10">
+                                <span class="m-a d-block">
+                                <i class="fas fa-mobile-alt"></i>
+                                +33 {{ contact.get_field('telephone_mobile_cie') }}
+                                </span>
+                                </p>
+                                <div class="offset-1"></div>
+                            {% endif %}
+                        </div>
+                        <div class="form col-12 col-md-5">
+                            <p>
+                                <i>
+                                    Écrivez à <span class="article-sub-h1">Fabulle</span>  !...
+                                    <br>
+
+                                    Une question sur
+                                    <br>
+                                    <a href="{{ site.url }}les-spectacles/">
+                                        <span class="article-sub-h1">un de nos spectacles</span>
+                                    </a>
+                                    <br>
+                                    Une interrogation technique?
+                                    <br>
+                                    Envie de partager ? Un dessin? Un petit mot gentil ?
+
+                                    <br>
+                                    C'est ici!
+                                </i>
+                            </p>
+                            {{ contact.get_field('code_court_cie')|shortcodes }}
+                        </div>
+                        <div class="offset-md-1 d-none d-md-block"></div>
+                    {% endfor %}
+                </div>
+            </section>
+            <div class="offset-md-3 d-none d-md-block"></div>
+
+        {% endfor %}
     </div>
 </div>
 {% endblock %}

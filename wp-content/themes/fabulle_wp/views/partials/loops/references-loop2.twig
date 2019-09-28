@@ -1,7 +1,7 @@
 <div class="event-list envent-list2 col-12 w-100">
     <section class="event">
         <div id="title-bloc">
-            <div class="event-list2">
+            <div class="event-list2 row">
                 {# Titre #}
                 <div class="title-bloc">
                     <h2 class="titre-page article-h1 under-title h1-event-list a-l-affiche link link#ff66332">
@@ -13,7 +13,7 @@
                     {# associe le spectacle correspondant à la reference #}
                     {% for show in shows%}
                         {% if show.get_field('id_show') == reference.get_field('id_show') %}
-                                <a class="row event-home-bloc event-home-bloc2 event-home-ref-block " href="{{ show.link }}">
+                                <a class="row event-home-bloc event-home-bloc2 event-home-ref-block col-12" href="{{ show.link }}">
                                     <div class="offset-3 d-block d-md-none"></div>
                                     {# thumb #}
                                     <div class="thumb3 col-6 col-md-2 ">
@@ -43,6 +43,11 @@
                         {% endif %}
                     {% endfor %}
                 {% endfor %}
+                <div class="offset-md-6 d-none d-md-block"></div>
+                <a href="{{ site.link }}/nous-sommes-passes-par-la" class="link col-12 col-md-6">
+                    <i class="far fa-eye"></i>
+                    Et nous sommes passés par là-bas aussi !
+                </a>
 
 
             </div>

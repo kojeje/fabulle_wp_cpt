@@ -1,0 +1,135 @@
+{% for event in events %}
+    {% set counter = ( counter | default(1) ) + 1 %}
+    {# Pour chaque date on retourne l'objet spectacle correspondant #}
+    {% for show in shows%}
+       AA
+        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item {%if loop.index == counter%}active{% endif %}">
+                    {% if show.get_field('id_show') == event.get_field('id_show')
+                        and show.get_field('dispo') == 1
+                        and "now" >= event.get_field('date_show')%}
+                        {% if event.get_field('public') == true %}
+
+                            <div class="offset-md-4 d-none d-md-block"></div>
+                            {# item date avec lien vers l'archive #}
+                            <a class="row col-md-4" href="{{ event.link }}">
+
+                                {# date du spectacle #}
+
+                                <div class="date-list date-it col-12 row">
+                                    <h5 class="col-12">{{ event.get_field('date_show') }}</h5>
+                                    {# thumbnail #}
+                                    <div class="offset-md-2 d-none d-md-block"></div>
+                                    <div class="col-8">
+                                        <img src="{{ show.thumbnail.src }}" alt="thumb">
+                                    </div>
+                                    <div class="offset-md-2 d-none d-md-block"></div>
+
+                                    {# Pour chaque date on retourne le lieu correspondant #}
+                                    {% for place in places if place.get_field('salle') == event.get_field('salle')%}
+                                        <p class="col-12 country country-accordeon">{{ place.get_field('salle') }}</p>
+                                        {# Si le spectacle se déroule en France #}
+                                        {% if place.get_field('pays') == 'France' %}
+                                            {# CP  #}
+                                            <p class="col-12  col-md-6 country-accordeon simple simple2">
+                                                {{ place.get_field('cp') }}
+                                            </p>
+                                            <div class="d-none d-md-block offset-md-6 country-offset simple simple2"></div>
+                                            <p class="col-12  col-md-5 simple2">
+                                                {{ place.get_field('commune') }}
+                                            </p>
+
+                                            {# Si le spectacle se déroule à l"étranger #}
+                                        {% elseif place.get_field('pays') != 'France' %}
+                                            <p class="col-12  col-md-6 country-accordeon simple2">
+                                                {{ place.get_field('commune') }}
+                                            </p>
+                                            <div class="d-none d-md-block offset-md-6 country-offset simple simple2"></div>
+                                            <p class="col-12 col-md-5 country">
+                                                {{ place.get_field('pays') }}
+                                            </p>
+                                        {% endif %}
+
+                                    {% endfor %}
+                                </div>
+                            </a>
+                            <div class="offset-md-4 d-none d-md-block"></div>
+
+                            {# Si la date est privée
+                          et
+                              si le spectacle est dispo
+                          et
+                              si la date est à venir
+                              #}
+                        {% elseif event.get_field('public') == false %}
+
+                            <div class="offset-md-4 d-none d-md-block"></div>
+                            {# item date avec lien vers l'archive #}
+                            <a class="row col-md-3" href="{{ event.link }}">
+
+                                {# date du spectacle #}
+
+                                <div class="date-list row date-it col-12">
+                                    <h5 class="col-12">{{ event.get_field('date_show') }}</h5>
+                                    <div class="offset-md-2 d-none d-md-block"></div>
+                                    {# thumbnail #}
+                                    <div class="col-8">
+                                        <img src="{{ show.thumbnail.src }}" alt="thumb">
+                                    </div>
+                                    <div class="offset-md-2 d-none d-md-block"></div>
+                                    {#Privé#}
+                                    <p class="col-12 country country-accordeon">{{ 'évènement privé' }}</p>
+                                    {# Pour chaque date on retourne le lieu correspondant #}
+                                    {% for place in places if place.get_field('salle') == event.get_field('salle')%}
+                                        {# Si le spectacle se déroule en France #}
+                                        {% if place.get_field('pays') == 'France' %}
+                                            {# CP  #}
+                                            <p class="col-12  col-md-6 country-accordeon simple simple2">
+                                                {{ place.get_field('cp') }}
+                                            </p>
+                                        {% endif %}
+
+                                        <div class="d-none d-md-block offset-md-6 country-offset simple simple2"></div>
+                                        <p class="col-12 col-md-5  simple2">
+                                            {{ place.get_field('commune') }}
+                                        </p>
+                                        {# Si le spectacle se déroule à l"étranger #}
+                                        {% if place.get_field('pays') != 'France' %}
+                                            <p class="col-12 col-md-5 country">
+                                                {{ place.get_field('pays') }}
+                                            </p>
+                                        {% endif %}
+                                    {% endfor %}
+                                </div>
+                            </a>
+                            <div class="offset-md-4 d-none d-md-block"></div>
+                        {% endif %}
+                    {% endif %}
+
+
+                </div>
+                <div class="carousel-item">
+
+                </div>
+
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+        {% endif %}
+        {# Si la date est publique
+              et
+                  si le spectacle est dispo
+              et
+                  si la date est à venir
+                  #}
+
+    {% endfor %}
+{% endfor %}

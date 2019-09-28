@@ -48,7 +48,7 @@
 
   ];
 
-  $args_articles7 = [
+  $args_refs = [
     'post_type' => 'references',
     'meta_key' => 'date_ref',
     'orderby' => 'date_ref',
@@ -88,9 +88,19 @@
     'order' => 'ASC'
   ];
 
+  $args_news =[
+    'post_type' => 'page',
+    'page_id' => 462,
+  ];
 
 
-
+  $args_contacts = [
+    'post_type' => 'contacts'
+  ];
+  $args_mails = [
+    'post_type' => 'page',
+    'page_id' => 260,
+  ];
 
 
 
@@ -103,11 +113,13 @@
   $context['oneevents'] = Timber::get_posts($args_articles4);
   $context['actus'] = Timber::get_posts($args_articles5);
   $context['places'] = Timber::get_posts($args_articles6);
-  $context['references'] = Timber::get_posts($args_articles7);
+  $context['references'] = Timber::get_posts($args_refs);
   $context['oldshows'] = Timber::get_posts($args_articles8);
   $context['soonshows'] = Timber::get_posts($args_articles9);
   $context['membres'] = Timber::get_posts($args_member);
   $context['cies'] = Timber::get_posts($args_cie);
+  $context['mails'] = Timber::get_posts($args_mails);
+  $context['contacts'] = Timber::get_posts($args_contacts);
   $context['url'] = $_SERVER["REQUEST_URI"];
 
 
