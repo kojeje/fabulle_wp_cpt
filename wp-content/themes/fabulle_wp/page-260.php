@@ -16,7 +16,15 @@
 // On crée une requête pour chercher les post_types 'contacts' qu'on inscrit dans une variable
   $args_contacts = [
     'post_type' => 'contacts'
-  ];
+  ]; $args_searchs = [
+  'post_type' => 'searchs'
+
+];
+
+// récupère les articles en fonction du tableau d'argument $args_posts
+// en utilisant la méthode de Timber get_posts
+// puis on les enregistre dans l'array $context sous la clé "posts"
+  $context['searchs'] = Timber::get_posts($args_searchs);
 // On crée un objet contenant les post_type 'contacts"
   $context['contacts'] = Timber::get_posts($args_contacts);
 // retourne l'email relative dans

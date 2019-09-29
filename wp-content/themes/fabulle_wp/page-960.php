@@ -31,12 +31,15 @@
 
   ];
 
+  $args_searchs = [
+    'post_type' => 'searchs'
 
+  ];
 
 // récupère les articles en fonction du tableau d'argument $args_posts
 // en utilisant la méthode de Timber get_posts
 // puis on les enregistre dans l'array $context sous la clé "posts"
-
+  $context['searchs'] = Timber::get_posts($args_searchs);
   $context['shows'] = Timber::get_posts($args_articles2);
   $context['references'] = Timber::get_posts($args_refs);
   $context['url'] = $_SERVER["REQUEST_URI"];

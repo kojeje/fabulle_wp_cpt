@@ -347,7 +347,7 @@ add_theme_support( 'post-thumbnails' );
     // CPT contact
     $labels = array(
       'name' => 'Contacts',
-      'all_items' => 'Tous les contactss',  // affiché dans le sous menu
+      'all_items' => 'Tous les contacts',  // affiché dans le sous menu
       'singular_name' => 'Contact',
       'add_new_item' => 'Nouveau',
       'edit_item' => 'Modifier le contact',
@@ -365,7 +365,25 @@ add_theme_support( 'post-thumbnails' );
     );
     register_post_type( 'contacts', $args );
 
-
+    // CPT search
+    $labels = array(
+      'name' => 'Search',
+      'all_items' => 'Tous les searchs',  // affiché dans le sous menu
+      'singular_name' => 'Search',
+      'add_new_item' => 'Nouveau',
+      'edit_item' => 'Modifier le contact',
+      'menu_name' => 'Searchs'
+    );
+    $args = array(
+      'labels' => $labels,
+      'public' => true,
+      'show_in_rest' => true,
+      'has_archive' => true,
+      'supports' => array('title','editor'),
+      'menu_position' => 7,
+      'menu_icon' => 'dashicons-search',
+    );
+    register_post_type( 'searchs', $args );
   }
   add_action( 'init', 'fabulle_register_post_types'); // Le hook init lance la fonction
   function custom_menu_order($menu_ord) {
@@ -380,10 +398,14 @@ add_theme_support( 'post-thumbnails' );
       'edit.php?post_type=page', // this is the default page menu
       'edit.php?post_type=places',
       'edit.php?post_type=contacts',
+      'edit.php?post_type=searchs',
       'edit.php', // this is the default POST admin menu
 
     );
   }
   add_filter('custom_menu_order', 'custom_menu_order');
   add_filter('menu_order', 'custom_menu_order');
-
+//
+//  if ( class_exists('Timber') ) {
+//    Timber::$autoescape = 'html';
+//  }

@@ -14,15 +14,15 @@
 // tableau d'arguments pour modifier la requête en base
 // de données, et venir récupérer uniquement les trois
 // derniers articles
-//  $args_articles = [
-//    'post_type' => 'post'
-//
-//  ];
+  $args_searchs = [
+    'post_type' => 'searchs'
+
+  ];
 
 // récupère les articles en fonction du tableau d'argument $args_posts
 // en utilisant la méthode de Timber get_posts
 // puis on les enregistre dans l'array $context sous la clé "posts"
-  $context['articles'] = Timber::get_posts($args_articles);
+  $context['searchs'] = Timber::get_posts($args_searchs);
 
 // appelle la vue twig "page.twig" située dans le dossier views
 // en lui passant la variable $context qui contient notamment ici les articles

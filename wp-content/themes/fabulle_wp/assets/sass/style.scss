@@ -1,7 +1,11 @@
 @import "partials/var";
 @import "partials/fonts";
 
+.row{
+  margin-right: 0 !important;
+  margin-left: 0 !important;
 
+}
 .simple{
   color: #ffffff;
   font-size: 12px;
@@ -120,7 +124,7 @@ a
   //position: fixed !important;
   //width: 100%;
   background: $dark-blue;
-  transform: translate3d( -69%, -20px, 0px) !important;
+  transform: translate3d( -59%, -20px, 0px) !important;
   font-size:15px;
   overflow-y: auto;
   pointer-events: auto;
@@ -533,10 +537,42 @@ iframe
   border: none;
 
 }
-.navbar-form{
+.is-search-form{
 
-  opacity:0.5;
+  display: flex;
+  justify-content: center;
+  opacity:0.5 !important;
+  margin-top: 40px;
 
+
+}
+.is-link-container{
+  display: none ;
+}
+.is-search-form label{
+  margin-bottom: 0;
+}
+.is-search-input{
+  font-size: 80%;
+  width: 100%;
+  display: block;
+  border:none;
+  border-radius: 50px 0 0 50px;
+  background-color: #fff;
+  color: black;
+  padding: 10px;
+}
+.is-search-icons{
+  line-height: inherit;
+  display: block;
+}
+.is-search-submit{
+  border:none;
+  border-radius: 0 50px 50px 0;
+  background-color: #fff;
+  color: black;
+  padding: 10px;
+  content: "\f13a";
 }
 .empty {
   font-family: FontAwesome, sans-serif;
@@ -724,9 +760,9 @@ iframe
   cursor: pointer;
 }
 .date-list h5{
-   font-weight: 900;
-   font-size: 18px;
- }
+  font-weight: 900;
+  font-size: 18px;
+}
 .country-accordeon{
 
   //height: 0;
